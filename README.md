@@ -166,3 +166,4 @@ Tests cover workbook header/percentage/hyperlink parsing, CSV rosters, normaliza
 
 Before importing production data, verify the actual workbook in preview, confirm pack release states, configure real full rosters, and check one known missing-member result against the game. The outdated masterlist is not needed.
 "# mkpc-vault" 
+"# mkpc-vault" 
