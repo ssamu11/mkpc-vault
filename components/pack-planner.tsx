@@ -1,0 +1,2783 @@
+"use client";
+
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
+import {
+  createBrowserClient,
+} from "@supabase/ssr";
+
+import {
+  useRouter,
+} from "next/navigation";
+
+import * as XLSX from "xlsx";
+
+import type {
+  Catalog,
+} from "@/lib/types";
+
+type PackRow = {
+  slot_no: number;
+  rarity_label: string;
+  rarity_value:
+    | number
+    | string;
+
+  gender: string;
+
+  identity_key: string;
+  display_name: string;
+
+  group_name:
+    | string
+    | null;
+
+  popularity_tier: string;
+
+  generation:
+    | number
+    | null;
+
+  source_category: string;
+
+  previous_rarity:
+    | string
+    | null;
+
+  last_pack_name:
+    | string
+    | null;
+
+  score: number;
+
+  reason:
+    | string
+    | null;
+
+  edited?: boolean;
+  total_appearances?: number;
+};
+
+
+
+type PlannerCandidate = {
+  identity_key: string;
+  display_name: string;
+  gender: string;
+
+  group_name:
+    | string
+    | null;
+
+  popularity_tier: string;
+
+  generation:
+    | number
+    | null;
+
+  planner_status: string;
+
+  total_appearances: number;
+
+  last_pack_name:
+    | string
+    | null;
+
+  last_pack_number:
+    | number
+    | null;
+
+  last_rarity_id:
+    | string
+    | null;
+
+  previous_rarity:
+    | string
+    | null;
+
+  target_used: boolean;
+  source_category: string;
+  score: number;
+  eligible: boolean;
+};
+
+type SavedDraft = {
+  pack_id: string;
+  pack_name: string;
+  cards_created: number;
+  status: string;
+};
+
+const rarityOrder = [
+  "0.05%",
+  "0.23%",
+  "0.67%",
+  "1.20%",
+  "2.50%",
+  "5.00%",
+];
+
+const expected: Record<
+  string,
+  number
+> = {
+  "0.05%": 2,
+  "0.23%": 4,
+  "0.67%": 6,
+  "1.20%": 8,
+  "2.50%": 10,
+  "5.00%": 12,
+};
+
+function sourceLabel(
+  source: string,
+) {
+  if (
+    source === "custom"
+  ) {
+    return "Custom";
+  }
+  if (
+    source ===
+    "missing_member"
+  ) {
+    return "Missing member";
+  }
+
+  if (
+    source ===
+    "first_time_local"
+  ) {
+    return "First appearance";
+  }
+
+  if (
+    source ===
+    "new_artist"
+  ) {
+    return "New group";
+  }
+
+  return "Returning";
+}
+
+function sourceClass(
+  source: string,
+) {
+  if (
+    source === "custom"
+  ) {
+    return "custom";
+  }
+  if (
+    source ===
+    "missing_member"
+  ) {
+    return "missing";
+  }
+
+  if (
+    source ===
+    "first_time_local"
+  ) {
+    return "fresh";
+  }
+
+  if (
+    source ===
+    "new_artist"
+  ) {
+    return "new";
+  }
+
+  return "returning";
+}
+
+function reasonClass(
+  text: string,
+) {
+  const value =
+    text.toLowerCase();
+
+  if (
+    value.includes(
+      "new rarity",
+    )
+  ) {
+    return "reason-good";
+  }
+
+  if (
+    value.includes(
+      "existing card",
+    )
+  ) {
+    return "reason-warn";
+  }
+
+  if (
+    value.startsWith(
+      "returning",
+    )
+  ) {
+    return "reason-returning";
+  }
+
+  if (
+    value.startsWith(
+      "previous",
+    )
+  ) {
+    return "reason-previous";
+  }
+
+  if (
+    value.includes(
+      "pack gap",
+    )
+  ) {
+    return "reason-gap";
+  }
+
+  if (
+    value.startsWith(
+      "last ",
+    )
+  ) {
+    return "reason-muted";
+  }
+
+  if (
+    value.includes(
+      "first appearance",
+    ) ||
+    value.includes(
+      "missing member",
+    )
+  ) {
+    return "reason-fresh";
+  }
+
+  return "reason-muted";
+}
+
+function rarityKey(
+  label: string,
+) {
+  const value =
+    Number(
+      label.replace(
+        "%",
+        "",
+      ),
+    );
+
+  if (value === 0.05)
+    return "0.05%";
+
+  if (value === 0.23)
+    return "0.23%";
+
+  if (value === 0.67)
+    return "0.67%";
+
+  if (value === 1.2)
+    return "1.20%";
+
+  if (value === 2.5)
+    return "2.50%";
+
+  if (value === 5)
+    return "5.00%";
+
+  return label;
+}
+
+function excelRarity(
+  value:
+    | number
+    | string,
+) {
+  const n =
+    Number(value);
+
+  if (n === 0.05)
+    return "0.05%";
+
+  if (n === 0.23)
+    return "0.23%";
+
+  if (n === 0.67)
+    return "0.67%";
+
+  if (n === 1.2)
+    return "1.2%";
+
+  if (n === 2.5)
+    return "2.5%";
+
+  if (n === 5)
+    return "5%";
+
+  return `${n}%`;
+}
+
+export default function PackPlanner({
+  data,
+}: {
+  data: Catalog;
+}) {
+  const router =
+    useRouter();
+
+  const supabase =
+    useMemo(
+      () =>
+        createBrowserClient(
+          process.env
+            .NEXT_PUBLIC_SUPABASE_URL!,
+          process.env
+            .NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        ),
+      [],
+    );
+
+  const defaultPack =
+    Math.max(
+      0,
+      ...data.packs.map(
+        (pack) =>
+          Number(
+            pack.pack_number ||
+              0,
+          ),
+      ),
+    ) + 1;
+
+  const [
+    packNumber,
+    setPackNumber,
+  ] =
+    useState(
+      defaultPack,
+    );
+
+  const [
+    seed,
+    setSeed,
+  ] =
+    useState(1);
+
+  const [
+    rows,
+    setRows,
+  ] =
+    useState<
+      PackRow[]
+    >([]);
+
+  const [
+    loading,
+    setLoading,
+  ] =
+    useState(false);
+
+  const [
+    saving,
+    setSaving,
+  ] =
+    useState(false);
+
+  const [
+    generated,
+    setGenerated,
+  ] =
+    useState(false);
+
+  const [
+    saved,
+    setSaved,
+  ] =
+    useState<
+      SavedDraft | null
+    >(null);
+
+  const [
+    error,
+    setError,
+  ] =
+    useState("");
+
+  const [
+    replaceSlot,
+    setReplaceSlot,
+  ] =
+    useState<number | null>(
+      null,
+    );
+
+  const [
+    candidateQuery,
+    setCandidateQuery,
+  ] =
+    useState("");
+
+  const [
+    customMode,
+    setCustomMode,
+  ] =
+    useState(false);
+
+  const [
+    customName,
+    setCustomName,
+  ] =
+    useState("");
+
+  const [
+    customGroup,
+    setCustomGroup,
+  ] =
+    useState("");
+
+  const [
+    candidates,
+    setCandidates,
+  ] =
+    useState<
+      PlannerCandidate[]
+    >([]);
+
+  const [
+    candidateLoading,
+    setCandidateLoading,
+  ] =
+    useState(false);
+
+  const [
+    rowBusy,
+    setRowBusy,
+  ] =
+    useState<number | null>(
+      null,
+    );
+
+  const [
+    undoMap,
+    setUndoMap,
+  ] =
+    useState<
+      Record<
+        number,
+        PackRow[]
+      >
+    >({});
+
+  async function generate(
+    nextSeed = seed,
+  ) {
+    setLoading(true);
+    setError("");
+    setSaved(null);
+
+    const {
+      data: result,
+      error,
+    } =
+      await supabase.rpc(
+        "pack_planner_full_pack",
+        {
+          p_target_pack_number:
+            packNumber,
+
+          p_seed:
+            nextSeed,
+        },
+      );
+
+    if (error) {
+      setRows([]);
+      setGenerated(
+        false,
+      );
+
+      setError(
+        error.message,
+      );
+    } else {
+      setRows(
+        (result ||
+          []) as PackRow[],
+      );
+
+      setGenerated(
+        true,
+      );
+
+      setUndoMap({});
+      setReplaceSlot(null);
+      setCandidates([]);
+    }
+
+    setLoading(false);
+  }
+
+  async function reroll() {
+    const next =
+      seed + 1;
+
+    setSeed(
+      next,
+    );
+
+    await generate(
+      next,
+    );
+  }
+
+  async function saveDraft() {
+    if (
+      rows.length !== 42
+    ) {
+      setError(
+        "Generate a complete 42-card pack before saving.",
+      );
+
+      return;
+    }
+
+    setSaving(true);
+    setError("");
+
+    const payload =
+      rows
+        .slice()
+        .sort(
+          (
+            a,
+            b,
+          ) =>
+            a.slot_no -
+            b.slot_no,
+        )
+        .map(
+          (row) => ({
+            slot_no:
+              row.slot_no,
+
+            rarity_label:
+              row.rarity_label,
+
+            rarity_value:
+              Number(
+                row.rarity_value,
+              ),
+
+            gender:
+              row.gender,
+
+            identity_key:
+              row.identity_key,
+
+            display_name:
+              row.display_name,
+
+            group_name:
+              row.group_name,
+
+            source_category:
+              row.source_category,
+          }),
+        );
+
+    const {
+      data: result,
+      error,
+    } =
+      await supabase.rpc(
+        "save_pack_planner_draft",
+        {
+          p_target_pack_number:
+            packNumber,
+
+          p_rows:
+            payload,
+        },
+      );
+
+    if (error) {
+      setError(
+        error.message,
+      );
+
+      setSaving(false);
+      return;
+    }
+
+    setSaved(
+      result as SavedDraft,
+    );
+
+    setSaving(false);
+
+    /*
+     * Refresh catalog data
+     * without touching workspace.tsx.
+     */
+    router.refresh();
+  }
+
+  function exportExcel() {
+    if (
+      rows.length !== 42
+    ) {
+      setError(
+        "Generate a complete 42-card pack before exporting.",
+      );
+
+      return;
+    }
+
+    const sorted =
+      rows
+        .slice()
+        .sort(
+          (
+            a,
+            b,
+          ) =>
+            a.slot_no -
+            b.slot_no,
+        );
+
+    /*
+     * Same content structure
+     * as the old Rebirth workbook.
+     */
+    const sheetRows = [
+      [
+        `Pack ${packNumber}`,
+      ],
+
+      [],
+
+      [
+        "Slot",
+        "Rarity",
+        "Gender",
+        "Idol",
+        "Group / Act",
+        "Pic Status",
+        "Source / Pinterest URL",
+        "Notes",
+      ],
+
+      ...sorted.map(
+        (row) => [
+          row.slot_no,
+
+          excelRarity(
+            row.rarity_value,
+          ),
+
+          row.gender ===
+          "male"
+            ? "Male"
+            : row.gender ===
+                "female"
+              ? "Female"
+              : row.gender,
+
+          row.display_name,
+
+          row.group_name ||
+            "SOLO",
+
+          "To Find",
+
+          "",
+
+          "",
+        ],
+      ),
+    ];
+
+    const workbook =
+      XLSX.utils.book_new();
+
+    const worksheet =
+      XLSX.utils.aoa_to_sheet(
+        sheetRows,
+      );
+
+    worksheet["!cols"] = [
+      { wch: 8 },
+      { wch: 11 },
+      { wch: 11 },
+      { wch: 22 },
+      { wch: 25 },
+      { wch: 14 },
+      { wch: 36 },
+      { wch: 26 },
+    ];
+
+    XLSX.utils.book_append_sheet(
+      workbook,
+      worksheet,
+      `Rebirth ${packNumber}`.slice(
+        0,
+        31,
+      ),
+    );
+
+    XLSX.writeFile(
+      workbook,
+      `Rebirth ${packNumber}.xlsx`,
+    );
+  }
+
+
+
+  function rowRarityId(
+    row: PackRow,
+  ) {
+    const wanted =
+      Number(
+        row.rarity_value,
+      );
+
+    return data.rarities.find(
+      (rarity) =>
+        Number(
+          rarity.numeric_value,
+        ) === wanted,
+    )?.id;
+  }
+
+  function rarityNumber(
+    value:
+      | string
+      | number
+      | null,
+  ) {
+    if (
+      value === null
+    ) {
+      return null;
+    }
+
+    return Number(
+      String(
+        value,
+      ).replace(
+        "%",
+        "",
+      ),
+    );
+  }
+
+  function warningsFor(
+    candidate:
+      PlannerCandidate,
+    current:
+      PackRow,
+  ) {
+    const warnings:
+      string[] = [];
+
+    const duplicate =
+      rows.some(
+        (row) =>
+          row.slot_no !==
+            current.slot_no &&
+          row.identity_key ===
+            candidate.identity_key,
+      );
+
+    if (duplicate) {
+      warnings.push(
+        "already in this pack",
+      );
+    }
+
+    if (
+      candidate.group_name
+    ) {
+      const sameGroup =
+        rows.filter(
+          (row) =>
+            row.slot_no !==
+              current.slot_no &&
+            row.group_name ===
+              candidate.group_name,
+        ).length;
+
+      if (
+        sameGroup >= 2
+      ) {
+        warnings.push(
+          "group already has 2 cards",
+        );
+      }
+    }
+
+    const target =
+      rarityNumber(
+        current.rarity_value,
+      );
+
+    const previous =
+      rarityNumber(
+        candidate.previous_rarity,
+      );
+
+    if (
+      previous !== null &&
+      target !== null &&
+      previous === target
+    ) {
+      warnings.push(
+        "same as previous rarity",
+      );
+    }
+
+    if (
+      previous !== null &&
+      target !== null &&
+      target <= 0.67 &&
+      previous <= 0.67
+    ) {
+      warnings.push(
+        "already had a low/chase rarity",
+      );
+    }
+
+    if (
+      candidate.target_used
+    ) {
+      warnings.push(
+        "has used this rarity before",
+      );
+    }
+
+    if (
+      candidate.total_appearances >
+      1
+    ) {
+      warnings.push(
+        candidate.total_appearances +
+          " existing cards",
+      );
+    }
+
+    if (
+      !candidate.eligible
+    ) {
+      warnings.push(
+        "outside recommended rarity range",
+      );
+    }
+
+    return warnings;
+  }
+
+  async function searchCandidates(
+    current:
+      PackRow,
+    query: string,
+  ) {
+    const rarityId =
+      rowRarityId(
+        current,
+      );
+
+    if (
+      !rarityId
+    ) {
+      setError(
+        "Could not resolve this rarity.",
+      );
+      return;
+    }
+
+    setCandidateLoading(
+      true,
+    );
+
+    const {
+      data: result,
+      error,
+    } =
+      await supabase.rpc(
+        "pack_planner_search_candidates",
+        {
+          p_target_rarity_id:
+            rarityId,
+
+          p_target_pack_number:
+            packNumber,
+
+          p_gender:
+            current.gender,
+
+          p_query:
+            query,
+
+          p_seed:
+            Math.floor(
+              Math.random() *
+                1000000000,
+            ),
+
+          p_limit: 60,
+        },
+      );
+
+    if (error) {
+      setCandidates([]);
+      setError(
+        error.message,
+      );
+    } else {
+      setCandidates(
+        (result ||
+          []) as PlannerCandidate[],
+      );
+    }
+
+    setCandidateLoading(
+      false,
+    );
+  }
+
+  function openReplace(
+    row: PackRow,
+  ) {
+    setReplaceSlot(
+      row.slot_no,
+    );
+
+    setCandidateQuery(
+      "",
+    );
+
+    setCandidates(
+      [],
+    );
+
+    setCustomMode(
+      false,
+    );
+
+    setCustomName(
+      "",
+    );
+
+    setCustomGroup(
+      "",
+    );
+
+    setError(
+      "",
+    );
+  }
+
+  function pushUndo(
+    row: PackRow,
+  ) {
+    setUndoMap(
+      (old) => ({
+        ...old,
+
+        [row.slot_no]: [
+          ...(old[
+            row.slot_no
+          ] || []),
+
+          row,
+        ],
+      }),
+    );
+  }
+
+  function candidateToRow(
+    current:
+      PackRow,
+    candidate:
+      PlannerCandidate,
+  ): PackRow {
+    const reasons = [
+      "manual edit",
+
+      candidate.total_appearances >
+      0
+        ? candidate.total_appearances +
+          " existing card" +
+          (candidate.total_appearances ===
+          1
+            ? ""
+            : "s")
+        : "first appearance",
+
+      candidate.previous_rarity
+        ? "previous " +
+          candidate.previous_rarity
+        : null,
+
+      candidate.last_pack_name
+        ? "last " +
+          candidate.last_pack_name
+        : null,
+    ].filter(
+      Boolean,
+    );
+
+    return {
+      ...current,
+
+      identity_key:
+        candidate.identity_key,
+
+      display_name:
+        candidate.display_name,
+
+      group_name:
+        candidate.group_name,
+
+      popularity_tier:
+        candidate.popularity_tier,
+
+      generation:
+        candidate.generation,
+
+      source_category:
+        candidate.source_category,
+
+      previous_rarity:
+        candidate.previous_rarity,
+
+      last_pack_name:
+        candidate.last_pack_name,
+
+      score:
+        candidate.score,
+
+      reason:
+        reasons.join(
+          " · ",
+        ),
+
+      total_appearances:
+        candidate.total_appearances,
+
+      edited: true,
+    };
+  }
+
+  function applyCustomIdol(
+    current: PackRow,
+  ) {
+    const name =
+      customName.trim();
+
+    const group =
+      customGroup.trim();
+
+    if (!name) {
+      setError(
+        "Custom idol name is required.",
+      );
+      return;
+    }
+
+    const duplicate =
+      rows.some(
+        (row) =>
+          row.slot_no !==
+            current.slot_no &&
+          row.display_name
+            .trim()
+            .toLowerCase() ===
+            name.toLowerCase() &&
+          (row.group_name || "")
+            .trim()
+            .toLowerCase() ===
+            group.toLowerCase(),
+      );
+
+    pushUndo(
+      current,
+    );
+
+    const customKey =
+      "custom:" +
+      Date.now() +
+      ":" +
+      Math.random()
+        .toString(36)
+        .slice(2);
+
+    const next: PackRow = {
+      ...current,
+
+      identity_key:
+        customKey,
+
+      display_name:
+        name,
+
+      group_name:
+        group || null,
+
+      popularity_tier:
+        "—",
+
+      generation:
+        null,
+
+      source_category:
+        "custom",
+
+      previous_rarity:
+        null,
+
+      last_pack_name:
+        null,
+
+      score:
+        0,
+
+      reason: [
+        "custom entry",
+        "not linked to Kpopping",
+        group
+          ? "group " + group
+          : "solo / independent",
+        duplicate
+          ? "duplicate name already in pack"
+          : null,
+      ]
+        .filter(Boolean)
+        .join(" · "),
+
+      total_appearances:
+        0,
+
+      edited:
+        true,
+    };
+
+    setRows(
+      (old) =>
+        old.map(
+          (row) =>
+            row.slot_no ===
+            current.slot_no
+              ? next
+              : row,
+        ),
+    );
+
+    setReplaceSlot(
+      null,
+    );
+
+    setCandidateQuery(
+      "",
+    );
+
+    setCandidates(
+      [],
+    );
+
+    setCustomMode(
+      false,
+    );
+
+    setCustomName(
+      "",
+    );
+
+    setCustomGroup(
+      "",
+    );
+
+    setSaved(
+      null,
+    );
+
+    setError(
+      "",
+    );
+  }
+
+  function applyCandidate(
+    current:
+      PackRow,
+    candidate:
+      PlannerCandidate,
+  ) {
+    pushUndo(
+      current,
+    );
+
+    const next =
+      candidateToRow(
+        current,
+        candidate,
+      );
+
+    setRows(
+      (old) =>
+        old.map(
+          (row) =>
+            row.slot_no ===
+            current.slot_no
+              ? next
+              : row,
+        ),
+    );
+
+    setReplaceSlot(
+      null,
+    );
+
+    setCandidateQuery(
+      "",
+    );
+
+    setCandidates(
+      [],
+    );
+
+    setSaved(
+      null,
+    );
+  }
+
+  function undoSlot(
+    slot: number,
+  ) {
+    const history =
+      undoMap[
+        slot
+      ] || [];
+
+    if (
+      !history.length
+    ) {
+      return;
+    }
+
+    const previous =
+      history[
+        history.length -
+          1
+      ];
+
+    setRows(
+      (old) =>
+        old.map(
+          (row) =>
+            row.slot_no ===
+            slot
+              ? previous
+              : row,
+        ),
+    );
+
+    setUndoMap(
+      (old) => ({
+        ...old,
+
+        [slot]:
+          history.slice(
+            0,
+            -1,
+          ),
+      }),
+    );
+
+    setSaved(
+      null,
+    );
+  }
+
+  async function rerollOne(
+    current:
+      PackRow,
+  ) {
+    const rarityId =
+      rowRarityId(
+        current,
+      );
+
+    if (
+      !rarityId
+    ) {
+      setError(
+        "Could not resolve this rarity.",
+      );
+      return;
+    }
+
+    setRowBusy(
+      current.slot_no,
+    );
+
+    setError(
+      "",
+    );
+
+    const otherRows =
+      rows.filter(
+        (row) =>
+          row.slot_no !==
+          current.slot_no,
+      );
+
+    const recentSlotKeys =
+      (
+        undoMap[
+          current.slot_no
+        ] || []
+      ).map(
+        (row) =>
+          row.identity_key,
+      );
+
+    const excludeKeys =
+      Array.from(
+        new Set([
+          current.identity_key,
+          ...recentSlotKeys,
+          ...otherRows.map(
+            (row) =>
+              row.identity_key,
+          ),
+        ]),
+      );
+
+    const groupCount =
+      new Map<
+        string,
+        number
+      >();
+
+    for (
+      const row
+      of otherRows
+    ) {
+      if (
+        !row.group_name
+      ) {
+        continue;
+      }
+
+      groupCount.set(
+        row.group_name,
+        (groupCount.get(
+          row.group_name,
+        ) || 0) + 1,
+      );
+    }
+
+    const blockedGroups =
+      [
+        ...groupCount.entries(),
+      ]
+        .filter(
+          ([, count]) =>
+            count >= 2,
+        )
+        .map(
+          ([group]) =>
+            group,
+        );
+
+    const {
+      data: result,
+      error,
+    } =
+      await supabase.rpc(
+        "pack_planner_reroll_candidate",
+        {
+          p_target_rarity_id:
+            rarityId,
+
+          p_target_pack_number:
+            packNumber,
+
+          p_gender:
+            current.gender,
+
+          p_exclude_identity_keys:
+            excludeKeys,
+
+          p_blocked_groups:
+            blockedGroups,
+
+          p_seed:
+            Math.floor(
+              Math.random() *
+                1000000000,
+            ),
+        },
+      );
+
+    if (error) {
+      setError(
+        error.message,
+      );
+
+      setRowBusy(
+        null,
+      );
+
+      return;
+    }
+
+    const candidate =
+      (
+        result ||
+        []
+      )[0] as
+        | PlannerCandidate
+        | undefined;
+
+    if (
+      !candidate
+    ) {
+      setError(
+        "No suitable replacement found for this slot.",
+      );
+
+      setRowBusy(
+        null,
+      );
+
+      return;
+    }
+
+    pushUndo(
+      current,
+    );
+
+    setRows(
+      (old) =>
+        old.map(
+          (row) =>
+            row.slot_no ===
+            current.slot_no
+              ? candidateToRow(
+                  current,
+                  candidate,
+                )
+              : row,
+        ),
+    );
+
+    setSaved(
+      null,
+    );
+
+    setRowBusy(
+      null,
+    );
+  }
+
+  const activeReplaceRow =
+    replaceSlot === null
+      ? null
+      : rows.find(
+          (row) =>
+            row.slot_no ===
+            replaceSlot,
+        ) || null;
+
+  useEffect(
+    () => {
+      if (
+        !activeReplaceRow
+      ) {
+        return;
+      }
+
+      const timer =
+        setTimeout(
+          () => {
+            searchCandidates(
+              activeReplaceRow,
+              candidateQuery,
+            );
+          },
+          250,
+        );
+
+      return () =>
+        clearTimeout(
+          timer,
+        );
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    },
+    [
+      replaceSlot,
+      candidateQuery,
+      packNumber,
+    ],
+  );
+
+  const stats =
+    useMemo(
+      () => {
+        const returning =
+          rows.filter(
+            (row) =>
+              row.source_category ===
+              "returning",
+          ).length;
+
+        const missing =
+          rows.filter(
+            (row) =>
+              row.source_category ===
+              "missing_member",
+          ).length;
+
+        const first =
+          rows.filter(
+            (row) =>
+              row.source_category ===
+              "first_time_local",
+          ).length;
+
+        const newGroups =
+          rows.filter(
+            (row) =>
+              row.source_category ===
+              "new_artist",
+          ).length;
+
+        const male =
+          rows.filter(
+            (row) =>
+              row.gender ===
+              "male",
+          ).length;
+
+        const female =
+          rows.filter(
+            (row) =>
+              row.gender ===
+              "female",
+          ).length;
+
+        const repeats =
+          rows.filter(
+            (row) =>
+              row.previous_rarity &&
+              rarityKey(
+                row.previous_rarity,
+              ) ===
+                rarityKey(
+                  row.rarity_label,
+                ),
+          ).length;
+
+        const groups =
+          new Set(
+            rows
+              .map(
+                (row) =>
+                  row.group_name,
+              )
+              .filter(Boolean),
+          ).size;
+
+        return {
+          returning,
+
+          fresh:
+            missing +
+            first +
+            newGroups,
+
+          missing,
+          first,
+          newGroups,
+
+          male,
+          female,
+          repeats,
+          groups,
+        };
+      },
+      [rows],
+    );
+
+  const grouped =
+    useMemo(
+      () =>
+        rarityOrder.map(
+          (rarity) => ({
+            rarity,
+
+            rows:
+              rows
+                .filter(
+                  (row) =>
+                    rarityKey(
+                      row.rarity_label,
+                    ) ===
+                    rarity,
+                )
+                .sort(
+                  (
+                    a,
+                    b,
+                  ) =>
+                    a.slot_no -
+                    b.slot_no,
+                ),
+          }),
+        ),
+      [rows],
+    );
+
+  return (
+    <div className="full-planner">
+      <section className="panel full-planner-toolbar">
+        <div className="full-planner-target">
+          <span>
+            Target pack
+          </span>
+
+          <div>
+            <small>
+              Rebirth
+            </small>
+
+            <input
+              type="number"
+              min={1}
+              value={
+                packNumber
+              }
+              onChange={(
+                e,
+              ) => {
+                setPackNumber(
+                  Math.max(
+                    1,
+                    Number(
+                      e.target
+                        .value ||
+                        1,
+                    ),
+                  ),
+                );
+
+                setGenerated(
+                  false,
+                );
+
+                setRows(
+                  [],
+                );
+
+                setSaved(
+                  null,
+                );
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="full-planner-actions">
+          <button
+            className="primary"
+            disabled={
+              loading ||
+              saving
+            }
+            onClick={() =>
+              generate()
+            }
+          >
+            {loading
+              ? "Generating..."
+              : generated
+                ? "Generate again"
+                : "Generate pack"}
+          </button>
+
+          {generated && (
+            <button
+              disabled={
+                loading ||
+                saving
+              }
+              onClick={
+                reroll
+              }
+            >
+              Reroll
+            </button>
+          )}
+
+          {generated &&
+            rows.length ===
+              42 && (
+              <button
+                disabled={
+                  loading ||
+                  saving
+                }
+                onClick={
+                  exportExcel
+                }
+              >
+                Export Excel
+              </button>
+            )}
+
+          {generated &&
+            rows.length ===
+              42 && (
+              <button
+                className="primary"
+                disabled={
+                  loading ||
+                  saving ||
+                  !!saved
+                }
+                onClick={
+                  saveDraft
+                }
+              >
+                {saving
+                  ? "Saving..."
+                  : saved
+                    ? "Saved"
+                    : "Save as draft"}
+              </button>
+            )}
+        </div>
+      </section>
+
+      <div className="full-planner-layout">
+        <span>
+          0.05%
+          <b>2</b>
+        </span>
+
+        <span>
+          0.23%
+          <b>4</b>
+        </span>
+
+        <span>
+          0.67%
+          <b>6</b>
+        </span>
+
+        <span>
+          1.20%
+          <b>8</b>
+        </span>
+
+        <span>
+          2.50%
+          <b>10</b>
+        </span>
+
+        <span>
+          5.00%
+          <b>12</b>
+        </span>
+      </div>
+
+      {error && (
+        <div className="notice full-planner-error">
+          {error}
+        </div>
+      )}
+
+      {saved && (
+        <div className="notice">
+          <strong>
+            {
+              saved.pack_name
+            }
+          </strong>
+          {" "}
+          saved successfully ·{" "}
+          {
+            saved.cards_created
+          }{" "}
+          cards · draft ·
+          Pic Status = To Find
+        </div>
+      )}
+
+      {!generated &&
+        !loading && (
+          <section className="panel full-planner-empty">
+            <h2>
+              Generate a full
+              42-card pack
+            </h2>
+
+            <p>
+              21 male · 21
+              female · rarity
+              rotation · fresh
+              member priority
+            </p>
+
+            <button
+              className="primary"
+              onClick={() =>
+                generate()
+              }
+            >
+              Generate Rebirth{" "}
+              {
+                packNumber
+              }
+            </button>
+          </section>
+        )}
+
+      {generated && (
+        <>
+          <section className="full-planner-health">
+            <div>
+              <span>
+                Cards
+              </span>
+
+              <strong>
+                {
+                  rows.length
+                }
+                /42
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                Gender
+              </span>
+
+              <strong>
+                {
+                  stats.male
+                }
+                M ·{" "}
+                {
+                  stats.female
+                }
+                F
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                Fresh
+              </span>
+
+              <strong>
+                {
+                  stats.fresh
+                }
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                Returning
+              </span>
+
+              <strong>
+                {
+                  stats.returning
+                }
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                Missing members
+              </span>
+
+              <strong>
+                {
+                  stats.missing
+                }
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                New groups
+              </span>
+
+              <strong>
+                {
+                  stats.newGroups
+                }
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                Groups
+              </span>
+
+              <strong>
+                {
+                  stats.groups
+                }
+              </strong>
+            </div>
+
+            <div>
+              <span>
+                Rarity repeats
+              </span>
+
+              <strong>
+                {
+                  stats.repeats
+                }
+              </strong>
+            </div>
+          </section>
+
+          {rows.length !==
+            42 && (
+            <div className="notice full-planner-warning">
+              Generator returned{" "}
+              {
+                rows.length
+              }{" "}
+              cards instead of
+              42.
+            </div>
+          )}
+
+          <div className="full-planner-groups">
+            {grouped.map(
+              ({
+                rarity,
+                rows:
+                  rarityRows,
+              }) => (
+                <section
+                  className="panel full-rarity-section"
+                  key={
+                    rarity
+                  }
+                >
+                  <header>
+                    <div>
+                      <h2>
+                        {
+                          rarity
+                        }
+                      </h2>
+
+                      <span>
+                        {
+                          rarityRows.length
+                        }
+                        /
+                        {
+                          expected[
+                            rarity
+                          ]
+                        }
+                      </span>
+                    </div>
+
+                    <small>
+                      {
+                        rarityRows.filter(
+                          (
+                            row,
+                          ) =>
+                            row.gender ===
+                            "male",
+                        )
+                          .length
+                      }
+                      M ·{" "}
+                      {
+                        rarityRows.filter(
+                          (
+                            row,
+                          ) =>
+                            row.gender ===
+                            "female",
+                        )
+                          .length
+                      }
+                      F
+                    </small>
+                  </header>
+
+                  <div className="full-rarity-list">
+                    {rarityRows.map(
+                      (
+                        row,
+                      ) => (
+                        <div
+                          className="full-pack-row"
+                          key={
+                            row.slot_no
+                          }
+                        >
+                          <span className="full-slot">
+                            {String(
+                              row.slot_no,
+                            ).padStart(
+                              2,
+                              "0",
+                            )}
+                          </span>
+
+                          <div className="full-idol">
+                            <strong>
+                              {
+                                row.display_name
+                              }
+                            </strong>
+
+                            <span>
+                              {row.group_name ||
+                                "Solo / unassigned"}
+                            </span>
+                          </div>
+
+                          <div className="full-tags">
+                            <span
+                              className={
+                                "full-source " +
+                                sourceClass(
+                                  row.source_category,
+                                )
+                              }
+                            >
+                              {sourceLabel(
+                                row.source_category,
+                              )}
+                            </span>
+
+                            {row.edited && (
+                              <span
+                                className="full-source fresh"
+                              >
+                                Manual edit
+                              </span>
+                            )}
+
+                            <span>
+                              {
+                                row.gender
+                              }
+                            </span>
+
+                            <span>
+                              Tier{" "}
+                              {
+                                row.popularity_tier
+                              }
+                            </span>
+
+                            {row.generation && (
+                              <span>
+                                Gen{" "}
+                                {
+                                  row.generation
+                                }
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="full-history">
+                            {row.previous_rarity ? (
+                              <>
+                                <span>
+                                  previous
+                                </span>
+
+                                <b>
+                                  {
+                                    row.previous_rarity
+                                  }
+                                </b>
+                              </>
+                            ) : (
+                              <>
+                                <span>
+                                  history
+                                </span>
+
+                                <b>
+                                  none
+                                </b>
+                              </>
+                            )}
+                          </div>
+
+                          <div
+                            style={{
+                              display:
+                                "flex",
+                              gap: 6,
+                              flexWrap:
+                                "wrap",
+                            }}
+                          >
+                            <button
+                              type="button"
+                              onClick={() =>
+                                openReplace(
+                                  row,
+                                )
+                              }
+                              disabled={
+                                rowBusy !==
+                                null
+                              }
+                              style={{
+                                fontSize:
+                                  9,
+                                padding:
+                                  "5px 8px",
+                              }}
+                            >
+                              Replace
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={() =>
+                                rerollOne(
+                                  row,
+                                )
+                              }
+                              disabled={
+                                rowBusy !==
+                                null
+                              }
+                              style={{
+                                fontSize:
+                                  9,
+                                padding:
+                                  "5px 8px",
+                              }}
+                            >
+                              {rowBusy ===
+                              row.slot_no
+                                ? "Rerolling..."
+                                : "Reroll card"}
+                            </button>
+
+                            {(undoMap[
+                              row
+                                .slot_no
+                            ] || [])
+                              .length >
+                              0 && (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  undoSlot(
+                                    row.slot_no,
+                                  )
+                                }
+                                disabled={
+                                  rowBusy !==
+                                  null
+                                }
+                                style={{
+                                  fontSize:
+                                    9,
+                                  padding:
+                                    "5px 8px",
+                                }}
+                              >
+                                Undo
+                              </button>
+                            )}
+                          </div>
+
+                                                    <div className="full-reason-chips">
+                            {(row.reason || "")
+                              .split(" · ")
+                              .filter(Boolean)
+                              .map(
+                                (
+                                  part,
+                                  index,
+                                ) => (
+                                  <span
+                                    key={
+                                      index
+                                    }
+                                    className={
+                                      "full-reason-chip " +
+                                      reasonClass(
+                                        part,
+                                      )
+                                    }
+                                  >
+                                    {
+                                      part
+                                    }
+                                  </span>
+                                ),
+                              )}
+                          </div>
+                        </div>
+                      ),
+                    )}
+                  </div>
+                </section>
+              ),
+            )}
+          </div>
+        </>
+      )}
+
+      {activeReplaceRow && (
+        <div
+          onClick={() =>
+            setReplaceSlot(
+              null,
+            )
+          }
+          style={{
+            position:
+              "fixed",
+            inset: 0,
+            zIndex: 1000,
+            background:
+              "rgba(20,20,20,.28)",
+            display:
+              "grid",
+            placeItems:
+              "center",
+            padding: 24,
+          }}
+        >
+          <div
+            onClick={(
+              event,
+            ) =>
+              event.stopPropagation()
+            }
+            style={{
+              width:
+                "min(760px, 96vw)",
+              maxHeight:
+                "82vh",
+              overflow:
+                "hidden",
+              display:
+                "grid",
+              gridTemplateRows:
+                "auto auto 1fr",
+              background:
+                "#fff",
+              border:
+                "1px solid #e6e6e1",
+              borderRadius:
+                14,
+              boxShadow:
+                "0 24px 70px rgba(0,0,0,.16)",
+            }}
+          >
+            <div
+              style={{
+                display:
+                  "flex",
+                justifyContent:
+                  "space-between",
+                alignItems:
+                  "center",
+                padding:
+                  "18px 20px",
+                borderBottom:
+                  "1px solid #ecece8",
+              }}
+            >
+              <div>
+                <strong
+                  style={{
+                    display:
+                      "block",
+                    fontSize:
+                      15,
+                  }}
+                >
+                  Replace slot{" "}
+                  {
+                    activeReplaceRow.slot_no
+                  }
+                </strong>
+
+                <span
+                  style={{
+                    color:
+                      "#92928d",
+                    fontSize:
+                      10,
+                  }}
+                >
+                  {
+                    activeReplaceRow.rarity_label
+                  }{" "}
+                  ·{" "}
+                  {
+                    activeReplaceRow.gender
+                  }{" "}
+                  · rarity and
+                  gender locked
+                </span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setReplaceSlot(
+                    null,
+                  )
+                }
+              >
+                Close
+              </button>
+            </div>
+
+            <div
+              style={{
+                padding:
+                  "14px 20px",
+                borderBottom:
+                  "1px solid #ecece8",
+                display:
+                  "grid",
+                gap: 10,
+              }}
+            >
+              <div
+                style={{
+                  display:
+                    "flex",
+                  gap: 8,
+                  alignItems:
+                    "center",
+                }}
+              >
+                <input
+                  autoFocus={
+                    !customMode
+                  }
+                  value={
+                    candidateQuery
+                  }
+                  onChange={(
+                    event,
+                  ) =>
+                    setCandidateQuery(
+                      event
+                        .target
+                        .value,
+                    )
+                  }
+                  placeholder="Search idol or group..."
+                  disabled={
+                    customMode
+                  }
+                  style={{
+                    width:
+                      "100%",
+                  }}
+                />
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCustomMode(
+                      !customMode,
+                    );
+
+                    setError(
+                      "",
+                    );
+                  }}
+                  style={{
+                    whiteSpace:
+                      "nowrap",
+                  }}
+                >
+                  {customMode
+                    ? "Back to search"
+                    : "+ Custom idol"}
+                </button>
+              </div>
+
+              {customMode && (
+                <div className="planner-custom-box">
+                  <div className="planner-custom-heading">
+                    <div>
+                      <strong>
+                        Custom idol
+                      </strong>
+
+                      <span>
+                        For artists not available in Kpopping
+                      </span>
+                    </div>
+
+                    <span className="planner-custom-lock">
+                      {
+                        activeReplaceRow.rarity_label
+                      }
+                      {" · "}
+                      {
+                        activeReplaceRow.gender
+                      }
+                    </span>
+                  </div>
+
+                  <div className="planner-custom-fields">
+                    <label>
+                      Idol name
+
+                      <input
+                        autoFocus
+                        value={
+                          customName
+                        }
+                        onChange={(
+                          event,
+                        ) =>
+                          setCustomName(
+                            event
+                              .target
+                              .value,
+                          )
+                        }
+                        placeholder="e.g. Jungt"
+                      />
+                    </label>
+
+                    <label>
+                      Group / Act
+
+                      <input
+                        value={
+                          customGroup
+                        }
+                        onChange={(
+                          event,
+                        ) =>
+                          setCustomGroup(
+                            event
+                              .target
+                              .value,
+                          )
+                        }
+                        placeholder="e.g. Santos Bravos"
+                      />
+                    </label>
+                  </div>
+
+                  <div className="planner-custom-note">
+                    Gender and rarity follow this slot automatically.
+                    Leave Group / Act blank for a solo or independent artist.
+                  </div>
+
+                  <button
+                    type="button"
+                    className="primary"
+                    disabled={
+                      !customName.trim()
+                    }
+                    onClick={() =>
+                      applyCustomIdol(
+                        activeReplaceRow,
+                      )
+                    }
+                  >
+                    Use custom idol
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <div
+              style={{
+                overflowY:
+                  "auto",
+                padding:
+                  "8px 20px 20px",
+              }}
+            >
+              {!customMode &&
+              candidateLoading && (
+                <p
+                  style={{
+                    color:
+                      "#92928d",
+                    fontSize:
+                      11,
+                    padding:
+                      "18px 0",
+                  }}
+                >
+                  Loading
+                  candidates...
+                </p>
+              )}
+
+              {!customMode &&
+                !candidateLoading &&
+                candidates
+                  .filter(
+                    (
+                      candidate,
+                    ) =>
+                      candidate.identity_key !==
+                      activeReplaceRow.identity_key,
+                  )
+                  .map(
+                    (
+                      candidate,
+                    ) => {
+                      const warnings =
+                        warningsFor(
+                          candidate,
+                          activeReplaceRow,
+                        );
+
+                      return (
+                        <div
+                          key={
+                            candidate.identity_key
+                          }
+                          style={{
+                            display:
+                              "grid",
+                            gridTemplateColumns:
+                              "minmax(180px,1fr) minmax(220px,1.5fr) auto",
+                            alignItems:
+                              "center",
+                            gap: 14,
+                            padding:
+                              "12px 0",
+                            borderBottom:
+                              "1px solid #efefec",
+                          }}
+                        >
+                          <div>
+                            <strong
+                              style={{
+                                display:
+                                  "block",
+                                fontSize:
+                                  12,
+                              }}
+                            >
+                              {
+                                candidate.display_name
+                              }
+                            </strong>
+
+                            <span
+                              style={{
+                                color:
+                                  "#969691",
+                                fontSize:
+                                  9,
+                              }}
+                            >
+                              {candidate.group_name ||
+                                "Solo / unassigned"}
+                            </span>
+                          </div>
+
+                          <div
+                            style={{
+                              display:
+                                "flex",
+                              flexWrap:
+                                "wrap",
+                              gap: 5,
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontSize:
+                                  8,
+                                padding:
+                                  "3px 6px",
+                                background:
+                                  "#f4f4f1",
+                                borderRadius:
+                                  5,
+                              }}
+                            >
+                              Tier{" "}
+                              {
+                                candidate.popularity_tier
+                              }
+                            </span>
+
+                            {candidate.previous_rarity && (
+                              <span
+                                style={{
+                                  fontSize:
+                                    8,
+                                  padding:
+                                    "3px 6px",
+                                  background:
+                                    "#f4f4f1",
+                                  borderRadius:
+                                    5,
+                                }}
+                              >
+                                Previous{" "}
+                                {
+                                  candidate.previous_rarity
+                                }
+                              </span>
+                            )}
+
+                            <span
+                              style={{
+                                fontSize:
+                                  8,
+                                padding:
+                                  "3px 6px",
+                                background:
+                                  "#f4f4f1",
+                                borderRadius:
+                                  5,
+                              }}
+                            >
+                              {
+                                candidate.total_appearances
+                              }{" "}
+                              card
+                              {candidate.total_appearances ===
+                              1
+                                ? ""
+                                : "s"}
+                            </span>
+
+                            {warnings.map(
+                              (
+                                warning,
+                              ) => (
+                                <span
+                                  key={
+                                    warning
+                                  }
+                                  style={{
+                                    fontSize:
+                                      8,
+                                    padding:
+                                      "3px 6px",
+                                    background:
+                                      "#fff4e8",
+                                    color:
+                                      "#8d642d",
+                                    borderRadius:
+                                      5,
+                                  }}
+                                >
+                                  ⚠{" "}
+                                  {
+                                    warning
+                                  }
+                                </span>
+                              ),
+                            )}
+
+                            {!warnings.length && (
+                              <span
+                                style={{
+                                  fontSize:
+                                    8,
+                                  padding:
+                                    "3px 6px",
+                                  background:
+                                    "#edf7ef",
+                                  color:
+                                    "#3b744b",
+                                  borderRadius:
+                                    5,
+                                }}
+                              >
+                                ✓ clean
+                                replacement
+                              </span>
+                            )}
+                          </div>
+
+                          <button
+                            type="button"
+                            className={
+                              warnings.length
+                                ? ""
+                                : "primary"
+                            }
+                            onClick={() =>
+                              applyCandidate(
+                                activeReplaceRow,
+                                candidate,
+                              )
+                            }
+                          >
+                            {warnings.length
+                              ? "Use anyway"
+                              : "Select"}
+                          </button>
+                        </div>
+                      );
+                    },
+                  )}
+
+              {!customMode &&
+                !candidateLoading &&
+                !candidates.length && (
+                  <p
+                    style={{
+                      color:
+                        "#92928d",
+                      fontSize:
+                        11,
+                      padding:
+                        "18px 0",
+                    }}
+                  >
+                    No candidates
+                    found.
+                  </p>
+                )}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

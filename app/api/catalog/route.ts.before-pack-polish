@@ -1,0 +1,192 @@
+import { NextResponse } from "next/server";
+import { supabase, configured } from "@/lib/supabase";
+import { readCatalog } from "@/lib/data";
+import { planImport, clean } from "@/lib/catalog";
+import type { ImportRow } from "@/lib/types";
+const fields: Record<string, string[]> = {
+  groups: ["name", "status"],
+  idols: ["stage_name", "gender", "active"],
+  packs: [
+    "name",
+    "pack_type",
+    "pack_number",
+    "release_date",
+    "status",
+    "notes",
+  ],
+  rarities: ["label", "numeric_value", "sort_order", "active"],
+  settings: ["include_unreleased"],
+  profiles: ["role"],
+};
+export async function POST(request: Request) {
+  try {
+    if (!configured())
+      return NextResponse.json(
+        { error: "Supabase is not configured." },
+        { status: 503 },
+      );
+    const origin = request.headers.get("origin");
+    if (origin && origin !== new URL(request.url).origin)
+      return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+    const db = await supabase();
+    const {
+      data: { user },
+    } = await db.auth.getUser();
+    if (!user)
+      return NextResponse.json({ error: "Sign in required" }, { status: 401 });
+    const { data: profile } = await db
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .single();
+    if (!profile)
+      return NextResponse.json(
+        { error: "Moderator access required" },
+        { status: 403 },
+      );
+    const body = await request.text();
+    if (body.length > 8_000_000)
+      throw Error("Request is too large. Import fewer rows.");
+    const input = JSON.parse(body);
+    if (input.action === "profile") {
+      if (profile.role !== "admin")
+        return NextResponse.json(
+          { error: "Admin access required" },
+          { status: 403 },
+        );
+      if (!["admin", "moderator"].includes(input.role))
+        throw Error("Invalid role");
+      if (input.id === user.id && input.role !== "admin")
+        throw Error("Ask another admin to change your own admin role.");
+      const { error } = await db
+        .from("profiles")
+        .upsert({ id: input.id, role: input.role });
+      if (error)
+        throw Error(
+          "Create the user in Supabase Authentication first, then check their user ID.",
+        );
+      return NextResponse.json({ ok: true });
+    }
+    if (input.action === "membership") {
+      if (!["current", "former"].includes(input.status))
+        throw Error("Invalid membership status");
+      const { error } = await db
+        .from("group_memberships")
+        .upsert(
+          {
+            group_id: input.group_id,
+            idol_id: input.idol_id,
+            membership_status: input.status,
+          },
+          { onConflict: "group_id,idol_id" },
+        );
+      if (error) throw Error(error.message);
+      return NextResponse.json({ ok: true });
+    }
+    if (input.action === "import") {
+      if (
+        !["cards", "roster"].includes(input.mode) ||
+        !Array.isArray(input.rows) ||
+        !input.rows.length ||
+        input.rows.length > 10000
+      )
+        throw Error("Select between 1 and 10,000 valid rows.");
+      const rows: ImportRow[] = input.rows.map((r: ImportRow) => {
+        const out: Record<string, unknown> = {};
+        for (const field of [
+          "sheet",
+          "slot",
+          "rarity",
+          "gender",
+          "idol",
+          "group",
+          "pic_status",
+          "source_url",
+          "notes",
+          "membership_status",
+        ])
+          out[field] = clean(r[field as keyof ImportRow]);
+        out.row = Number(r.row);
+        return out as ImportRow;
+      });
+      const plan = planImport(rows, await readCatalog(), input.mode);
+      const invalid = plan.find((r) => r.issues.length);
+      if (invalid)
+        throw Error(`Row ${invalid.row}: ${invalid.issues.join(" ")}`);
+      const good = plan.filter((r) => !r.duplicate);
+      const warnings = [...new Set(plan.flatMap((r) => r.warnings))];
+      const { data, error } = await db.rpc("commit_import", {
+        payload: {
+          mode: input.mode,
+          filename: clean(input.filename) || "Roster editor",
+          rows: good,
+          processed: rows.length,
+          skipped: rows.length - good.length,
+          warnings,
+        },
+      });
+      if (error) throw Error(error.message);
+      return NextResponse.json(data);
+    }
+    if (input.action === "card") {
+      const c = input.values;
+      if (!c || !Array.isArray(c.idol_ids) || c.idol_ids.length > 100)
+        throw Error("Invalid card members.");
+      if (c.source_url) {
+        let url: URL;
+        try {
+          url = new URL(c.source_url);
+        } catch {
+          throw Error("Invalid source URL.");
+        }
+        if (!["http:", "https:"].includes(url.protocol))
+          throw Error("Source must use http or https.");
+      }
+      const { data, error } = await db.rpc("save_card", { payload: c });
+      if (error) throw Error(error.message);
+      return NextResponse.json({ id: data });
+    }
+    if (input.action === "delete") {
+      if (
+        !["cards", "packs", "groups", "idols", "rarities"].includes(input.table)
+      )
+        throw Error("Unsupported deletion");
+      if (input.table === "rarities" && profile.role !== "admin")
+        throw Error("Admin access required");
+      const { error } = await db.from(input.table).delete().eq("id", input.id);
+      if (error)
+        throw Error(
+          "This record could not be deleted. Remove its dependent records first.",
+        );
+      return NextResponse.json({ ok: true });
+    }
+    if (input.action === "save") {
+      const allowed = fields[input.table];
+      if (!allowed) throw Error("Unknown record type");
+      if (
+        ["rarities", "settings", "profiles"].includes(input.table) &&
+        profile.role !== "admin"
+      )
+        throw Error("Admin access required");
+      const values: Record<string, unknown> = {};
+      for (const f of allowed)
+        if (f in input.values)
+          values[f] =
+            typeof input.values[f] === "string"
+              ? clean(input.values[f])
+              : input.values[f];
+      const query = input.id
+        ? db.from(input.table).update(values).eq("id", input.id)
+        : db.from(input.table).insert(values);
+      const { error } = await query;
+      if (error) throw Error(error.message);
+      return NextResponse.json({ ok: true });
+    }
+    throw Error("Unknown action");
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Request failed" },
+      { status: 400 },
+    );
+  }
+}

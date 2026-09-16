@@ -1,0 +1,467 @@
+"use client";
+import { useState } from "react";
+import type { Card, Catalog } from "@/lib/types";
+import { cardIdols } from "@/lib/catalog";
+import { Modal, mutate } from "./ui";
+type Field = {
+  key: string;
+  label: string;
+  type?: string;
+  options?: string[];
+  required?: boolean;
+};
+const configs: Record<string, Field[]> = {
+  groups: [
+    { key: "name", label: "Group name", required: true },
+    {
+      key: "status",
+      label: "Status",
+      options: ["active", "inactive", "disbanded"],
+    },
+  ],
+  idols: [
+    { key: "stage_name", label: "Stage name", required: true },
+    {
+      key: "gender",
+      label: "Gender",
+      options: ["unknown", "female", "male", "other"],
+    },
+    { key: "active", label: "Active artist", type: "checkbox" },
+  ],
+  packs: [
+    { key: "name", label: "Pack name", required: true },
+    { key: "pack_type", label: "Pack type", required: true },
+    { key: "pack_number", label: "Pack number", type: "number" },
+    { key: "release_date", label: "Release date", type: "date" },
+    {
+      key: "status",
+      label: "Pack status",
+      options: ["draft", "planning", "ready", "released", "archived"],
+    },
+    { key: "notes", label: "Notes", type: "textarea" },
+  ],
+  rarities: [
+    { key: "label", label: "Display label", required: true },
+    {
+      key: "numeric_value",
+      label: "Percentage (0–100)",
+      type: "number",
+      required: true,
+    },
+    { key: "sort_order", label: "Sort order", type: "number" },
+    { key: "active", label: "Available for imports", type: "checkbox" },
+  ],
+  profiles: [{ key: "role", label: "Role", options: ["moderator", "admin"] }],
+};
+export function RecordEditor({
+  table,
+  record,
+  close,
+  done,
+}: {
+  table: string;
+  record?: Record<string, unknown>;
+  close: () => void;
+  done: () => void;
+}) {
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  const fields = configs[table];
+  return (
+    <Modal
+      title={`${record ? "Edit" : "Add"} ${table === "rarities" ? "rarity" : table.replace(/s$/, "")}`}
+      close={close}
+    >
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          setBusy(true);
+          setError("");
+          const fd = new FormData(e.currentTarget);
+          const values: Record<string, unknown> = {};
+          fields.forEach((f) => {
+            values[f.key] =
+              f.type === "checkbox"
+                ? fd.get(f.key) === "on"
+                : f.type === "number"
+                  ? fd.get(f.key) === ""
+                    ? null
+                    : Number(fd.get(f.key))
+                  : fd.get(f.key) || null;
+          });
+          try {
+            await mutate({ action: "save", table, id: record?.id, values });
+            done();
+            close();
+          } catch (e) {
+            setError(e instanceof Error ? e.message : "Unable to save");
+          } finally {
+            setBusy(false);
+          }
+        }}
+      >
+        <div className="form-grid">
+          {table === "profiles" && !record && (
+            <p>Create users in Supabase first.</p>
+          )}
+          {fields.map((f) => (
+            <label key={f.key}>
+              {f.label}
+              {f.options ? (
+                <select
+                  name={f.key}
+                  defaultValue={String(record?.[f.key] ?? f.options[0])}
+                >
+                  {f.options.map((o) => (
+                    <option key={o}>{o}</option>
+                  ))}
+                </select>
+              ) : f.type === "textarea" ? (
+                <textarea
+                  name={f.key}
+                  defaultValue={String(record?.[f.key] ?? "")}
+                />
+              ) : f.type === "checkbox" ? (
+                <input
+                  type="checkbox"
+                  name={f.key}
+                  defaultChecked={record?.[f.key] !== false}
+                />
+              ) : (
+                <input
+                  name={f.key}
+                  type={f.type || "text"}
+                  step={f.type === "number" ? "any" : undefined}
+                  maxLength={200}
+                  required={f.required}
+                  defaultValue={String(record?.[f.key] ?? "")}
+                />
+              )}
+            </label>
+          ))}
+        </div>
+        {error && (
+          <p className="error" role="alert">
+            {error}
+          </p>
+        )}
+        <footer className="modal-actions">
+          <button type="button" onClick={close}>
+            Cancel
+          </button>
+          <button className="primary" disabled={busy}>
+            Save changes
+          </button>
+        </footer>
+      </form>
+    </Modal>
+  );
+}
+export function CardEditor({
+  card,
+  data,
+  close,
+  done,
+}: {
+  card?: Card;
+  data: Catalog;
+  close: () => void;
+  done: () => void;
+}) {
+  const [ids, setIds] = useState<string[]>(
+    card ? cardIdols(card, data).map((i) => i.id) : [],
+  );
+  const [search, setSearch] = useState("");
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  return (
+    <Modal title={card ? "Edit card" : "Add card"} close={close}>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          setBusy(true);
+          setError("");
+          const fd = new FormData(e.currentTarget);
+          try {
+            await mutate({
+              action: "card",
+              values: {
+                ...Object.fromEntries(fd),
+                id: card?.id,
+                idol_ids: ids,
+              },
+            });
+            done();
+            close();
+          } catch (e) {
+            setError(e instanceof Error ? e.message : "Unable to save");
+          } finally {
+            setBusy(false);
+          }
+        }}
+      >
+        <div className="form-grid">
+          <label>
+            Pack
+            <select name="pack_id" required defaultValue={card?.pack_id || ""}>
+              <option value="">Choose pack</option>
+              {data.packs.map((p) => (
+                <option value={p.id} key={p.id}>
+                  {p.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Rarity
+            <select
+              name="rarity_id"
+              required
+              defaultValue={card?.rarity_id || ""}
+            >
+              <option value="">Choose rarity</option>
+              {data.rarities
+                .filter((r) => r.active || r.id === card?.rarity_id)
+                .map((r) => (
+                  <option value={r.id} key={r.id}>
+                    {r.label}
+                  </option>
+                ))}
+            </select>
+          </label>
+          <label>
+            Slot
+            <input name="slot" defaultValue={card?.slot || ""} />
+          </label>
+          <label>
+            Card name (optional)
+            <input name="card_name" defaultValue={card?.card_name || ""} />
+          </label>
+          <label>
+            Group / act at appearance
+            <select name="group_id" defaultValue={card?.group_id || ""}>
+              <option value="">Solo / derive from membership</option>
+              {data.groups.map((g) => (
+                <option key={g.id} value={g.id}>
+                  {g.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Picture status
+            <input
+              name="pic_status"
+              list="pic-statuses"
+              defaultValue={card?.pic_status || ""}
+            />
+            <datalist id="pic-statuses">
+              {["To Find", "Shortlisted", "Selected"].map((s) => (
+                <option key={s}>{s}</option>
+              ))}
+            </datalist>
+          </label>
+        </div>
+        <fieldset>
+          <legend>Idols ({ids.length} selected)</legend>
+          <p className="small">
+            Choose one or more idols. For a whole-group card, choose a group and
+            leave idols empty.
+          </p>
+          <input
+            aria-label="Find idols"
+            placeholder="Find an idol…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <div className="member-picker">
+            {data.idols
+              .filter((i) =>
+                i.stage_name.toLowerCase().includes(search.toLowerCase()),
+              )
+              .map((i) => (
+                <label className="check" key={i.id}>
+                  <input
+                    type="checkbox"
+                    checked={ids.includes(i.id)}
+                    onChange={(e) =>
+                      setIds(
+                        e.target.checked
+                          ? [...ids, i.id]
+                          : ids.filter((x) => x !== i.id),
+                      )
+                    }
+                  />
+                  {i.stage_name}
+                  <small>
+                    {data.groups
+                      .filter((g) =>
+                        data.group_memberships.some(
+                          (m) => m.group_id === g.id && m.idol_id === i.id,
+                        ),
+                      )
+                      .map((g) => g.name)
+                      .join(", ") || "Soloist"}
+                  </small>
+                </label>
+              ))}
+          </div>
+        </fieldset>
+        <label>
+          Source URL
+          <input
+            type="url"
+            name="source_url"
+            defaultValue={card?.source_url || ""}
+          />
+        </label>
+        <label>
+          Notes
+          <textarea name="notes" defaultValue={card?.notes || ""} />
+        </label>
+        {error && (
+          <p role="alert" className="error">
+            {error}
+          </p>
+        )}
+        <footer className="modal-actions">
+          <button type="button" onClick={close}>
+            Cancel
+          </button>
+          <button className="primary" disabled={busy}>
+            Save card
+          </button>
+        </footer>
+      </form>
+    </Modal>
+  );
+}
+export function DeleteDialog({
+  table,
+  id,
+  name,
+  close,
+  done,
+}: {
+  table: string;
+  id: string;
+  name: string;
+  close: () => void;
+  done: () => void;
+}) {
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  return (
+    <Modal title="Delete this record?" close={close}>
+      {table === "packs" ? (
+        <p>
+          <strong>
+            {name}
+          </strong>{" "}
+          will be permanently removed.
+          Draft packs will also remove
+          every linked card inside the pack.
+          Released packs remain protected.
+        </p>
+      ) : (
+        <p>
+          <strong>
+            {name}
+          </strong>{" "}
+          will be permanently removed.
+          Linked card records prevent
+          group, idol, or rarity deletion.
+        </p>
+      )}
+      {error && <p className="error">{error}</p>}
+      <footer className="modal-actions">
+        <button onClick={close}>Keep record</button>
+        <button
+          className="danger"
+          disabled={busy}
+          onClick={async () => {
+            setBusy(true);
+            try {
+              await mutate({ action: "delete", table, id });
+              done();
+              close();
+            } catch (e) {
+              setError(e instanceof Error ? e.message : "Delete failed");
+            } finally {
+              setBusy(false);
+            }
+          }}
+        >
+          Delete record
+        </button>
+      </footer>
+    </Modal>
+  );
+}
+export function MembershipEditor({
+  idolId,
+  data,
+  done,
+}: {
+  idolId: string;
+  data: Catalog;
+  done: () => void;
+}) {
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  return (
+    <section className="panel pad">
+      <h3>Group memberships</h3>
+      <p>
+        Link this artist to a group, or mark a membership as former. Use this to
+        resolve a known artist during import. This does not confirm a complete
+        roster.
+      </p>
+      <form
+        className="toolbar"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          setBusy(true);
+          const fd = new FormData(e.currentTarget);
+          try {
+            await mutate({
+              action: "membership",
+              idol_id: idolId,
+              group_id: fd.get("group_id"),
+              status: fd.get("status"),
+            });
+            setError("");
+            done();
+          } catch (e) {
+            setError(e instanceof Error ? e.message : "Unable to save");
+          } finally {
+            setBusy(false);
+          }
+        }}
+      >
+        <label>
+          Group
+          <select name="group_id" required>
+            <option value="">Choose group</option>
+            {data.groups.map((g) => (
+              <option key={g.id} value={g.id}>
+                {g.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Membership
+          <select name="status">
+            <option>current</option>
+            <option>former</option>
+          </select>
+        </label>
+        <button disabled={busy} className="primary">
+          Save membership
+        </button>
+      </form>
+      {error && <p className="error">{error}</p>}
+    </section>
+  );
+}

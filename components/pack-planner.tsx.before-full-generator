@@ -1,0 +1,769 @@
+"use client";
+
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
+import {
+  createBrowserClient,
+} from "@supabase/ssr";
+
+import type {
+  Catalog,
+} from "@/lib/types";
+
+type Tier =
+  | "S"
+  | "A"
+  | "B"
+  | "C"
+  | "D";
+
+type Status =
+  | "normal"
+  | "cooldown"
+  | "exclude";
+
+type Candidate = {
+  identity_key: string;
+  display_name: string;
+  aliases: string;
+  gender: string;
+  groups: string | null;
+
+  popularity_tier: Tier;
+  generation: number | null;
+  planner_status: Status;
+
+  total_appearances: number;
+
+  last_pack_name: string | null;
+  last_pack_number: number | null;
+  last_rarity_label: string | null;
+
+  used_rarities: string;
+
+  score: number;
+  eligible: boolean;
+  same_as_last: boolean;
+
+  reason: string;
+};
+
+const tiers: Tier[] = [
+  "S",
+  "A",
+  "B",
+  "C",
+  "D",
+];
+
+const statuses: Status[] = [
+  "normal",
+  "cooldown",
+  "exclude",
+];
+
+function rating(
+  row: Candidate,
+) {
+  if (
+    row.same_as_last
+  ) {
+    return "Avoid repeat";
+  }
+
+  if (
+    !row.eligible
+  ) {
+    return "Outside rule";
+  }
+
+  if (
+    row.score >= 70
+  ) {
+    return "Strong";
+  }
+
+  if (
+    row.score >= 42
+  ) {
+    return "Good";
+  }
+
+  return "Review";
+}
+
+export default function PackPlanner({
+  data,
+}: {
+  data: Catalog;
+}) {
+  const supabase = useMemo(
+    () =>
+      createBrowserClient(
+        process.env
+          .NEXT_PUBLIC_SUPABASE_URL!,
+        process.env
+          .NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      ),
+    [],
+  );
+
+  const rarities = useMemo(
+    () =>
+      [...data.rarities]
+        .filter(
+          (r) => r.active,
+        )
+        .sort(
+          (a, b) =>
+            Number(
+              a.numeric_value,
+            ) -
+            Number(
+              b.numeric_value,
+            ),
+        ),
+    [data.rarities],
+  );
+
+  const nextPack =
+    Math.max(
+      0,
+      ...data.packs.map(
+        (p) =>
+          Number(
+            p.pack_number || 0,
+          ),
+      ),
+    ) + 1;
+
+  const [
+    packNumber,
+    setPackNumber,
+  ] = useState(
+    nextPack,
+  );
+
+  const [
+    rarityId,
+    setRarityId,
+  ] = useState(
+    rarities[0]?.id || "",
+  );
+
+  const [
+    gender,
+    setGender,
+  ] = useState("");
+
+  const [
+    query,
+    setQuery,
+  ] = useState("");
+
+  const [
+    showAvoided,
+    setShowAvoided,
+  ] = useState(false);
+
+  const [
+    rows,
+    setRows,
+  ] = useState<
+    Candidate[]
+  >([]);
+
+  const [
+    loading,
+    setLoading,
+  ] = useState(true);
+
+  const [
+    error,
+    setError,
+  ] = useState("");
+
+  const [
+    saving,
+    setSaving,
+  ] = useState("");
+
+  async function load() {
+    if (
+      !rarityId
+    ) {
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    const {
+      data: result,
+      error,
+    } =
+      await supabase.rpc(
+        "pack_planner_candidates",
+        {
+          p_target_rarity_id:
+            rarityId,
+
+          p_target_pack_number:
+            packNumber,
+
+          p_show_avoided:
+            showAvoided,
+        },
+      );
+
+    if (
+      error
+    ) {
+      setError(
+        error.message,
+      );
+
+      setRows([]);
+    } else {
+      setRows(
+        (result ||
+          []) as Candidate[],
+      );
+    }
+
+    setLoading(false);
+  }
+
+  useEffect(
+    () => {
+      load();
+    },
+    [
+      rarityId,
+      packNumber,
+      showAvoided,
+    ],
+  );
+
+  async function update(
+    row: Candidate,
+    patch: Partial<{
+      tier: Tier;
+      generation:
+        number | null;
+      status: Status;
+    }>,
+  ) {
+    setSaving(
+      row.identity_key,
+    );
+
+    setError("");
+
+    const {
+      error,
+    } =
+      await supabase.rpc(
+        "set_pack_planner_profile",
+        {
+          p_identity_key:
+            row.identity_key,
+
+          p_popularity_tier:
+            patch.tier ??
+            row.popularity_tier,
+
+          p_generation:
+            patch.generation !==
+            undefined
+              ? patch.generation
+              : row.generation,
+
+          p_planner_status:
+            patch.status ??
+            row.planner_status,
+        },
+      );
+
+    if (
+      error
+    ) {
+      setError(
+        error.message,
+      );
+    } else {
+      await load();
+    }
+
+    setSaving("");
+  }
+
+  const filtered =
+    rows.filter(
+      (row) => {
+        if (
+          gender &&
+          row.gender !==
+            gender
+        ) {
+          return false;
+        }
+
+        const text = [
+          row.display_name,
+          row.aliases,
+          row.groups || "",
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return text.includes(
+          query
+            .trim()
+            .toLowerCase(),
+        );
+      },
+    );
+
+  const rarity =
+    rarities.find(
+      (r) =>
+        r.id ===
+        rarityId,
+    );
+
+  const rarityValue =
+    Number(
+      rarity?.numeric_value ||
+        0,
+    );
+
+  return (
+    <div className="planner-stack">
+      <section className="panel pad planner-controls">
+        <label>
+          <span>
+            Target pack
+          </span>
+
+          <div className="planner-pack">
+            <small>
+              Rebirth
+            </small>
+
+            <input
+              type="number"
+              min={1}
+              value={
+                packNumber
+              }
+              onChange={(
+                e,
+              ) =>
+                setPackNumber(
+                  Math.max(
+                    1,
+                    Number(
+                      e.target
+                        .value ||
+                        1,
+                    ),
+                  ),
+                )
+              }
+            />
+          </div>
+        </label>
+
+        <label>
+          <span>
+            Target rarity
+          </span>
+
+          <select
+            value={
+              rarityId
+            }
+            onChange={(
+              e,
+            ) =>
+              setRarityId(
+                e.target
+                  .value,
+              )
+            }
+          >
+            {rarities.map(
+              (r) => (
+                <option
+                  key={
+                    r.id
+                  }
+                  value={
+                    r.id
+                  }
+                >
+                  {
+                    r.label
+                  }
+                </option>
+              ),
+            )}
+          </select>
+        </label>
+
+        <label>
+          <span>
+            Gender
+          </span>
+
+          <select
+            value={
+              gender
+            }
+            onChange={(
+              e,
+            ) =>
+              setGender(
+                e.target
+                  .value,
+              )
+            }
+          >
+            <option value="">
+              All
+            </option>
+
+            <option value="female">
+              Female
+            </option>
+
+            <option value="male">
+              Male
+            </option>
+          </select>
+        </label>
+
+        <label className="planner-search">
+          <span>
+            Search
+          </span>
+
+          <input
+            value={
+              query
+            }
+            onChange={(
+              e,
+            ) =>
+              setQuery(
+                e.target
+                  .value,
+              )
+            }
+            placeholder="Idol or group"
+          />
+        </label>
+
+        <label className="planner-check">
+          <input
+            type="checkbox"
+            checked={
+              showAvoided
+            }
+            onChange={(
+              e,
+            ) =>
+              setShowAvoided(
+                e.target
+                  .checked,
+              )
+            }
+          />
+
+          Show avoided
+        </label>
+      </section>
+
+      <div className="planner-rule">
+        {rarityValue <=
+        0.05
+          ? "0.05% · S/A · Gen 3–5 · no immediate same-rarity repeat"
+          : rarityValue <=
+              0.23
+            ? "0.23% · S/A/B · Gen 3–5 · no immediate same-rarity repeat"
+            : "Returning idols are rotated across rarities. Popular idols can also appear at lower rarity."}
+      </div>
+
+      {error && (
+        <div className="notice">
+          {error}
+        </div>
+      )}
+
+      <div className="planner-head">
+        <div>
+          <h2>
+            Suggestions
+          </h2>
+
+          <p>
+            {
+              filtered.length
+            }{" "}
+            candidates
+          </p>
+        </div>
+      </div>
+
+      {loading ? (
+        <section className="panel pad">
+          Loading…
+        </section>
+      ) : (
+        <div className="planner-list">
+          {filtered.map(
+            (row) => {
+              const label =
+                rating(
+                  row,
+                );
+
+              return (
+                <article
+                  className={
+                    "planner-row " +
+                    (row.same_as_last ||
+                    !row.eligible
+                      ? "avoid"
+                      : "")
+                  }
+                  key={
+                    row.identity_key
+                  }
+                >
+                  <div className="planner-info">
+                    <div className="planner-name">
+                      <strong>
+                        {
+                          row.display_name
+                        }
+                      </strong>
+
+                      <span>
+                        {row.groups ||
+                          "Solo / unassigned"}
+                      </span>
+                    </div>
+
+                    <div className="planner-tags">
+                      <span
+                        className={
+                          "quality " +
+                          label
+                            .toLowerCase()
+                            .replaceAll(
+                              " ",
+                              "-",
+                            )
+                        }
+                      >
+                        {
+                          label
+                        }
+                      </span>
+
+                      <span>
+                        {
+                          row.gender
+                        }
+                      </span>
+
+                      <span>
+                        appearances ·{" "}
+                        {
+                          row.total_appearances
+                        }
+                      </span>
+
+                      {row.used_rarities && (
+                        <span>
+                          used ·{" "}
+                          {
+                            row.used_rarities
+                          }
+                        </span>
+                      )}
+                    </div>
+
+                    <p className="planner-reason">
+                      {
+                        row.reason
+                      }
+                    </p>
+                  </div>
+
+                  <div className="planner-profile">
+                    <label>
+                      <span>
+                        Tier
+                      </span>
+
+                      <select
+                        value={
+                          row.popularity_tier
+                        }
+                        disabled={
+                          saving ===
+                          row.identity_key
+                        }
+                        onChange={(
+                          e,
+                        ) =>
+                          update(
+                            row,
+                            {
+                              tier: e
+                                .target
+                                .value as Tier,
+                            },
+                          )
+                        }
+                      >
+                        {tiers.map(
+                          (tier) => (
+                            <option
+                              key={
+                                tier
+                              }
+                            >
+                              {
+                                tier
+                              }
+                            </option>
+                          ),
+                        )}
+                      </select>
+                    </label>
+
+                    <label>
+                      <span>
+                        Gen
+                      </span>
+
+                      <select
+                        value={
+                          row.generation ??
+                          ""
+                        }
+                        disabled={
+                          saving ===
+                          row.identity_key
+                        }
+                        onChange={(
+                          e,
+                        ) =>
+                          update(
+                            row,
+                            {
+                              generation:
+                                e
+                                  .target
+                                  .value
+                                  ? Number(
+                                      e
+                                        .target
+                                        .value,
+                                    )
+                                  : null,
+                            },
+                          )
+                        }
+                      >
+                        <option value="">
+                          —
+                        </option>
+
+                        {[1,2,3,4,5].map(
+                          (gen) => (
+                            <option
+                              key={
+                                gen
+                              }
+                              value={
+                                gen
+                              }
+                            >
+                              {
+                                gen
+                              }
+                            </option>
+                          ),
+                        )}
+                      </select>
+                    </label>
+
+                    <label>
+                      <span>
+                        Status
+                      </span>
+
+                      <select
+                        value={
+                          row.planner_status
+                        }
+                        disabled={
+                          saving ===
+                          row.identity_key
+                        }
+                        onChange={(
+                          e,
+                        ) =>
+                          update(
+                            row,
+                            {
+                              status: e
+                                .target
+                                .value as Status,
+                            },
+                          )
+                        }
+                      >
+                        {statuses.map(
+                          (
+                            status,
+                          ) => (
+                            <option
+                              key={
+                                status
+                              }
+                            >
+                              {
+                                status
+                              }
+                            </option>
+                          ),
+                        )}
+                      </select>
+                    </label>
+                  </div>
+                </article>
+              );
+            },
+          )}
+
+          {!filtered.length &&
+            !loading && (
+              <section className="panel pad">
+                No candidates match the current rules.
+              </section>
+            )}
+        </div>
+      )}
+    </div>
+  );
+}
