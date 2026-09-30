@@ -267,10 +267,6 @@ export function CardEditor({
         </div>
         <fieldset>
           <legend>Idols ({ids.length} selected)</legend>
-          <p className="small">
-            Choose one or more idols. For a whole-group card, choose a group and
-            leave idols empty.
-          </p>
           <input
             aria-label="Find idols"
             placeholder="Find an idol…"
@@ -415,11 +411,6 @@ export function MembershipEditor({
   return (
     <section className="panel pad">
       <h3>Group memberships</h3>
-      <p>
-        Link this artist to a group, or mark a membership as former. Use this to
-        resolve a known artist during import. This does not confirm a complete
-        roster.
-      </p>
       <form
         className="toolbar"
         onSubmit={async (e) => {

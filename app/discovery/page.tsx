@@ -57,11 +57,6 @@ type NeverRepresentedIdol = {
   artist_url: string | null;
 };
 
-type ReleaseInfo = {
-  release_id: string;
-  data_as_of: string | null;
-};
-
 type Tab =
   | "incomplete"
   | "missing"
@@ -184,11 +179,6 @@ export default function DiscoveryPage() {
     NeverRepresentedIdol[]
   >([]);
 
-  const [release, setRelease] =
-    useState<ReleaseInfo | null>(
-      null
-    );
-
   const [
     visibleCount,
     setVisibleCount,
@@ -259,7 +249,6 @@ export default function DiscoveryPage() {
           missing,
           groups,
           idols,
-          releaseResult,
         ] = await Promise.all([
           fetchAll(
             "kpopping_incomplete_groups"
@@ -277,28 +266,7 @@ export default function DiscoveryPage() {
             "kpopping_never_represented_idols"
           ),
 
-          supabase
-            .from(
-              "kpopping_releases"
-            )
-            .select(
-              "release_id,data_as_of"
-            )
-            .eq(
-              "active",
-              true
-            )
-            .limit(1)
-            .maybeSingle(),
         ]);
-
-        if (
-          releaseResult.error
-        ) {
-          throw new Error(
-            releaseResult.error.message
-          );
-        }
 
         if (cancelled) {
           return;
@@ -320,11 +288,6 @@ export default function DiscoveryPage() {
           idols as NeverRepresentedIdol[]
         );
 
-        setRelease(
-          releaseResult.data as
-            | ReleaseInfo
-            | null
-        );
       } catch (err) {
         if (cancelled) {
           return;
@@ -605,16 +568,6 @@ export default function DiscoveryPage() {
               </span>
             </Link>
 
-            <p
-              className="text-[11px] font-semibold uppercase tracking-[0.24em]"
-              style={{
-                color:
-                  COLORS.muted,
-              }}
-            >
-              Catalog intelligence
-            </p>
-
             <h1
               className="mt-3 text-5xl font-semibold tracking-[-0.05em] md:text-6xl"
               style={{
@@ -625,63 +578,8 @@ export default function DiscoveryPage() {
               Discovery
             </h1>
 
-            <p
-              className="mt-4 max-w-2xl text-[15px] leading-7"
-              style={{
-                color:
-                  COLORS.muted,
-              }}
-            >
-              Find roster gaps,
-              unrepresented idols,
-              and groups that have
-              not entered your card
-              universe yet.
-            </p>
           </div>
 
-          <div
-            className="min-w-[220px] rounded-[22px] p-5"
-            style={{
-              background:
-                COLORS.forest,
-              color: "#fff",
-            }}
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className="flex h-10 w-10 items-center justify-center rounded-xl text-lg"
-                style={{
-                  background:
-                    COLORS.lime,
-                  color:
-                    COLORS.forestDark,
-                }}
-              >
-                ✦
-              </div>
-
-              <div>
-                <div className="text-sm font-semibold">
-                  Kpopping+ Core
-                </div>
-
-                <div className="mt-1 text-xs opacity-60">
-                  Release{" "}
-                  {release
-                    ?.release_id ??
-                    "—"}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-5 border-t border-white/15 pt-4 text-xs leading-5 opacity-70">
-              Released packs only
-              <br />
-              Starter · Rebirth
-              1–15
-            </div>
-          </div>
         </div>
 
         {/* STATS */}
@@ -693,7 +591,6 @@ export default function DiscoveryPage() {
             value={
               incompleteGroups.length
             }
-            description="Groups already represented, but still missing current members."
           />
 
           <SummaryCard
@@ -702,7 +599,6 @@ export default function DiscoveryPage() {
             value={
               missingMembers.length
             }
-            description="Current roster members without a released card."
           />
 
           <SummaryCard
@@ -711,7 +607,6 @@ export default function DiscoveryPage() {
             value={
               groupsNotInGame.length
             }
-            description="Active groups not yet mapped into PocaPop Vault."
           />
 
           <SummaryCard
@@ -720,7 +615,6 @@ export default function DiscoveryPage() {
             value={
               neverRepresented.length
             }
-            description="Current idols with no released appearance yet."
           />
         </div>
 
@@ -1125,27 +1019,6 @@ export default function DiscoveryPage() {
           </div>
         </section>
 
-        <footer
-          className="mt-8 flex flex-col gap-2 border-t pt-5 text-xs md:flex-row md:items-center md:justify-between"
-          style={{
-            borderColor:
-              COLORS.line,
-            color:
-              COLORS.muted,
-          }}
-        >
-          <span>
-            Data provided by
-            Kpopping+ · Release{" "}
-            {release?.release_id ??
-              "2026-09"}
-          </span>
-
-          <span>
-            PocaPop Vault /
-            Moderator Workspace
-          </span>
-        </footer>
       </div>
     </main>
   );
@@ -1155,12 +1028,10 @@ function SummaryCard({
   index,
   title,
   value,
-  description,
 }: {
   index: string;
   title: string;
   value: number;
-  description: string;
 }) {
   return (
     <article
@@ -1205,15 +1076,6 @@ function SummaryCard({
             {title}
           </div>
 
-          <p
-            className="mt-2 max-w-[240px] text-xs leading-5"
-            style={{
-              color:
-                COLORS.muted,
-            }}
-          >
-            {description}
-          </p>
         </div>
 
         <div

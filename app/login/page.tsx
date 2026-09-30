@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Sparkles, ShieldCheck } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { configured } from "@/lib/supabase";
 import LoginForm from "@/components/login-form";
 export default async function Login({
@@ -15,7 +15,6 @@ export default async function Login({
           <Sparkles size={23} />
         </span>
         <b>PocaPop Vault</b>
-        <span className="edition-label">CATALOG STUDIO</span>
       </header>
       <div className="login-gallery" aria-hidden="true">
         <div className="gallery-word">
@@ -40,15 +39,8 @@ export default async function Login({
             </div>
           ))}
         </div>
-        <div className="gallery-caption">
-          <span>THE POCA COLLECTION</span>
-          <b>Moonlit Hanbok / HB01</b>
-        </div>
       </div>
       <section className="login-entry">
-        <span className="eyebrow">
-          <ShieldCheck size={15} /> Moderator access
-        </span>
         <h1>PocaPop Vault</h1>
         <h2>Sign in</h2>
         {configured() ? (
@@ -56,10 +48,6 @@ export default async function Login({
         ) : (
           <p className="notice error">Supabase is not configured.</p>
         )}
-        <footer>
-          <span>Private workspace</span>
-          <span>PocaPop / 2026</span>
-        </footer>
       </section>
     </main>
   );

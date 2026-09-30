@@ -547,7 +547,6 @@ export default function PackPlanner({ data }: { data: Catalog }) {
                       </button>
                       <b>{p?.group?.name || "Solo"}</b>
                       <span className="planner-candidate-tags"><span className={"badge " + (p?.released ? "violet" : "green")}>{p?.released ? "Returning" : "New to game"}</span><small>{p?.popularity}</small></span>
-                      <small>{r.reason}</small>
                     </div>
                   </div>
                   <footer>

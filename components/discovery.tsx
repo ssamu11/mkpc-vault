@@ -71,11 +71,6 @@ type ArtistIdentity = {
   known_aliases: string[] | null;
 };
 
-type Release = {
-  release_id: string;
-  data_as_of: string | null;
-};
-
 type Tab =
   | "incomplete"
   | "missing"
@@ -171,9 +166,6 @@ export default function Discovery() {
     setIdentities,
   ] = useState<ArtistIdentity[]>([]);
 
-  const [release, setRelease] =
-    useState<Release | null>(null);
-
   const [loading, setLoading] =
     useState(true);
 
@@ -246,7 +238,6 @@ export default function Discovery() {
           groupRows,
           idolRows,
           identityRows,
-          releaseResult,
         ] = await Promise.all([
           fetchAll(
             "kpopping_incomplete_groups",
@@ -268,25 +259,7 @@ export default function Discovery() {
             "kpopping_artist_identity",
           ),
 
-          supabase
-            .from(
-              "kpopping_releases",
-            )
-            .select(
-              "release_id,data_as_of",
-            )
-            .eq("active", true)
-            .limit(1)
-            .maybeSingle(),
         ]);
-
-        if (
-          releaseResult.error
-        ) {
-          throw new Error(
-            releaseResult.error.message,
-          );
-        }
 
         if (cancelled) {
           return;
@@ -312,9 +285,6 @@ export default function Discovery() {
           identityRows as unknown as ArtistIdentity[],
         );
 
-        setRelease(
-          releaseResult.data as Release | null,
-        );
       } catch (e) {
         if (!cancelled) {
           setError(
@@ -571,13 +541,7 @@ export default function Discovery() {
   if (loading) {
     return (
       <section className="panel">
-        <Empty title="Loading Discovery…">
-          <p>
-            Comparing PocaPop Vault
-            with the current
-            Kpopping+ Core roster.
-          </p>
-        </Empty>
+        <Empty title="Loading Discovery…" />
       </section>
     );
   }
@@ -606,7 +570,6 @@ export default function Discovery() {
           value={
             incompleteGroups.length
           }
-          note="In-game groups with current members still missing"
           icon="◈"
         />
 
@@ -615,7 +578,6 @@ export default function Discovery() {
           value={
             missingMembers.length
           }
-          note="Current members without a released appearance"
           icon="♧"
         />
 
@@ -624,7 +586,6 @@ export default function Discovery() {
           value={
             groupsNotInGame.length
           }
-          note="Active groups not yet represented in PocaPop Vault"
           icon="＋"
         />
 
@@ -633,35 +594,8 @@ export default function Discovery() {
           value={
             neverRepresented.length
           }
-          note="Current idols with no released card appearance"
           icon="✦"
         />
-      </div>
-
-      <div className="notice">
-        <strong>
-          PocaPop Vault names stay yours.
-        </strong>
-
-        <p>
-          Kpopping+ provides
-          current artist identities
-          and roster data while PocaPop
-          Vault keeps the display
-          names already used by your
-          game. Name changes never
-          automatically rename your
-          local catalog.
-          {" "}
-          Coverage currently uses
-          released packs only.
-          {" "}
-          Reference release:{" "}
-          <b>
-            {release?.release_id ||
-              "—"}
-          </b>.
-        </p>
       </div>
 
       <section className="panel">
@@ -775,16 +709,6 @@ export default function Discovery() {
                     <span>
                       <b>{local}</b>
 
-                      {local !==
-                        row.reference_group_name && (
-                        <small className="muted">
-                          {" "}
-                          · Kpopping:{" "}
-                          {
-                            row.reference_group_name
-                          }
-                        </small>
-                      )}
                     </span>
                   );
                 },
@@ -910,16 +834,6 @@ export default function Discovery() {
                       }
                     </b>
 
-                    {row.display_name !==
-                      row.stage_name && (
-                      <small className="muted">
-                        {" "}
-                        · Kpopping:{" "}
-                        {
-                          row.stage_name
-                        }
-                      </small>
-                    )}
                   </span>
                 ),
               },
@@ -1054,16 +968,6 @@ export default function Discovery() {
                       }
                     </b>
 
-                    {row.display_name !==
-                      row.stage_name && (
-                      <small className="muted">
-                        {" "}
-                        · Kpopping:{" "}
-                        {
-                          row.stage_name
-                        }
-                      </small>
-                    )}
                   </span>
                 ),
               },
@@ -1112,12 +1016,10 @@ export default function Discovery() {
 function DiscoveryStat({
   label,
   value,
-  note,
   icon,
 }: {
   label: string;
   value: number;
-  note: string;
   icon: string;
 }) {
   return (
@@ -1134,7 +1036,6 @@ function DiscoveryStat({
         {value.toLocaleString()}
       </strong>
 
-      <small>{note}</small>
     </div>
   );
 }

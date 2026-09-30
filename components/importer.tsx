@@ -201,14 +201,9 @@ export default function Importer({
               <span className="upload-icon">↥</span>
               <h2>
                 {mode === "cards"
-                  ? "Bring your Catalog workbook in."
-                  : "Import complete group rosters."}
+                  ? "Workbook"
+                  : "Group rosters"}
               </h2>
-              <p>
-                {mode === "cards"
-                  ? "Keep your existing sheets and columns. We’ll detect packs and preview every row."
-                  : "Use Group, Idol, Gender, and Membership Status columns. Include every current member for each group."}
-              </p>
               <label className="primary file-button">
                 Choose workbook
                 <input
@@ -224,7 +219,7 @@ export default function Importer({
               </label>
               <p className="small muted">
                 {mode === "cards" ? "XLSX or XLS" : "XLSX, XLS or CSV"} · Up to
-                10 MB · Nothing is saved until you confirm
+                10 MB
               </p>
             </div>
           )}
@@ -324,11 +319,6 @@ export default function Importer({
               <section className="panel">
                 <div className="pad">
                   <h3>Review before importing</h3>
-                  <p>
-                    Fix invalid data in the workbook and upload again, or
-                    explicitly exclude those rows here. New packs start as
-                    drafts. Card imports never configure full rosters.
-                  </p>
                   {excluded.length > 0 && (
                     <p>
                       {excluded.length} rows excluded.{" "}
@@ -460,7 +450,6 @@ export default function Importer({
             <section className="panel">
               <div className="pad">
                 <h3>Import history</h3>
-                <p>A record of confirmed workbook and roster imports.</p>
               </div>
               <DataTable
                 rows={[...data.import_history].sort((a, b) =>

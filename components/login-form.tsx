@@ -7,7 +7,7 @@ function Submit() {
   const { pending } = useFormStatus();
   return (
     <button className="primary login-submit" disabled={pending}>
-      {pending ? "Signing in..." : "Enter the vault"}
+      {pending ? "Signing in..." : "Sign in"}
       <ArrowRight size={18} />
     </button>
   );

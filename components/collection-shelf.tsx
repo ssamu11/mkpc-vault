@@ -21,7 +21,6 @@ export default function CollectionShelf({
     <section className="collection-band">
       <div className="section-title">
         <div>
-          <span className="eyebrow">THE COLLECTION</span>
           <h2>Pack library</h2>
         </div>
         <span className="library-count">

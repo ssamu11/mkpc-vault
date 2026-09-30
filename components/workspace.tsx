@@ -289,27 +289,6 @@ export default function Workspace({
           : page
     : page;
 
-  const pageSubtitle =
-    page === "Dashboard"
-      ? "Catalog overview"
-      : page === "Cards"
-        ? "Card masterlist"
-        : page === "Groups"
-          ? "Group roster & coverage"
-          : page === "Packs"
-            ? "Pack management"
-            : page === "Idols"
-              ? "Artist catalog"
-              : page === "Discovery"
-                ? "Kpopping+ reference"
-                : page === "Pack Planner"
-                  ? "PocaPop pack planning"
-                  : page === "Import"
-                    ? "Import catalog data"
-                    : page === "Export"
-                      ? "Export catalog data"
-                      : "Workspace settings";
-
   function recordActions(
     table: string,
     record: { id: string; name?: string; stage_name?: string },
@@ -572,10 +551,8 @@ export default function Workspace({
           </span>
           <span>
             <b>PocaPop Vault</b>
-            <small>CATALOG STUDIO</small>
           </span>
         </a>
-        <span className="nav-label">YOUR CATALOG</span>
         <nav>
           {nav.map(([name, Icon]) => (
             <button
@@ -638,10 +615,6 @@ export default function Workspace({
             )}
           </div>
           <div className="topbar-actions">
-            <span className="workspace-state">
-              <span />
-              Catalog connected
-            </span>
             <button
               className="icon-button"
               title="Pack planner"
@@ -676,7 +649,6 @@ export default function Workspace({
                 </button>
               )}
               <h1>{headline}</h1>
-              {!detail && <p>{pageSubtitle}</p>}
             </div>
             {page === "Dashboard" && (
               <button className="primary" onClick={() => go("Import")}>
@@ -824,7 +796,6 @@ export default function Workspace({
                   <div className="section-title pad">
                     <div>
                       <h2>Pack pipeline</h2>
-                      <p>Current release stages</p>
                     </div>
                   </div>
                   <div className="pipeline">
@@ -845,13 +816,6 @@ export default function Workspace({
                           </span>
                           <span>
                             {s[0].toUpperCase() + s.slice(1)}
-                            <small>
-                              {s === "released"
-                                ? "Live in your game"
-                                : s === "archived"
-                                  ? "Kept for history"
-                                  : "In preparation"}
-                            </small>
                           </span>
                           <strong>
                             {data.packs.filter((p) => p.status === s).length}
@@ -859,9 +823,6 @@ export default function Workspace({
                         </button>
                       ),
                     )}
-                  </div>
-                  <div className="panel-foot">
-                    Picture status is tracked separately from release status.
                   </div>
                 </section>
               </div>
@@ -979,7 +940,7 @@ export default function Workspace({
                         }
                       >
                         {hasReferenceRoster(g)
-                          ? "Kpopping+ roster"
+                          ? "Configured"
                           : g.roster_configured
                             ? "Configured"
                             : "Not configured"}
@@ -1044,12 +1005,7 @@ export default function Workspace({
                   </div>
                   {!group.roster_configured && !hasReferenceRoster(group) && (
                     <div className="notice">
-                      <strong>Full roster has not been configured yet.</strong>
-                      <p>
-                        These are known artists, not a complete roster. Coverage
-                        and missing members are unavailable until you confirm
-                        the full roster.
-                      </p>
+                      <strong>Roster not configured.</strong>
                     </div>
                   )}
                   <div className="stat-grid">
@@ -1070,7 +1026,6 @@ export default function Workspace({
                     <Stat
                       label="Missing"
                       value={c.missing?.length ?? "—"}
-                      note="Current roster members"
                     />
                     <Stat
                       label="Coverage"
@@ -1145,7 +1100,6 @@ export default function Workspace({
                                 <span>
                                   <b>{r.displayName}</b>
 
-                                  <small>Kpopping+ roster</small>
                                 </span>
                               ),
                           },
@@ -1603,24 +1557,20 @@ export default function Workspace({
               {[
                 {
                   title: "Complete masterlist",
-                  text: "All cards, with packs, idols, groups, rarity, picture status, sources, and notes.",
                   action: () =>
                     download(cardExport(data.cards, data), "masterlist"),
                 },
                 {
                   title: "Filtered cards",
-                  text: "Use the Cards page to select exactly the records you want to export.",
                   action: () => go("Cards"),
                 },
                 {
                   title: "Group coverage",
-                  text: "Representation and missing counts. Unconfigured rosters keep coverage blank.",
                   action: () =>
                     download(coverageRows, "group-coverage", "Coverage"),
                 },
                 {
                   title: "Complete group rosters",
-                  text: "Registered members, membership status, card counts, and pack history.",
                   action: () =>
                     download(
                       data.groups.flatMap((g) => rosterExport(g)),
@@ -1630,7 +1580,6 @@ export default function Workspace({
                 },
                 {
                   title: "Missing members",
-                  text: "Unrepresented current members from configured rosters only.",
                   action: () =>
                     download(
                       data.groups
@@ -1646,14 +1595,11 @@ export default function Workspace({
                 },
                 {
                   title: "A specific pack or group",
-                  text: "Open a pack or group to export its cards, roster, or missing members.",
                   action: () => go("Packs"),
                 },
               ].map((item, i) => (
                 <section className="panel pad export-card" key={item.title}>
-                  <span className="export-number">0{i + 1}</span>
                   <h2>{item.title}</h2>
-                  <p>{item.text}</p>
                   <button onClick={item.action}>
                     {i === 1 || i === 5 ? "Open catalog" : "↓ Download Excel"}
                   </button>
@@ -1665,10 +1611,6 @@ export default function Workspace({
             <div className="stack">
               <section className="panel pad">
                 <h2>Representation scope</h2>
-                <p>
-                  Released packs count toward coverage by default. Enable this
-                  to include all statuses, including archived packs.
-                </p>
                 <label className="check">
                   <input
                     type="checkbox"
@@ -1694,7 +1636,7 @@ export default function Workspace({
                 </label>
                 {role !== "admin" && (
                   <small>
-                    Only admins can change workspace settings and rarities.
+                    Admin only.
                   </small>
                 )}
               </section>
@@ -1702,7 +1644,6 @@ export default function Workspace({
                 <div className="section-title pad">
                   <div>
                     <h2>Rarities</h2>
-                    <p>PocaPop catalog tiers</p>
                   </div>
                   {role === "admin" && (
                     <button onClick={() => setEdit({ table: "rarities" })}>
@@ -1765,12 +1706,6 @@ export default function Workspace({
               <section className="panel pad">
                 <h2>Team access</h2>
                 <p>
-                  Accounts are invite-only. Create a user in Supabase
-                  Authentication, then assign their user ID a moderator or admin
-                  profile. No service-role credentials are stored in this
-                  application.
-                </p>
-                <p>
                   Your role: <Badge tone="violet">{role}</Badge>
                 </p>
                 {role === "admin" && <TeamAccess done={done} />}
@@ -1778,10 +1713,6 @@ export default function Workspace({
             </div>
           )}
         </main>
-        <footer className="app-footer">
-          <span>PocaPop Vault</span>
-          <span>MODERATOR WORKSPACE</span>
-        </footer>
       </div>
       {edit && (
         <RecordEditor
