@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Shuffle,
@@ -12,6 +12,12 @@ import {
   SlidersHorizontal,
   X,
   Sparkles,
+  UsersRound,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+  Check,
+  Pencil,
 } from "lucide-react";
 import type { Catalog } from "@/lib/types";
 import {
@@ -22,12 +28,13 @@ import {
 } from "@/lib/pocapop";
 import {
   generatePlan,
-  plannerPool,
+  type PlannerCandidate,
   type PlannerOptions,
   type PlannerRow,
 } from "@/lib/planner";
 import { download, mutate, Modal } from "./ui";
 import CardPhoto from "./card-photo";
+import { popularityLevels, type Popularity } from "@/lib/planner-curation";
 
 export default function PackPlanner({ data }: { data: Catalog }) {
   const router = useRouter();
@@ -61,32 +68,67 @@ export default function PackPlanner({ data }: { data: Catalog }) {
     [busy, setBusy] = useState(false);
   const [photoSlot, setPhotoSlot] = useState<string | null>(null),
     [asset, setAsset] = useState("");
-  const pool = useMemo(() => plannerPool(data), [data]);
+  const [candidates, setCandidates] = useState<PlannerCandidate[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
+  const [reload, setReload] = useState(0);
+  const [newPercent, setNewPercent] = useState(75);
+  const [levels, setLevels] = useState<Popularity[]>([...popularityLevels]);
+  const [showRoster, setShowRoster] = useState(false);
+  const [rosterSearch, setRosterSearch] = useState("");
+  const [rosterSource, setRosterSource] = useState("all");
+  const [rosterPage, setRosterPage] = useState(0);
+  const [replaceSlot, setReplaceSlot] = useState<string | null>(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    setLoading(true);
+    setLoadError("");
+    fetch("/api/planner", { signal: controller.signal, cache: "no-store" })
+      .then(async (res) => {
+        const result = await res.json();
+        if (!res.ok) throw Error(result.error || "Unable to load reference roster");
+        if (!controller.signal.aborted) setCandidates(result.pool);
+      })
+      .catch((e) => {
+        if (!controller.signal.aborted) setLoadError(e instanceof Error ? e.message : "Unable to load reference roster");
+      })
+      .finally(() => { if (!controller.signal.aborted) setLoading(false); });
+    return () => controller.abort();
+  }, [data, reload]);
+  const pool = useMemo(() => candidates.filter((c) => levels.includes(c.popularity)), [candidates, levels]);
+  const replacing = rows.find((r) => r.slot === replaceSlot);
+  const roster = pool.filter((c) => (!replacing || (c.idol.gender === replacing.gender && !excluded.includes(c.idol.id) && (!rows.some((r) => r.idol_id === c.idol.id) || c.idol.id === replacing.idol_id))) &&
+    (rosterSource === "all" || (rosterSource === "new" ? !c.released : c.released > 0)) &&
+    `${c.idol.stage_name} ${c.group?.name || "Solo"}`.toLowerCase().includes(rosterSearch.toLowerCase()));
   const counts = kind === "Premium" ? premiumLayout : rebirthLayout;
   const weights =
     kind === "Premium"
       ? [0, 0, 70, 25.8, 4, 0.2]
       : [70, 20, 7, 2.4, 0.56, 0.04];
   const used = new Set(rows.map((r) => r.idol_id));
-  const getCandidate = (id: string) => pool.find((x) => x.idol.id === id);
+  const candidateById = useMemo(() => new Map(candidates.map((c) => [c.idol.id, c])), [candidates]);
+  const getCandidate = (id: string) => candidateById.get(id);
   const groupCounts = new Map<string, number>();
   rows.forEach((r) => {
     const p = getCandidate(r.idol_id);
     if (p) groupCounts.set(p.key, (groupCounts.get(p.key) || 0) + 1);
   });
   const complete =
+    !loading && !loadError &&
     rows.length === counts.reduce((a, b) => a + b, 0) &&
     used.size === rows.length &&
     rows.every((r) => {
       const p = getCandidate(r.idol_id);
       return (
         p &&
+        levels.includes(p.popularity) &&
         p.idol.gender === r.gender &&
         !excluded.includes(r.idol_id) &&
         p.gap >= cooldown
       );
     }) &&
-    [...groupCounts.values()].every((n) => n <= limit);
+    [...groupCounts.values()].every((n) => n <= limit) &&
+    ["female", "male"].every((gender) => rows.filter((r) => r.gender === gender && !getCandidate(r.idol_id)?.released).length >= Math.ceil(counts.reduce((a, b) => a + b, 0) / 2 * newPercent / 100));
   const options: PlannerOptions = {
     kind,
     mode,
@@ -94,6 +136,7 @@ export default function PackPlanner({ data }: { data: Catalog }) {
     cooldown,
     excluded,
     seed: seed + 1,
+    newPercent,
   };
   function generate(slot?: string) {
     setError("");
@@ -111,6 +154,7 @@ export default function PackPlanner({ data }: { data: Catalog }) {
             : excluded,
         },
         existing,
+        pool,
       );
       setRows(
         slot
@@ -142,7 +186,7 @@ export default function PackPlanner({ data }: { data: Catalog }) {
         "Group ID": p.group?.game_group_id || "GROUP-SOLO",
         "Card ID": "",
         "Image Asset ID": r.image_asset_id,
-        Notes: "",
+        Notes: p.reference_artist_id ? `Reference: ${p.reference_artist_id}` : "",
       };
     });
   }
@@ -211,6 +255,26 @@ export default function PackPlanner({ data }: { data: Catalog }) {
             maxLength={200}
           />
         </label>
+        <div className="control-section">
+          <h3>Artist pool</h3>
+          <div className="planner-pool-summary" aria-live="polite">
+            {loading ? "Loading reference roster..." : `${pool.filter((c) => !c.released).length} new / ${pool.filter((c) => c.released).length} returning`}
+          </div>
+          <label>
+            <span>Minimum new artists <b>{newPercent}%</b></span>
+            <input type="range" aria-label="Minimum new artists" min={0} max={100} step={5} value={newPercent} onChange={(e) => setNewPercent(Number(e.target.value))} />
+          </label>
+          <fieldset className="planner-group-levels">
+            <legend>Curated groups</legend>
+            {popularityLevels.map((level) => <label className="check" key={level}>
+              <input type="checkbox" checked={levels.includes(level)} onChange={(e) => setLevels(e.target.checked ? [...levels, level] : levels.filter((v) => v !== level))} />
+              <span>{level[0].toUpperCase() + level.slice(1)}</span>
+            </label>)}
+          </fieldset>
+          <button onClick={() => setShowRoster(true)} disabled={loading || !!loadError}>
+            <UsersRound size={16} /> Candidate roster
+          </button>
+        </div>
         <div className="control-section">
           <h3>Selection strategy</h3>
           <div className="strategy-options">
@@ -320,7 +384,7 @@ export default function PackPlanner({ data }: { data: Catalog }) {
         </div>
         <button
           className="primary generate-button"
-          disabled={busy}
+          disabled={busy || loading || !!loadError || !pool.length}
           onClick={() => generate()}
         >
           <Sparkles size={17} />
@@ -378,6 +442,8 @@ export default function PackPlanner({ data }: { data: Catalog }) {
           <span>
             <b>{rows.length}</b> / {counts.reduce((a, b) => a + b, 0)} cards
           </span>
+          <span><b>{rows.filter((r) => !getCandidate(r.idol_id)?.released).length}</b> new to game</span>
+          <span><b>{rows.filter((r) => getCandidate(r.idol_id)?.released).length}</b> returning</span>
           <span>
             <b>
               {
@@ -398,6 +464,7 @@ export default function PackPlanner({ data }: { data: Catalog }) {
             <b>{rows.filter((r) => r.image_asset_id).length}</b> photos chosen
           </span>
         </div>
+        {loadError && <div className="notice error" role="alert">{loadError} <button onClick={() => setReload(reload + 1)}>Retry roster</button></div>}
         {error && (
           <div className="notice error" role="alert">
             {error}
@@ -467,43 +534,19 @@ export default function PackPlanner({ data }: { data: Catalog }) {
                         assetId={r.image_asset_id || reference}
                         alt={p?.idol.stage_name || "Artist"}
                       />
-                      {!r.image_asset_id && <small>Reference</small>}
+                      {!r.image_asset_id && <small>{reference ? "Reference" : "Photo pending"}</small>}
                     </div>
                     <div>
-                      <select
+                      <button
+                        className="planner-artist-picker"
                         aria-label={"Idol for slot " + r.slot}
                         disabled={r.locked || busy}
-                        value={r.idol_id}
-                        onChange={(e) =>
-                          setRows(
-                            rows.map((v) =>
-                              v.slot === r.slot
-                                ? {
-                                    ...v,
-                                    idol_id: e.target.value,
-                                    image_asset_id: "",
-                                    reason: "Moderator selection",
-                                  }
-                                : v,
-                            ),
-                          )
-                        }
+                        onClick={() => { setReplaceSlot(r.slot); setRosterSearch(""); setRosterSource("all"); setRosterPage(0); }}
                       >
-                        {pool
-                          .filter(
-                            (x) =>
-                              x.idol.gender === r.gender &&
-                              (!used.has(x.idol.id) ||
-                                x.idol.id === r.idol_id) &&
-                              !excluded.includes(x.idol.id),
-                          )
-                          .map((x) => (
-                            <option value={x.idol.id} key={x.idol.id}>
-                              {x.idol.stage_name} / {x.group?.name || "Solo"}
-                            </option>
-                          ))}
-                      </select>
+                        <span>{p?.idol.stage_name || "Choose artist"}</span><Pencil size={13} />
+                      </button>
                       <b>{p?.group?.name || "Solo"}</b>
+                      <span className="planner-candidate-tags"><span className={"badge " + (p?.released ? "violet" : "green")}>{p?.released ? "Returning" : "New to game"}</span><small>{p?.popularity}</small></span>
                       <small>{r.reason}</small>
                     </div>
                   </div>
@@ -511,9 +554,10 @@ export default function PackPlanner({ data }: { data: Catalog }) {
                     <span>
                       {r.image_asset_id
                         ? "Photo selected"
-                        : p?.appearances.length + " appearances"}
+                        : p?.pending ? `${p.pending} draft appearances` : `${p?.released || 0} released appearances`}
                     </span>
                     <div>
+                      {p?.source_url && <a href={p.source_url} target="_blank" rel="noreferrer" className="icon-button" title="Artist reference" aria-label={"Artist reference for " + p.idol.stage_name}><ExternalLink size={16} /></a>}
                       <button
                         className="icon-button"
                         title="Choose image asset"
@@ -563,6 +607,31 @@ export default function PackPlanner({ data }: { data: Catalog }) {
           </div>
         )}
       </section>
+      {(showRoster || replaceSlot) && <Modal title={replaceSlot ? `Choose artist / slot ${replaceSlot}` : "Candidate roster"} close={() => { setShowRoster(false); setReplaceSlot(null); }}>
+        <div className="planner-roster-toolbar">
+          <input autoFocus aria-label="Search candidate roster" value={rosterSearch} onChange={(e) => { setRosterSearch(e.target.value); setRosterPage(0); }} placeholder="Idol or group" />
+          <select aria-label="Candidate representation" value={rosterSource} onChange={(e) => { setRosterSource(e.target.value); setRosterPage(0); }}>
+            <option value="all">All candidates</option><option value="new">New to game</option><option value="returning">Returning</option>
+          </select>
+        </div>
+        <div className="planner-roster-count">{roster.length} artists / {roster.filter((c) => c.idol.gender === "female").length} F / {roster.filter((c) => c.idol.gender === "male").length} M</div>
+        <div className="planner-roster-list">
+          {roster.slice(rosterPage * 100, (rosterPage + 1) * 100).map((c) => <div key={c.identity}>
+            <span><b>{c.idol.stage_name}</b><small>{c.group?.name || "Solo"} / {c.popularity}</small></span>
+            <span className={"badge " + (c.released ? "violet" : "green")}>{c.released ? "Returning" : "New"}</span>
+            {replaceSlot ? <button className="icon-button" title="Choose artist" aria-label={"Choose " + c.idol.stage_name + " / " + (c.group?.name || "Solo")} onClick={() => {
+              setRows(rows.map((r) => r.slot === replaceSlot ? { ...r, idol_id: c.idol.id, image_asset_id: "", reason: "Moderator selection" } : r));
+              setReplaceSlot(null);
+            }}><Check size={16} /></button> : <button className="icon-button" title={excluded.includes(c.idol.id) ? "Include artist" : "Exclude artist"} aria-label={(excluded.includes(c.idol.id) ? "Include " : "Exclude ") + c.idol.stage_name} aria-pressed={excluded.includes(c.idol.id)} onClick={() => setExcluded(excluded.includes(c.idol.id) ? excluded.filter((id) => id !== c.idol.id) : [...excluded, c.idol.id])}><X size={16} /></button>}
+          </div>)}
+          {!roster.length && <p className="muted">No matching candidates.</p>}
+        </div>
+        <footer className="modal-actions">
+          <span className="muted">{roster.length ? rosterPage * 100 + 1 : 0}-{Math.min((rosterPage + 1) * 100, roster.length)} / {roster.length}</span>
+          <button className="icon-button" title="Previous candidates" aria-label="Previous candidates" disabled={!rosterPage} onClick={() => setRosterPage(rosterPage - 1)}><ChevronLeft size={16} /></button>
+          <button className="icon-button" title="Next candidates" aria-label="Next candidates" disabled={(rosterPage + 1) * 100 >= roster.length} onClick={() => setRosterPage(rosterPage + 1)}><ChevronRight size={16} /></button>
+        </footer>
+      </Modal>}
       {photoSlot && (
         <Modal
           title={"Photo / slot " + photoSlot}

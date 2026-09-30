@@ -35,7 +35,11 @@ For a new database, apply the repository migrations in their established order; 
 
 Cards support search, pack/tier/gender/picture-status filters, sorting, pagination, editing, and filtered export. Photos are resolved from Roblox thumbnails through an authenticated same-origin endpoint, with a fallback for unavailable assets.
 
-Pack Planner creates balanced, unique-idol drafts: 48 Rebirth cards or 24 Premium cards. Balanced, Coverage, and Variety strategies rank candidates using prior exposure, tier repetition, group diversity, and Rebirth recency. Group limits, exclusions, cooldown, locked slots, and individual rerolls are explicit controls. Impossible constraints produce an error instead of silently weakening the recipe. Saving revalidates pack code, active artists/rarities, slots, counts, gender balance, unique artists, and chosen image IDs in PostgreSQL.
+Pack Planner combines the local catalog with the imported Kpopping roster, including artists who have never appeared in a released PocaPop pack. The default minimum new-artist share is 75%; returning artists remain eligible. Draft appearances do not count as released representation. Confirmed reference links and group-scoped aliases prevent duplicate identities; uncertain surname variants are withheld instead of marked new.
+
+Only reviewed groups in `lib/planner-curation.ts` enter generation. Headliner, Established, Rising, and Nugu are editable editorial presets, not live chart rankings; unreviewed groups are excluded. These group classes also inform tier fit without forbidding returning artists. The candidate roster exposes new/returning status, search, exclusions, and pagination.
+
+Plans retain the game's 48-card Rebirth and 24-card Premium layouts, equal genders per tier, unique artists, group limits, cooldowns, locks, rerolls, and exact image IDs. Impossible constraints produce an error instead of silently weakening the recipe. Saving new reference candidates registers their local artists/groups/identity links and draft cards in one RLS-protected transaction. Game IDs for new artists remain unassigned until the game mapping is authored; saving a web draft never writes to Roblox Studio.
 
 Reference photos are historical previews, not automatically chosen artwork. Choose an Image Asset ID per slot before saving it as pack artwork. Draft cards have no invented game CardID. Excel export includes PackID, Pack Name, Slot, Rarity, Gender, Idol Name, Group Name, Idol ID, Group ID, Card ID, Image Asset ID, and Notes, compatible with the new importer.
 

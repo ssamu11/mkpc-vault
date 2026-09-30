@@ -1206,6 +1206,24 @@ td:first-child {
   gap: 28px;
   align-items: start;
 }
+.planner-pool-summary { color: var(--muted); font-size: 12px; }
+.planner-group-levels { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.planner-group-levels legend { padding: 0; margin-bottom: 10px; font-size: 12px; }
+.planner-group-levels .check { margin: 0; font-size: 12px; }
+.planner-candidate-tags { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.planner-candidate-tags .badge { font-size: 9px; }
+.planner-candidate-tags small { text-transform: capitalize; }
+.planner-artist-picker { width: 100%; padding: 5px 0; border: 0; background: transparent; text-align: left; justify-content: space-between; gap: 6px; font-size: 13px; }
+.planner-artist-picker span { min-width: 0; overflow-wrap: anywhere; }
+.planner-artist-picker svg { flex-shrink: 0; }
+.planner-roster-toolbar { display: flex; gap: 10px; }
+.planner-roster-toolbar input { min-width: 0; flex: 1; }
+.planner-roster-toolbar select { max-width: 45%; }
+.planner-roster-count { margin: 12px 0; font-size: 12px; color: var(--muted); }
+.planner-roster-list { max-height: 55vh; overflow-y: auto; }
+.planner-roster-list > div { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.planner-roster-list > div > span:first-child { flex: 1; min-width: 0; }
+.planner-roster-list small { display: block; color: var(--muted); margin-top: 4px; }
 .planner-controls {
   border-right: 1px solid var(--line);
   padding-right: 24px;

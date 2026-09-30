@@ -5,6 +5,7 @@ import { planImport, clean } from "@/lib/catalog";
 import { hasValidOrigin } from "@/lib/request-origin";
 import { previewPack, type PackMapping } from "@/lib/pack-import";
 import type { ImportRow } from "@/lib/types";
+import { readPlannerPool } from "@/lib/planner-data";
 const fields: Record<string, string[]> = {
   groups: ["name", "status"],
   idols: ["stage_name", "gender", "active"],
@@ -127,8 +128,26 @@ export async function POST(request: Request) {
       return NextResponse.json(data);
     }
     if (input.action === "pocapop_draft") {
-      const { data, error } = await db.rpc("save_pocapop_draft", {
-        payload: input.values,
+      if (!Array.isArray(input.values?.rows) || ![24, 48].includes(input.values.rows.length))
+        throw Error("Invalid planned pack.");
+      const { pool } = await readPlannerPool();
+      const rows = input.values.rows.map((r: { idol_id: string; slot: string; rarity_id: string; image_asset_id?: string }) => {
+        const candidate = pool.find((c) => c.idol.id === r.idol_id);
+        if (!candidate) throw Error("Candidate is no longer in the curated roster. Reload the planner.");
+        return {
+          slot: r.slot, rarity_id: r.rarity_id, image_asset_id: r.image_asset_id || "",
+          idol_id: candidate.source === "local" ? candidate.idol.id : "",
+          ...(candidate.source === "reference" ? { new_artist: {
+            kpopping_artist_id: candidate.reference_artist_id,
+            kpopping_group_id: candidate.reference_group_id,
+            stage_name: candidate.idol.stage_name,
+            group_name: candidate.group?.name,
+            gender: candidate.idol.gender,
+          } } : {}),
+        };
+      });
+      const { data, error } = await db.rpc("save_pocapop_discovery_draft", {
+        payload: { ...input.values, rows },
       });
       if (error) throw Error(error.message);
       return NextResponse.json({ id: data });

@@ -12,11 +12,14 @@ try {
     "lib/workbook.ts",
     "lib/pack-import.ts",
     "lib/planner.ts",
+    "lib/planner-curation.ts",
+    "lib/planner-discovery.ts",
     "tests/catalog.test.ts",
     "tests/database.test.ts",
     "tests/pocapop.test.ts",
     "tests/request-origin.test.ts",
     "tests/planner-import.test.ts",
+    "tests/planner-discovery.test.ts",
   ]) {
     const source = await readFile(file, "utf8");
     const js = ts
@@ -44,6 +47,7 @@ try {
       path.join(out, "tests/pocapop.test.js"),
       path.join(out, "tests/request-origin.test.js"),
       path.join(out, "tests/planner-import.test.js"),
+      path.join(out, "tests/planner-discovery.test.js"),
     ],
     { stdio: "inherit" },
   );
