@@ -601,7 +601,7 @@ export default function DiscoveryPage() {
             >
               <span>←</span>
               <span>
-                Bias Vault
+                PocaPop Vault
               </span>
             </Link>
 
@@ -711,7 +711,7 @@ export default function DiscoveryPage() {
             value={
               groupsNotInGame.length
             }
-            description="Active groups not yet mapped into Bias Vault."
+            description="Active groups not yet mapped into PocaPop Vault."
           />
 
           <SummaryCard
@@ -1142,7 +1142,7 @@ export default function DiscoveryPage() {
           </span>
 
           <span>
-            Bias Vault /
+            PocaPop Vault /
             Moderator Workspace
           </span>
         </footer>

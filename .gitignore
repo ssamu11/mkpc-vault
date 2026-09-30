@@ -12,6 +12,7 @@ out/
 
 # vercel
 .vercel/
+supabase/.temp/
 
 # logs
 npm-debug.log*

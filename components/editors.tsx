@@ -29,9 +29,13 @@ const configs: Record<string, Field[]> = {
     { key: "active", label: "Active artist", type: "checkbox" },
   ],
   packs: [
+    { key: "game_pack_id", label: "PackID" },
     { key: "name", label: "Pack name", required: true },
     { key: "pack_type", label: "Pack type", required: true },
     { key: "pack_number", label: "Pack number", type: "number" },
+    { key: "catalog_size", label: "Catalog size", type: "number" },
+    { key: "catalog_status", label: "Catalog status", options: ["Draft", "Ready", "Disabled"] },
+    { key: "exclusive", label: "Exclusive grant", type: "checkbox" },
     { key: "release_date", label: "Release date", type: "date" },
     {
       key: "status",
@@ -41,13 +45,8 @@ const configs: Record<string, Field[]> = {
     { key: "notes", label: "Notes", type: "textarea" },
   ],
   rarities: [
+    { key: "game_key", label: "Game tier", options: ["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic"] },
     { key: "label", label: "Display label", required: true },
-    {
-      key: "numeric_value",
-      label: "Percentage (0–100)",
-      type: "number",
-      required: true,
-    },
     { key: "sort_order", label: "Sort order", type: "number" },
     { key: "active", label: "Available for imports", type: "checkbox" },
   ],
@@ -125,7 +124,7 @@ export function RecordEditor({
                 <input
                   type="checkbox"
                   name={f.key}
-                  defaultChecked={record?.[f.key] !== false}
+                  defaultChecked={f.key === "exclusive" ? record?.[f.key] === true : record?.[f.key] !== false}
                 />
               ) : (
                 <input
@@ -201,6 +200,10 @@ export function CardEditor({
         }}
       >
         <div className="form-grid">
+          <label>CardID<input name="game_card_id" defaultValue={card?.game_card_id || ""} /></label>
+          <label>ImageAssetId<input name="image_asset_id" inputMode="numeric" pattern="[0-9]{1,16}" defaultValue={card?.image_asset_id || ""} /></label>
+          <label>Catalog status<select name="catalog_status" defaultValue={card?.catalog_status || "Draft"}>{["Draft","Ready","Disabled"].map(s=><option key={s}>{s}</option>)}</select></label>
+          <label>Premium tier<select name="premium_tier" defaultValue={card?.premium_tier || ""}><option value="">None</option>{["Petal","Silk","Royal","Crown"].map(s=><option key={s}>{s}</option>)}</select></label>
           <label>
             Pack
             <select name="pack_id" required defaultValue={card?.pack_id || ""}>

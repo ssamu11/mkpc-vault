@@ -165,13 +165,16 @@ test("exact duplicate is skipped but repeated idol in another slot is allowed", 
   assert.equal(p[1].duplicate, false);
   assert.equal(p[2].duplicate, true);
 });
-test("same stage name in another group requires resolution", () => {
+test("same stage name in another group uses a separate scoped identity", () => {
   const p = planImport(
     [{ ...row, group: "Other Group" }],
     fixture(),
     "cards",
   )[0];
-  assert.ok(p.issues.some((s) => s.includes("Ambiguous")));
+  assert.equal(p.issues.length, 0);
+  assert.equal(p.existingIdol, null);
+  assert.equal(p.newIdol, true);
+  assert.ok(p.warnings.some((s) => s.includes("different group")));
 });
 test("unknown rarity and unsafe source are invalid", () => {
   const p = planImport(

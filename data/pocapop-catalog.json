@@ -1,0 +1,6043 @@
+{
+  "UniverseId": 10767363718,
+  "Packs": {
+    "RB04": {
+      "RarityTiers": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Epic",
+        "Legendary",
+        "Mythic"
+      ],
+      "ReplaceableSample": false,
+      "PackType": "Rebirth",
+      "PackID": "RB04",
+      "CatalogStatus": "Ready",
+      "GenderCounts": {
+        "Female": 24,
+        "Male": 24
+      },
+      "IsComplete": true,
+      "CatalogSize": 48,
+      "TotalRarityWeight": 10000000,
+      "RarityConfiguration": {
+        "Legendary": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 56000,
+          "FemaleCount": 1
+        },
+        "Common": {
+          "CardCount": 18,
+          "MaleCount": 9,
+          "Weight": 7000000,
+          "FemaleCount": 9
+        },
+        "Epic": {
+          "CardCount": 6,
+          "MaleCount": 3,
+          "Weight": 240000,
+          "FemaleCount": 3
+        },
+        "Mythic": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 4000,
+          "FemaleCount": 1
+        },
+        "Uncommon": {
+          "CardCount": 12,
+          "MaleCount": 6,
+          "Weight": 2000000,
+          "FemaleCount": 6
+        },
+        "Rare": {
+          "CardCount": 8,
+          "MaleCount": 4,
+          "Weight": 700000,
+          "FemaleCount": 4
+        }
+      },
+      "PackName": "Maestro"
+    },
+    "RB07": {
+      "RarityTiers": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Epic",
+        "Legendary",
+        "Mythic"
+      ],
+      "ReplaceableSample": false,
+      "PackType": "Rebirth",
+      "PackID": "RB07",
+      "CatalogStatus": "Ready",
+      "GenderCounts": {
+        "Female": 24,
+        "Male": 24
+      },
+      "IsComplete": true,
+      "CatalogSize": 48,
+      "TotalRarityWeight": 10000000,
+      "RarityConfiguration": {
+        "Legendary": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 56000,
+          "FemaleCount": 1
+        },
+        "Common": {
+          "CardCount": 18,
+          "MaleCount": 9,
+          "Weight": 7000000,
+          "FemaleCount": 9
+        },
+        "Epic": {
+          "CardCount": 6,
+          "MaleCount": 3,
+          "Weight": 240000,
+          "FemaleCount": 3
+        },
+        "Mythic": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 4000,
+          "FemaleCount": 1
+        },
+        "Uncommon": {
+          "CardCount": 12,
+          "MaleCount": 6,
+          "Weight": 2000000,
+          "FemaleCount": 6
+        },
+        "Rare": {
+          "CardCount": 8,
+          "MaleCount": 4,
+          "Weight": 700000,
+          "FemaleCount": 4
+        }
+      },
+      "PackName": "Ditto"
+    },
+    "RB02": {
+      "RarityTiers": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Epic",
+        "Legendary",
+        "Mythic"
+      ],
+      "ReplaceableSample": false,
+      "PackType": "Rebirth",
+      "PackID": "RB02",
+      "CatalogStatus": "Ready",
+      "GenderCounts": {
+        "Female": 24,
+        "Male": 24
+      },
+      "IsComplete": true,
+      "CatalogSize": 48,
+      "TotalRarityWeight": 10000000,
+      "RarityConfiguration": {
+        "Legendary": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 56000,
+          "FemaleCount": 1
+        },
+        "Common": {
+          "CardCount": 18,
+          "MaleCount": 9,
+          "Weight": 7000000,
+          "FemaleCount": 9
+        },
+        "Epic": {
+          "CardCount": 6,
+          "MaleCount": 3,
+          "Weight": 240000,
+          "FemaleCount": 3
+        },
+        "Mythic": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 4000,
+          "FemaleCount": 1
+        },
+        "Uncommon": {
+          "CardCount": 12,
+          "MaleCount": 6,
+          "Weight": 2000000,
+          "FemaleCount": 6
+        },
+        "Rare": {
+          "CardCount": 8,
+          "MaleCount": 4,
+          "Weight": 700000,
+          "FemaleCount": 4
+        }
+      },
+      "PackName": "Impurities"
+    },
+    "HB01": {
+      "RarityTiers": [
+        "Rare",
+        "Epic",
+        "Legendary",
+        "Mythic"
+      ],
+      "PackType": "Premium",
+      "PackID": "HB01",
+      "CatalogStatus": "Ready",
+      "GenderCounts": {
+        "Female": 12,
+        "Male": 12
+      },
+      "TotalRarityWeight": 10000000,
+      "IsComplete": true,
+      "CatalogSize": 24,
+      "PremiumTierNames": {
+        "Epic": "Silk",
+        "Legendary": "Royal",
+        "Mythic": "Crown",
+        "Rare": "Petal"
+      },
+      "RarityConfiguration": {
+        "Epic": {
+          "CardCount": 8,
+          "MaleCount": 4,
+          "Weight": 2580000,
+          "FemaleCount": 4
+        },
+        "Legendary": {
+          "CardCount": 4,
+          "MaleCount": 2,
+          "Weight": 400000,
+          "FemaleCount": 2
+        },
+        "Mythic": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 20000,
+          "FemaleCount": 1
+        },
+        "Rare": {
+          "CardCount": 10,
+          "MaleCount": 5,
+          "Weight": 7000000,
+          "FemaleCount": 5
+        }
+      },
+      "PackName": "Moonlit Hanbok"
+    },
+    "RB03": {
+      "RarityTiers": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Epic",
+        "Legendary",
+        "Mythic"
+      ],
+      "ReplaceableSample": false,
+      "PackType": "Rebirth",
+      "PackID": "RB03",
+      "CatalogStatus": "Ready",
+      "GenderCounts": {
+        "Female": 24,
+        "Male": 24
+      },
+      "IsComplete": true,
+      "CatalogSize": 48,
+      "TotalRarityWeight": 10000000,
+      "RarityConfiguration": {
+        "Legendary": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 56000,
+          "FemaleCount": 1
+        },
+        "Common": {
+          "CardCount": 18,
+          "MaleCount": 9,
+          "Weight": 7000000,
+          "FemaleCount": 9
+        },
+        "Epic": {
+          "CardCount": 6,
+          "MaleCount": 3,
+          "Weight": 240000,
+          "FemaleCount": 3
+        },
+        "Mythic": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 4000,
+          "FemaleCount": 1
+        },
+        "Uncommon": {
+          "CardCount": 12,
+          "MaleCount": 6,
+          "Weight": 2000000,
+          "FemaleCount": 6
+        },
+        "Rare": {
+          "CardCount": 8,
+          "MaleCount": 4,
+          "Weight": 700000,
+          "FemaleCount": 4
+        }
+      },
+      "PackName": "Cosmic"
+    },
+    "RB05": {
+      "RarityTiers": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Epic",
+        "Legendary",
+        "Mythic"
+      ],
+      "ReplaceableSample": false,
+      "PackType": "Rebirth",
+      "PackID": "RB05",
+      "CatalogStatus": "Ready",
+      "GenderCounts": {
+        "Female": 24,
+        "Male": 24
+      },
+      "IsComplete": true,
+      "CatalogSize": 48,
+      "TotalRarityWeight": 10000000,
+      "RarityConfiguration": {
+        "Legendary": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 56000,
+          "FemaleCount": 1
+        },
+        "Common": {
+          "CardCount": 18,
+          "MaleCount": 9,
+          "Weight": 7000000,
+          "FemaleCount": 9
+        },
+        "Epic": {
+          "CardCount": 6,
+          "MaleCount": 3,
+          "Weight": 240000,
+          "FemaleCount": 3
+        },
+        "Mythic": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 4000,
+          "FemaleCount": 1
+        },
+        "Uncommon": {
+          "CardCount": 12,
+          "MaleCount": 6,
+          "Weight": 2000000,
+          "FemaleCount": 6
+        },
+        "Rare": {
+          "CardCount": 8,
+          "MaleCount": 4,
+          "Weight": 700000,
+          "FemaleCount": 4
+        }
+      },
+      "PackName": "Crescendo"
+    },
+    "RB01": {
+      "RarityTiers": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Epic",
+        "Legendary",
+        "Mythic"
+      ],
+      "ReplaceableSample": false,
+      "PackType": "Rebirth",
+      "PackID": "RB01",
+      "CatalogStatus": "Ready",
+      "GenderCounts": {
+        "Female": 24,
+        "Male": 24
+      },
+      "IsComplete": true,
+      "CatalogSize": 48,
+      "TotalRarityWeight": 10000000,
+      "RarityConfiguration": {
+        "Legendary": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 56000,
+          "FemaleCount": 1
+        },
+        "Common": {
+          "CardCount": 18,
+          "MaleCount": 9,
+          "Weight": 7000000,
+          "FemaleCount": 9
+        },
+        "Epic": {
+          "CardCount": 6,
+          "MaleCount": 3,
+          "Weight": 240000,
+          "FemaleCount": 3
+        },
+        "Mythic": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 4000,
+          "FemaleCount": 1
+        },
+        "Uncommon": {
+          "CardCount": 12,
+          "MaleCount": 6,
+          "Weight": 2000000,
+          "FemaleCount": 6
+        },
+        "Rare": {
+          "CardCount": 8,
+          "MaleCount": 4,
+          "Weight": 700000,
+          "FemaleCount": 4
+        }
+      },
+      "PackName": "Adrenaline"
+    },
+    "EX02": {
+      "Exclusive": true,
+      "ReplaceableSample": false,
+      "PackType": "Premium",
+      "PackID": "EX02",
+      "CatalogStatus": "Ready",
+      "IsComplete": true,
+      "CatalogSize": 1,
+      "RarityTiers": [
+        "Mythic"
+      ],
+      "RarityConfiguration": [],
+      "PackName": "Chuseok Exclusive"
+    },
+    "EX01": {
+      "Exclusive": true,
+      "ReplaceableSample": false,
+      "PackType": "Premium",
+      "PackID": "EX01",
+      "CatalogStatus": "Ready",
+      "IsComplete": true,
+      "CatalogSize": 1,
+      "RarityTiers": [
+        "Mythic"
+      ],
+      "RarityConfiguration": [],
+      "PackName": "Community Exclusive"
+    },
+    "RB06": {
+      "RarityTiers": [
+        "Common",
+        "Uncommon",
+        "Rare",
+        "Epic",
+        "Legendary",
+        "Mythic"
+      ],
+      "ReplaceableSample": false,
+      "PackType": "Rebirth",
+      "PackID": "RB06",
+      "CatalogStatus": "Ready",
+      "GenderCounts": {
+        "Female": 24,
+        "Male": 24
+      },
+      "IsComplete": true,
+      "CatalogSize": 48,
+      "TotalRarityWeight": 10000000,
+      "RarityConfiguration": {
+        "Legendary": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 56000,
+          "FemaleCount": 1
+        },
+        "Common": {
+          "CardCount": 18,
+          "MaleCount": 9,
+          "Weight": 7000000,
+          "FemaleCount": 9
+        },
+        "Epic": {
+          "CardCount": 6,
+          "MaleCount": 3,
+          "Weight": 240000,
+          "FemaleCount": 3
+        },
+        "Mythic": {
+          "CardCount": 2,
+          "MaleCount": 1,
+          "Weight": 4000,
+          "FemaleCount": 1
+        },
+        "Uncommon": {
+          "CardCount": 12,
+          "MaleCount": 6,
+          "Weight": 2000000,
+          "FemaleCount": 6
+        },
+        "Rare": {
+          "CardCount": 8,
+          "MaleCount": 4,
+          "Weight": 700000,
+          "FemaleCount": 4
+        }
+      },
+      "PackName": "Atmos"
+    }
+  },
+  "CardCount": 362,
+  "PlaceId": 73547394013446,
+  "SchemaVersion": 2,
+  "PlaceVersion": 332,
+  "Idols": {
+    "IDOL-QWER-CHODAN": {
+      "IdolID": "IDOL-QWER-CHODAN",
+      "GroupID": "GROUP-QWER",
+      "IdolName": "Chodan",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BTS-JUNGKOOK": {
+      "IdolID": "IDOL-BTS-JUNGKOOK",
+      "GroupID": "GROUP-BTS",
+      "IdolName": "Jungkook",
+      "GenderCategory": "Male"
+    },
+    "IDOL-PENTAGON-WOOSEOK": {
+      "IdolID": "IDOL-PENTAGON-WOOSEOK",
+      "GroupID": "GROUP-PENTAGON",
+      "IdolName": "Wooseok",
+      "GenderCategory": "Male"
+    },
+    "IDOL-OH-MY-GIRL-YOOA": {
+      "IdolID": "IDOL-OH-MY-GIRL-YOOA",
+      "GroupID": "GROUP-OH-MY-GIRL",
+      "IdolName": "YooA",
+      "GenderCategory": "Female"
+    },
+    "IDOL-HEARTS2HEARTS-CARMEN": {
+      "IdolID": "IDOL-HEARTS2HEARTS-CARMEN",
+      "GroupID": "GROUP-HEARTS2HEARTS",
+      "IdolName": "Carmen",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AESPA-KARINA": {
+      "IdolID": "IDOL-AESPA-KARINA",
+      "GroupID": "GROUP-AESPA",
+      "IdolName": "Karina",
+      "GenderCategory": "Female"
+    },
+    "IDOL-OH-MY-GIRL-MIMI": {
+      "IdolID": "IDOL-OH-MY-GIRL-MIMI",
+      "GroupID": "GROUP-OH-MY-GIRL",
+      "IdolName": "Mimi",
+      "GenderCategory": "Female"
+    },
+    "IDOL-IZNA-SAEBI": {
+      "IdolID": "IDOL-IZNA-SAEBI",
+      "GroupID": "GROUP-IZNA",
+      "IdolName": "Saebi",
+      "GenderCategory": "Female"
+    },
+    "IDOL-PLAVE-YEJUN": {
+      "IdolID": "IDOL-PLAVE-YEJUN",
+      "GroupID": "GROUP-PLAVE",
+      "IdolName": "Yejun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NEXZ-TOMOYA": {
+      "IdolID": "IDOL-NEXZ-TOMOYA",
+      "GroupID": "GROUP-NEXZ",
+      "IdolName": "Tomoya",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BABYMONSTER-CHIQUITA": {
+      "IdolID": "IDOL-BABYMONSTER-CHIQUITA",
+      "GroupID": "GROUP-BABYMONSTER",
+      "IdolName": "Chiquita",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SAY-MY-NAME-HITOMI": {
+      "IdolID": "IDOL-SAY-MY-NAME-HITOMI",
+      "GroupID": "GROUP-SAY-MY-NAME",
+      "IdolName": "Hitomi",
+      "GenderCategory": "Female"
+    },
+    "IDOL-APINK-BOMI": {
+      "IdolID": "IDOL-APINK-BOMI",
+      "GroupID": "GROUP-APINK",
+      "IdolName": "Bomi",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RIIZE-ANTON": {
+      "IdolID": "IDOL-RIIZE-ANTON",
+      "GroupID": "GROUP-RIIZE",
+      "IdolName": "Anton",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SHINEE-KEY": {
+      "IdolID": "IDOL-SHINEE-KEY",
+      "GroupID": "GROUP-SHINEE",
+      "IdolName": "Key",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ATEEZ-HONGJOONG": {
+      "IdolID": "IDOL-ATEEZ-HONGJOONG",
+      "GroupID": "GROUP-ATEEZ",
+      "IdolName": "Hongjoong",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ALLDAY-PROJECT-YOUNGSEO": {
+      "IdolID": "IDOL-ALLDAY-PROJECT-YOUNGSEO",
+      "GroupID": "GROUP-ALLDAY-PROJECT",
+      "IdolName": "Youngseo",
+      "GenderCategory": "Female"
+    },
+    "IDOL-NEXZ-YU": {
+      "IdolID": "IDOL-NEXZ-YU",
+      "GroupID": "GROUP-NEXZ",
+      "IdolName": "Yu",
+      "GenderCategory": "Male"
+    },
+    "IDOL-OMEGA-X-JAEHAN": {
+      "IdolID": "IDOL-OMEGA-X-JAEHAN",
+      "GroupID": "GROUP-OMEGA-X",
+      "IdolName": "Jaehan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IVE-YUJIN": {
+      "IdolID": "IDOL-IVE-YUJIN",
+      "GroupID": "GROUP-IVE",
+      "IdolName": "Yujin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ONE-PACT-JONGWOO": {
+      "IdolID": "IDOL-ONE-PACT-JONGWOO",
+      "GroupID": "GROUP-ONE-PACT",
+      "IdolName": "Jongwoo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-VIVIZ-SINB": {
+      "IdolID": "IDOL-VIVIZ-SINB",
+      "GroupID": "GROUP-VIVIZ",
+      "IdolName": "SinB",
+      "GenderCategory": "Female"
+    },
+    "IDOL-OH-MY-GIRL-ARIN": {
+      "IdolID": "IDOL-OH-MY-GIRL-ARIN",
+      "GroupID": "GROUP-OH-MY-GIRL",
+      "IdolName": "Arin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BIGBANG-DAESUNG": {
+      "IdolID": "IDOL-BIGBANG-DAESUNG",
+      "GroupID": "GROUP-BIGBANG",
+      "IdolName": "Daesung",
+      "GenderCategory": "Male"
+    },
+    "IDOL-I-DLE-MINNIE": {
+      "IdolID": "IDOL-I-DLE-MINNIE",
+      "GroupID": "GROUP-I-DLE",
+      "IdolName": "Minnie",
+      "GenderCategory": "Female"
+    },
+    "IDOL-FROMIS-9-NAGYUNG": {
+      "IdolID": "IDOL-FROMIS-9-NAGYUNG",
+      "GroupID": "GROUP-FROMIS-9",
+      "IdolName": "Nagyung",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BTS-SUGA": {
+      "IdolID": "IDOL-BTS-SUGA",
+      "GroupID": "GROUP-BTS",
+      "IdolName": "Suga",
+      "GenderCategory": "Male"
+    },
+    "IDOL-RED-VELVET-JOY": {
+      "IdolID": "IDOL-RED-VELVET-JOY",
+      "GroupID": "GROUP-RED-VELVET",
+      "IdolName": "Joy",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ONF-HYOJIN": {
+      "IdolID": "IDOL-ONF-HYOJIN",
+      "GroupID": "GROUP-ONF",
+      "IdolName": "Hyojin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IZNA-JEEMIN": {
+      "IdolID": "IDOL-IZNA-JEEMIN",
+      "GroupID": "GROUP-IZNA",
+      "IdolName": "Jeemin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TRIPLES-YOOYEON": {
+      "IdolID": "IDOL-TRIPLES-YOOYEON",
+      "GroupID": "GROUP-TRIPLES",
+      "IdolName": "Yooyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-WJSN-SEOLA": {
+      "IdolID": "IDOL-WJSN-SEOLA",
+      "GroupID": "GROUP-WJSN",
+      "IdolName": "Seola",
+      "GenderCategory": "Female"
+    },
+    "IDOL-NU-EST-MINHYUN": {
+      "IdolID": "IDOL-NU-EST-MINHYUN",
+      "GroupID": "GROUP-NU-EST",
+      "IdolName": "Minhyun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-AND2BLE-RICKY": {
+      "IdolID": "IDOL-AND2BLE-RICKY",
+      "GroupID": "GROUP-AND2BLE",
+      "IdolName": "Ricky",
+      "GenderCategory": "Male"
+    },
+    "IDOL-XDINARY-HEROES-JOOYEON": {
+      "IdolID": "IDOL-XDINARY-HEROES-JOOYEON",
+      "GroupID": "GROUP-XDINARY-HEROES",
+      "IdolName": "Jooyeon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-A-C-E-BYEONGKWAN": {
+      "IdolID": "IDOL-A-C-E-BYEONGKWAN",
+      "GroupID": "GROUP-A-C-E",
+      "IdolName": "Byeongkwan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ARRC-HYUNMIN": {
+      "IdolID": "IDOL-ARRC-HYUNMIN",
+      "GroupID": "GROUP-ARRC",
+      "IdolName": "Hyunmin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-STRAY-KIDS-HAN": {
+      "IdolID": "IDOL-STRAY-KIDS-HAN",
+      "IdolName": "Han",
+      "GroupID": "GROUP-STRAY-KIDS",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BTOB-MINHYUK": {
+      "IdolID": "IDOL-BTOB-MINHYUK",
+      "GroupID": "GROUP-BTOB",
+      "IdolName": "Minhyuk",
+      "GenderCategory": "Male"
+    },
+    "IDOL-PURPLE-KISS-SWAN": {
+      "IdolID": "IDOL-PURPLE-KISS-SWAN",
+      "GroupID": "GROUP-PURPLE-KISS",
+      "IdolName": "Swan",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BILLLIE-MOON-SUA": {
+      "IdolID": "IDOL-BILLLIE-MOON-SUA",
+      "GroupID": "GROUP-BILLLIE",
+      "IdolName": "Moon Sua",
+      "GenderCategory": "Female"
+    },
+    "IDOL-EPEX-MU": {
+      "IdolID": "IDOL-EPEX-MU",
+      "GroupID": "GROUP-EPEX",
+      "IdolName": "Mu",
+      "GenderCategory": "Male"
+    },
+    "IDOL-WJSN-EXY": {
+      "IdolID": "IDOL-WJSN-EXY",
+      "GroupID": "GROUP-WJSN",
+      "IdolName": "Exy",
+      "GenderCategory": "Female"
+    },
+    "IDOL-YOUNG-POSSE-DOEUN": {
+      "IdolID": "IDOL-YOUNG-POSSE-DOEUN",
+      "GroupID": "GROUP-YOUNG-POSSE",
+      "IdolName": "Doeun",
+      "GenderCategory": "Female"
+    },
+    "IDOL-EXO-D-O": {
+      "IdolID": "IDOL-EXO-D-O",
+      "GroupID": "GROUP-EXO",
+      "IdolName": "D.O.",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IDNTT-EUNSOO": {
+      "IdolID": "IDOL-IDNTT-EUNSOO",
+      "GroupID": "GROUP-IDNTT",
+      "IdolName": "Eunsoo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-VIVIZ-EUNHA": {
+      "IdolID": "IDOL-VIVIZ-EUNHA",
+      "GroupID": "GROUP-VIVIZ",
+      "IdolName": "Eunha",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BLACKPINK-JENNIE": {
+      "IdolID": "IDOL-BLACKPINK-JENNIE",
+      "GroupID": "GROUP-BLACKPINK",
+      "IdolName": "Jennie",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SEVENTEEN-SEUNGKWAN": {
+      "IdolID": "IDOL-SEVENTEEN-SEUNGKWAN",
+      "GroupID": "GROUP-SEVENTEEN",
+      "IdolName": "Seungkwan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-H1-KEY-RIINA": {
+      "IdolID": "IDOL-H1-KEY-RIINA",
+      "GroupID": "GROUP-H1-KEY",
+      "IdolName": "Riina",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CORTIS-JAMES": {
+      "IdolID": "IDOL-CORTIS-JAMES",
+      "GroupID": "GROUP-CORTIS",
+      "IdolName": "James",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BTS-J-HOPE": {
+      "IdolID": "IDOL-BTS-J-HOPE",
+      "GroupID": "GROUP-BTS",
+      "IdolName": "J-hope",
+      "GenderCategory": "Male"
+    },
+    "IDOL-LNGSHOT-OHYUL": {
+      "IdolID": "IDOL-LNGSHOT-OHYUL",
+      "GroupID": "GROUP-LNGSHOT",
+      "IdolName": "Ohyul",
+      "GenderCategory": "Male"
+    },
+    "IDOL-MONSTA-X-SHOWNU": {
+      "IdolID": "IDOL-MONSTA-X-SHOWNU",
+      "GroupID": "GROUP-MONSTA-X",
+      "IdolName": "Shownu",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BTS-RM": {
+      "IdolID": "IDOL-BTS-RM",
+      "GroupID": "GROUP-BTS",
+      "IdolName": "RM",
+      "GenderCategory": "Male"
+    },
+    "IDOL-GOT7-JINYOUNG": {
+      "IdolID": "IDOL-GOT7-JINYOUNG",
+      "GroupID": "GROUP-GOT7",
+      "IdolName": "Jinyoung",
+      "GenderCategory": "Male"
+    },
+    "IDOL-KEP1ER-MASHIRO": {
+      "IdolID": "IDOL-KEP1ER-MASHIRO",
+      "GroupID": "GROUP-KEP1ER",
+      "IdolName": "Mashiro",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RESCENE-MINAMI": {
+      "IdolID": "IDOL-RESCENE-MINAMI",
+      "GroupID": "GROUP-RESCENE",
+      "IdolName": "Minami",
+      "GenderCategory": "Female"
+    },
+    "IDOL-FROMIS-9-HAYOUNG": {
+      "IdolID": "IDOL-FROMIS-9-HAYOUNG",
+      "GroupID": "GROUP-FROMIS-9",
+      "IdolName": "Hayoung",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CORTIS-MARTIN": {
+      "IdolID": "IDOL-CORTIS-MARTIN",
+      "GroupID": "GROUP-CORTIS",
+      "IdolName": "Martin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-PENTAGON-HUI": {
+      "IdolID": "IDOL-PENTAGON-HUI",
+      "GroupID": "GROUP-PENTAGON",
+      "IdolName": "Hui",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BTOB-CHANGSUB": {
+      "IdolID": "IDOL-BTOB-CHANGSUB",
+      "GroupID": "GROUP-BTOB",
+      "IdolName": "Changsub",
+      "GenderCategory": "Male"
+    },
+    "IDOL-KEP1ER-HUENING-BAHIYYIH": {
+      "IdolID": "IDOL-KEP1ER-HUENING-BAHIYYIH",
+      "GroupID": "GROUP-KEP1ER",
+      "IdolName": "Huening Bahiyyih",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SHINEE-MINHO": {
+      "IdolID": "IDOL-SHINEE-MINHO",
+      "GroupID": "GROUP-SHINEE",
+      "IdolName": "Minho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NEWJEANS-HYEIN": {
+      "IdolID": "IDOL-NEWJEANS-HYEIN",
+      "GroupID": "GROUP-NEWJEANS",
+      "IdolName": "Hyein",
+      "GenderCategory": "Female"
+    },
+    "IDOL-MCND-CASTLE-J": {
+      "IdolID": "IDOL-MCND-CASTLE-J",
+      "GroupID": "GROUP-MCND",
+      "IdolName": "Castle J",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ILLIT-MOKA": {
+      "IdolID": "IDOL-ILLIT-MOKA",
+      "GroupID": "GROUP-ILLIT",
+      "IdolName": "Moka",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ATEEZ-MINGI": {
+      "IdolID": "IDOL-ATEEZ-MINGI",
+      "GroupID": "GROUP-ATEEZ",
+      "IdolName": "Mingi",
+      "GenderCategory": "Male"
+    },
+    "IDOL-MEOVV-GAWON": {
+      "IdolID": "IDOL-MEOVV-GAWON",
+      "GroupID": "GROUP-MEOVV",
+      "IdolName": "Gawon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-VAYONN-SEN": {
+      "IdolID": "IDOL-VAYONN-SEN",
+      "GroupID": "GROUP-VAYONN",
+      "IdolName": "Sen",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ASTRO-MOONBIN": {
+      "IdolID": "IDOL-ASTRO-MOONBIN",
+      "GroupID": "GROUP-ASTRO",
+      "IdolName": "Moonbin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ARRC-KIEN": {
+      "IdolID": "IDOL-ARRC-KIEN",
+      "GroupID": "GROUP-ARRC",
+      "IdolName": "Kien",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BLACKPINK-ROSE": {
+      "IdolID": "IDOL-BLACKPINK-ROSE",
+      "GroupID": "GROUP-BLACKPINK",
+      "IdolName": "Rosé",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ATEEZ-YUNHO": {
+      "IdolID": "IDOL-ATEEZ-YUNHO",
+      "GroupID": "GROUP-ATEEZ",
+      "IdolName": "Yunho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-EVERGLOW-MIA": {
+      "IdolID": "IDOL-EVERGLOW-MIA",
+      "GroupID": "GROUP-EVERGLOW",
+      "IdolName": "Mia",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ILLIT-WONHEE": {
+      "IdolID": "IDOL-ILLIT-WONHEE",
+      "GroupID": "GROUP-ILLIT",
+      "IdolName": "Wonhee",
+      "GenderCategory": "Female"
+    },
+    "IDOL-GIRLS-GENERATION-SEOHYUN": {
+      "IdolID": "IDOL-GIRLS-GENERATION-SEOHYUN",
+      "GroupID": "GROUP-GIRLS-GENERATION",
+      "IdolName": "Seohyun",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TWS-HANJIN": {
+      "IdolID": "IDOL-TWS-HANJIN",
+      "GroupID": "GROUP-TWS",
+      "IdolName": "Hanjin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-EVERGLOW-E-U": {
+      "IdolID": "IDOL-EVERGLOW-E-U",
+      "GroupID": "GROUP-EVERGLOW",
+      "IdolName": "E:U",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AHOF-STEVEN": {
+      "IdolID": "IDOL-AHOF-STEVEN",
+      "GroupID": "GROUP-AHOF",
+      "IdolName": "Steven",
+      "GenderCategory": "Male"
+    },
+    "IDOL-DREAMCATCHER-SIYEON": {
+      "IdolID": "IDOL-DREAMCATCHER-SIYEON",
+      "GroupID": "GROUP-DREAMCATCHER",
+      "IdolName": "Siyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KIIRAS-LINGLING": {
+      "IdolID": "IDOL-KIIRAS-LINGLING",
+      "GroupID": "GROUP-KIIRAS",
+      "IdolName": "Lingling",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KICKFLIP-KYEHOON": {
+      "IdolID": "IDOL-KICKFLIP-KYEHOON",
+      "GroupID": "GROUP-KICKFLIP",
+      "IdolName": "Kyehoon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-LIGHTSUM-JUHYEON": {
+      "IdolID": "IDOL-LIGHTSUM-JUHYEON",
+      "GroupID": "GROUP-LIGHTSUM",
+      "IdolName": "Juhyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SEVENTEEN-WONWOO": {
+      "IdolID": "IDOL-SEVENTEEN-WONWOO",
+      "GroupID": "GROUP-SEVENTEEN",
+      "IdolName": "Wonwoo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ONEWE-GIUK": {
+      "IdolID": "IDOL-ONEWE-GIUK",
+      "GroupID": "GROUP-ONEWE",
+      "IdolName": "Giuk",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IVE-GAEUL": {
+      "IdolID": "IDOL-IVE-GAEUL",
+      "GroupID": "GROUP-IVE",
+      "IdolName": "Gaeul",
+      "GenderCategory": "Female"
+    },
+    "IDOL-NMIXX-LILY": {
+      "IdolID": "IDOL-NMIXX-LILY",
+      "GroupID": "GROUP-NMIXX",
+      "IdolName": "Lily",
+      "GenderCategory": "Female"
+    },
+    "IDOL-APINK-EUNJI": {
+      "IdolID": "IDOL-APINK-EUNJI",
+      "GroupID": "GROUP-APINK",
+      "IdolName": "Eunji",
+      "GenderCategory": "Female"
+    },
+    "IDOL-I-O-I-CHAEYEON": {
+      "IdolID": "IDOL-I-O-I-CHAEYEON",
+      "GroupID": "GROUP-I-O-I",
+      "IdolName": "Chaeyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AMPERS-ONE-JIHO": {
+      "IdolID": "IDOL-AMPERS-ONE-JIHO",
+      "GroupID": "GROUP-AMPERS-ONE",
+      "IdolName": "Jiho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TEMPEST-HANBIN": {
+      "IdolID": "IDOL-TEMPEST-HANBIN",
+      "GroupID": "GROUP-TEMPEST",
+      "IdolName": "Hanbin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-RESCENE-WONI": {
+      "IdolID": "IDOL-RESCENE-WONI",
+      "GroupID": "GROUP-RESCENE",
+      "IdolName": "Woni",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KARA-YOUNGJI": {
+      "IdolID": "IDOL-KARA-YOUNGJI",
+      "GroupID": "GROUP-KARA",
+      "IdolName": "Youngji",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TUIDE-SAKI": {
+      "IdolID": "IDOL-TUIDE-SAKI",
+      "GroupID": "GROUP-TUIDE",
+      "IdolName": "Saki",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SOLO-YENA": {
+      "IdolID": "IDOL-SOLO-YENA",
+      "GroupID": "GROUP-SOLO",
+      "IdolName": "Yena",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CORTIS-SEONGHYEON": {
+      "IdolID": "IDOL-CORTIS-SEONGHYEON",
+      "GroupID": "GROUP-CORTIS",
+      "IdolName": "Seonghyeon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-UNIS-GEHLEE": {
+      "IdolID": "IDOL-UNIS-GEHLEE",
+      "GroupID": "GROUP-UNIS",
+      "IdolName": "Gehlee",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AND-TEAM-K": {
+      "IdolID": "IDOL-AND-TEAM-K",
+      "GroupID": "GROUP-AND-TEAM",
+      "IdolName": "K",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ATEEZ-YEOSANG": {
+      "IdolID": "IDOL-ATEEZ-YEOSANG",
+      "GroupID": "GROUP-ATEEZ",
+      "IdolName": "Yeosang",
+      "GenderCategory": "Male"
+    },
+    "IDOL-WJSN-YEOREUM": {
+      "IdolID": "IDOL-WJSN-YEOREUM",
+      "GroupID": "GROUP-WJSN",
+      "IdolName": "Yeoreum",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AND-TEAM-JO": {
+      "IdolID": "IDOL-AND-TEAM-JO",
+      "GroupID": "GROUP-AND-TEAM",
+      "IdolName": "Jo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TWICE-SANA": {
+      "IdolID": "IDOL-TWICE-SANA",
+      "GroupID": "GROUP-TWICE",
+      "IdolName": "Sana",
+      "GenderCategory": "Female"
+    },
+    "IDOL-DREAMCATCHER-YOOHYEON": {
+      "IdolID": "IDOL-DREAMCATCHER-YOOHYEON",
+      "GroupID": "GROUP-DREAMCATCHER",
+      "IdolName": "Yoohyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-THE-BOYZ-JUYEON": {
+      "IdolID": "IDOL-THE-BOYZ-JUYEON",
+      "GroupID": "GROUP-THE-BOYZ",
+      "IdolName": "Juyeon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TWS-KYUNGMIN": {
+      "IdolID": "IDOL-TWS-KYUNGMIN",
+      "GroupID": "GROUP-TWS",
+      "IdolName": "Kyungmin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BTS-V": {
+      "IdolID": "IDOL-BTS-V",
+      "GroupID": "GROUP-BTS",
+      "IdolName": "V",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ONEWE-KANGHYUN": {
+      "IdolID": "IDOL-ONEWE-KANGHYUN",
+      "GroupID": "GROUP-ONEWE",
+      "IdolName": "Kanghyun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ALLHOURS-KUNHO": {
+      "IdolID": "IDOL-ALLHOURS-KUNHO",
+      "GroupID": "GROUP-ALLHOURS",
+      "IdolName": "Kunho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-EPEX-WISH": {
+      "IdolID": "IDOL-EPEX-WISH",
+      "GroupID": "GROUP-EPEX",
+      "IdolName": "Wish",
+      "GenderCategory": "Male"
+    },
+    "IDOL-LE-SSERAFIM-CHAEWON": {
+      "IdolID": "IDOL-LE-SSERAFIM-CHAEWON",
+      "GroupID": "GROUP-LE-SSERAFIM",
+      "IdolName": "Chaewon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TWS-SHINYU": {
+      "IdolID": "IDOL-TWS-SHINYU",
+      "GroupID": "GROUP-TWS",
+      "IdolName": "Shinyu",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IFEYE-KASIA": {
+      "IdolID": "IDOL-IFEYE-KASIA",
+      "GroupID": "GROUP-IFEYE",
+      "IdolName": "Kasia",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ZEROBASEONE-HANBIN": {
+      "IdolID": "IDOL-ZEROBASEONE-HANBIN",
+      "GroupID": "GROUP-ZEROBASEONE",
+      "IdolName": "Hanbin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BABYMONSTER-AHYEON": {
+      "IdolID": "IDOL-BABYMONSTER-AHYEON",
+      "GroupID": "GROUP-BABYMONSTER",
+      "IdolName": "Ahyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CRAVITY-SERIM": {
+      "IdolID": "IDOL-CRAVITY-SERIM",
+      "GroupID": "GROUP-CRAVITY",
+      "IdolName": "Serim",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ATEEZ-SAN": {
+      "IdolID": "IDOL-ATEEZ-SAN",
+      "GroupID": "GROUP-ATEEZ",
+      "IdolName": "San",
+      "GenderCategory": "Male"
+    },
+    "IDOL-AESPA-GISELLE": {
+      "IdolID": "IDOL-AESPA-GISELLE",
+      "GroupID": "GROUP-AESPA",
+      "IdolName": "Giselle",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BLACKPINK-JISOO": {
+      "IdolID": "IDOL-BLACKPINK-JISOO",
+      "GroupID": "GROUP-BLACKPINK",
+      "IdolName": "Jisoo",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AESPA-WINTER": {
+      "IdolID": "IDOL-AESPA-WINTER",
+      "GroupID": "GROUP-AESPA",
+      "IdolName": "Winter",
+      "GenderCategory": "Female"
+    },
+    "IDOL-YOUNG-POSSE-SUNHYE": {
+      "IdolID": "IDOL-YOUNG-POSSE-SUNHYE",
+      "GroupID": "GROUP-YOUNG-POSSE",
+      "IdolName": "Sunhye",
+      "GenderCategory": "Female"
+    },
+    "IDOL-NEWJEANS-HAERIN": {
+      "IdolID": "IDOL-NEWJEANS-HAERIN",
+      "GroupID": "GROUP-NEWJEANS",
+      "IdolName": "Haerin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-THE-BOYZ-SUNWOO": {
+      "IdolID": "IDOL-THE-BOYZ-SUNWOO",
+      "GroupID": "GROUP-THE-BOYZ",
+      "IdolName": "Sunwoo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-QWER-HINA": {
+      "IdolID": "IDOL-QWER-HINA",
+      "GroupID": "GROUP-QWER",
+      "IdolName": "Hina",
+      "GenderCategory": "Female"
+    },
+    "IDOL-PENTAGON-KINO": {
+      "IdolID": "IDOL-PENTAGON-KINO",
+      "GroupID": "GROUP-PENTAGON",
+      "IdolName": "Kino",
+      "GenderCategory": "Male"
+    },
+    "IDOL-DREAMCATCHER-DAMI": {
+      "IdolID": "IDOL-DREAMCATCHER-DAMI",
+      "GroupID": "GROUP-DREAMCATCHER",
+      "IdolName": "Dami",
+      "GenderCategory": "Female"
+    },
+    "IDOL-NIZIU-RIO": {
+      "IdolID": "IDOL-NIZIU-RIO",
+      "GroupID": "GROUP-NIZIU",
+      "IdolName": "Rio",
+      "GenderCategory": "Female"
+    },
+    "IDOL-HEARTS2HEARTS-STELLA": {
+      "IdolID": "IDOL-HEARTS2HEARTS-STELLA",
+      "IdolName": "Stella",
+      "GroupID": "GROUP-HEARTS2HEARTS",
+      "GenderCategory": "Female"
+    },
+    "IDOL-I-DLE-SOYEON": {
+      "IdolID": "IDOL-I-DLE-SOYEON",
+      "GroupID": "GROUP-I-DLE",
+      "IdolName": "Soyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-NCT-127-YUTA": {
+      "IdolID": "IDOL-NCT-127-YUTA",
+      "GroupID": "GROUP-NCT-127",
+      "IdolName": "Yuta",
+      "GenderCategory": "Male"
+    },
+    "IDOL-AND2BLE-ZHANG-HAO": {
+      "IdolID": "IDOL-AND2BLE-ZHANG-HAO",
+      "GroupID": "GROUP-AND2BLE",
+      "IdolName": "Zhang Hao",
+      "GenderCategory": "Male"
+    },
+    "IDOL-MEOVV-NARIN": {
+      "IdolID": "IDOL-MEOVV-NARIN",
+      "GroupID": "GROUP-MEOVV",
+      "IdolName": "Narin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-I-DLE-YUQI": {
+      "IdolID": "IDOL-I-DLE-YUQI",
+      "GroupID": "GROUP-I-DLE",
+      "IdolName": "Yuqi",
+      "GenderCategory": "Female"
+    },
+    "IDOL-GOT7-BAMBAM": {
+      "IdolID": "IDOL-GOT7-BAMBAM",
+      "GroupID": "GROUP-GOT7",
+      "IdolName": "BamBam",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BADVILLAIN-EMMA": {
+      "IdolID": "IDOL-BADVILLAIN-EMMA",
+      "GroupID": "GROUP-BADVILLAIN",
+      "IdolName": "Emma",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RED-VELVET-YERI": {
+      "IdolID": "IDOL-RED-VELVET-YERI",
+      "GroupID": "GROUP-RED-VELVET",
+      "IdolName": "Yeri",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SOLO-PARK-JIHOON": {
+      "IdolID": "IDOL-SOLO-PARK-JIHOON",
+      "GroupID": "GROUP-SOLO",
+      "IdolName": "Park Jihoon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-WOOAH-SORA": {
+      "IdolID": "IDOL-WOOAH-SORA",
+      "GroupID": "GROUP-WOOAH",
+      "IdolName": "Sora",
+      "GenderCategory": "Female"
+    },
+    "IDOL-STAYC-ISA": {
+      "IdolID": "IDOL-STAYC-ISA",
+      "GroupID": "GROUP-STAYC",
+      "IdolName": "Isa",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ENHYPEN-SUNGHOON": {
+      "IdolID": "IDOL-ENHYPEN-SUNGHOON",
+      "GroupID": "GROUP-ENHYPEN",
+      "IdolName": "Sunghoon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-N-FLYING-HWESEUNG": {
+      "IdolID": "IDOL-N-FLYING-HWESEUNG",
+      "GroupID": "GROUP-N-FLYING",
+      "IdolName": "Hweseung",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ENHYPEN-JAY": {
+      "IdolID": "IDOL-ENHYPEN-JAY",
+      "GroupID": "GROUP-ENHYPEN",
+      "IdolName": "Jay",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SF9-CHANI": {
+      "IdolID": "IDOL-SF9-CHANI",
+      "GroupID": "GROUP-SF9",
+      "IdolName": "Chani",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IVE-WONYOUNG": {
+      "IdolID": "IDOL-IVE-WONYOUNG",
+      "GroupID": "GROUP-IVE",
+      "IdolName": "Wonyoung",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SOLO-EUNBI": {
+      "IdolID": "IDOL-SOLO-EUNBI",
+      "GroupID": "GROUP-SOLO",
+      "IdolName": "Eunbi",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BILLLIE-HARUNA": {
+      "IdolID": "IDOL-BILLLIE-HARUNA",
+      "GroupID": "GROUP-BILLLIE",
+      "IdolName": "Haruna",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ROCKET-PUNCH-SOHEE": {
+      "IdolID": "IDOL-ROCKET-PUNCH-SOHEE",
+      "GroupID": "GROUP-ROCKET-PUNCH",
+      "IdolName": "Sohee",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TXT-YEONJUN": {
+      "IdolID": "IDOL-TXT-YEONJUN",
+      "GroupID": "GROUP-TXT",
+      "IdolName": "Yeonjun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TNX-TAEHUN": {
+      "IdolID": "IDOL-TNX-TAEHUN",
+      "GroupID": "GROUP-TNX",
+      "IdolName": "Taehun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-A-C-E-JUNHEE": {
+      "IdolID": "IDOL-A-C-E-JUNHEE",
+      "GroupID": "GROUP-A-C-E",
+      "IdolName": "Junhee",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ALD1-SANGWON": {
+      "IdolID": "IDOL-ALD1-SANGWON",
+      "GroupID": "GROUP-ALD1",
+      "IdolName": "Sangwon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IDNTT-TAEIN": {
+      "IdolID": "IDOL-IDNTT-TAEIN",
+      "GroupID": "GROUP-IDNTT",
+      "IdolName": "Taein",
+      "GenderCategory": "Male"
+    },
+    "IDOL-RED-VELVET-IRENE": {
+      "IdolID": "IDOL-RED-VELVET-IRENE",
+      "GroupID": "GROUP-RED-VELVET",
+      "IdolName": "Irene",
+      "GenderCategory": "Female"
+    },
+    "IDOL-FIFTY-FIFTY-CHANELLE-MOON": {
+      "IdolID": "IDOL-FIFTY-FIFTY-CHANELLE-MOON",
+      "GroupID": "GROUP-FIFTY-FIFTY",
+      "IdolName": "Chanelle Moon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SEVENTEEN-JEONGHAN": {
+      "IdolID": "IDOL-SEVENTEEN-JEONGHAN",
+      "GroupID": "GROUP-SEVENTEEN",
+      "IdolName": "Jeonghan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ASTRO-SANHA": {
+      "IdolID": "IDOL-ASTRO-SANHA",
+      "GroupID": "GROUP-ASTRO",
+      "IdolName": "Sanha",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SF9-HWIYOUNG": {
+      "IdolID": "IDOL-SF9-HWIYOUNG",
+      "GroupID": "GROUP-SF9",
+      "IdolName": "Hwiyoung",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TRIPLES-NIEN": {
+      "IdolID": "IDOL-TRIPLES-NIEN",
+      "GroupID": "GROUP-TRIPLES",
+      "IdolName": "Nien",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ITZY-RYUJIN": {
+      "IdolID": "IDOL-ITZY-RYUJIN",
+      "GroupID": "GROUP-ITZY",
+      "IdolName": "Ryujin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BABYMONSTER-PHARITA": {
+      "IdolID": "IDOL-BABYMONSTER-PHARITA",
+      "GroupID": "GROUP-BABYMONSTER",
+      "IdolName": "Pharita",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RIIZE-WONBIN": {
+      "IdolID": "IDOL-RIIZE-WONBIN",
+      "GroupID": "GROUP-RIIZE",
+      "IdolName": "Wonbin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TWICE-JIHYO": {
+      "IdolID": "IDOL-TWICE-JIHYO",
+      "GroupID": "GROUP-TWICE",
+      "IdolName": "Jihyo",
+      "GenderCategory": "Female"
+    },
+    "IDOL-NCT-DREAM-HAECHAN": {
+      "IdolID": "IDOL-NCT-DREAM-HAECHAN",
+      "GroupID": "GROUP-NCT-DREAM",
+      "IdolName": "Haechan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-PLAVE-EUNHO": {
+      "IdolID": "IDOL-PLAVE-EUNHO",
+      "GroupID": "GROUP-PLAVE",
+      "IdolName": "Eunho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-EVNNE-HANBIN": {
+      "IdolID": "IDOL-EVNNE-HANBIN",
+      "GroupID": "GROUP-EVNNE",
+      "IdolName": "Hanbin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-CIX-BX": {
+      "IdolID": "IDOL-CIX-BX",
+      "GroupID": "GROUP-CIX",
+      "IdolName": "BX",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IDID-SEMIN": {
+      "IdolID": "IDOL-IDID-SEMIN",
+      "GroupID": "GROUP-IDID",
+      "IdolName": "Semin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NCT-DREAM-RENJUN": {
+      "IdolID": "IDOL-NCT-DREAM-RENJUN",
+      "GroupID": "GROUP-NCT-DREAM",
+      "IdolName": "Renjun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-QWER-MAGENTA": {
+      "IdolID": "IDOL-QWER-MAGENTA",
+      "GroupID": "GROUP-QWER",
+      "IdolName": "Magenta",
+      "GenderCategory": "Female"
+    },
+    "IDOL-STAYC-SIEUN": {
+      "IdolID": "IDOL-STAYC-SIEUN",
+      "GroupID": "GROUP-STAYC",
+      "IdolName": "Sieun",
+      "GenderCategory": "Female"
+    },
+    "IDOL-MEOVV-ANNA": {
+      "IdolID": "IDOL-MEOVV-ANNA",
+      "GroupID": "GROUP-MEOVV",
+      "IdolName": "Anna",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RESCENE-GROUP": {
+      "IdolID": "IDOL-RESCENE-GROUP",
+      "GroupID": "GROUP-RESCENE",
+      "IdolName": "RESCENE",
+      "GenderCategory": "Female"
+    },
+    "IDOL-82MAJOR-SEONGMO": {
+      "IdolID": "IDOL-82MAJOR-SEONGMO",
+      "GroupID": "GROUP-82MAJOR",
+      "IdolName": "Seongmo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ONEWE-YONGHOON": {
+      "IdolID": "IDOL-ONEWE-YONGHOON",
+      "GroupID": "GROUP-ONEWE",
+      "IdolName": "Yonghoon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BABYMONSTER-RORA": {
+      "IdolID": "IDOL-BABYMONSTER-RORA",
+      "GroupID": "GROUP-BABYMONSTER",
+      "IdolName": "Rora",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TRIPLES-XINYU": {
+      "IdolID": "IDOL-TRIPLES-XINYU",
+      "GroupID": "GROUP-TRIPLES",
+      "IdolName": "Xinyu",
+      "GenderCategory": "Female"
+    },
+    "IDOL-FLARE-U-CHUEI-LIYU": {
+      "IdolID": "IDOL-FLARE-U-CHUEI-LIYU",
+      "GroupID": "GROUP-FLARE-U",
+      "IdolName": "Chuei Liyu",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SANTOS-BRAVOS-GABI": {
+      "IdolID": "IDOL-SANTOS-BRAVOS-GABI",
+      "GroupID": "GROUP-SANTOS-BRAVOS",
+      "IdolName": "Gabi",
+      "GenderCategory": "Male"
+    },
+    "IDOL-MAMAMOO-MOONBYUL": {
+      "IdolID": "IDOL-MAMAMOO-MOONBYUL",
+      "GroupID": "GROUP-MAMAMOO",
+      "IdolName": "Moonbyul",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SOLO-TAEYEON": {
+      "IdolID": "IDOL-SOLO-TAEYEON",
+      "GroupID": "GROUP-SOLO",
+      "IdolName": "Taeyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BABYMONSTER-RAMI": {
+      "IdolID": "IDOL-BABYMONSTER-RAMI",
+      "GroupID": "GROUP-BABYMONSTER",
+      "IdolName": "Rami",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BIGBANG-G-DRAGON": {
+      "IdolID": "IDOL-BIGBANG-G-DRAGON",
+      "GroupID": "GROUP-BIGBANG",
+      "IdolName": "G-Dragon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-P1HARMONY-JIUNG": {
+      "IdolID": "IDOL-P1HARMONY-JIUNG",
+      "GroupID": "GROUP-P1HARMONY",
+      "IdolName": "Jiung",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IVE-LEESEO": {
+      "IdolID": "IDOL-IVE-LEESEO",
+      "GroupID": "GROUP-IVE",
+      "IdolName": "Leeseo",
+      "GenderCategory": "Female"
+    },
+    "IDOL-WEEEKLY-JIHAN": {
+      "IdolID": "IDOL-WEEEKLY-JIHAN",
+      "GroupID": "GROUP-WEEEKLY",
+      "IdolName": "Jihan",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KEP1ER-YUJIN": {
+      "IdolID": "IDOL-KEP1ER-YUJIN",
+      "GroupID": "GROUP-KEP1ER",
+      "IdolName": "Yujin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KIIIKIII-SUI": {
+      "IdolID": "IDOL-KIIIKIII-SUI",
+      "GroupID": "GROUP-KIIIKIII",
+      "IdolName": "Sui",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ONEUS-XION": {
+      "IdolID": "IDOL-ONEUS-XION",
+      "GroupID": "GROUP-ONEUS",
+      "IdolName": "Xion",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BOYNEXTDOOR-LEEHAN": {
+      "IdolID": "IDOL-BOYNEXTDOOR-LEEHAN",
+      "GroupID": "GROUP-BOYNEXTDOOR",
+      "IdolName": "Leehan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-PURPLE-KISS-GOEUN": {
+      "IdolID": "IDOL-PURPLE-KISS-GOEUN",
+      "GroupID": "GROUP-PURPLE-KISS",
+      "IdolName": "GoEun",
+      "GenderCategory": "Female"
+    },
+    "IDOL-EXO-SUHO": {
+      "IdolID": "IDOL-EXO-SUHO",
+      "GroupID": "GROUP-EXO",
+      "IdolName": "Suho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-HEARTS2HEARTS-JUUN": {
+      "IdolID": "IDOL-HEARTS2HEARTS-JUUN",
+      "GroupID": "GROUP-HEARTS2HEARTS",
+      "IdolName": "Juun",
+      "GenderCategory": "Female"
+    },
+    "IDOL-IZNA-MAI": {
+      "IdolID": "IDOL-IZNA-MAI",
+      "GroupID": "GROUP-IZNA",
+      "IdolName": "Mai",
+      "GenderCategory": "Female"
+    },
+    "IDOL-XG-MAYA": {
+      "IdolID": "IDOL-XG-MAYA",
+      "GroupID": "GROUP-XG",
+      "IdolName": "Maya",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AOEN-REO": {
+      "IdolID": "IDOL-AOEN-REO",
+      "GroupID": "GROUP-AOEN",
+      "IdolName": "Gaku",
+      "GenderCategory": "Male"
+    },
+    "IDOL-MEOVV-ELLA": {
+      "IdolID": "IDOL-MEOVV-ELLA",
+      "GroupID": "GROUP-MEOVV",
+      "IdolName": "Ella",
+      "GenderCategory": "Female"
+    },
+    "IDOL-IDNTT-DOHUN": {
+      "IdolID": "IDOL-IDNTT-DOHUN",
+      "GroupID": "GROUP-IDNTT",
+      "IdolName": "Dohun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NEWJEANS-MINJI": {
+      "IdolID": "IDOL-NEWJEANS-MINJI",
+      "GroupID": "GROUP-NEWJEANS",
+      "IdolName": "Minji",
+      "GenderCategory": "Female"
+    },
+    "IDOL-HEARTS2HEARTS-JIWOO": {
+      "IdolID": "IDOL-HEARTS2HEARTS-JIWOO",
+      "GroupID": "GROUP-HEARTS2HEARTS",
+      "IdolName": "Jiwoo",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RED-VELVET-SEULGI": {
+      "IdolID": "IDOL-RED-VELVET-SEULGI",
+      "GroupID": "GROUP-RED-VELVET",
+      "IdolName": "Seulgi",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KIIIKIII-JIYU": {
+      "IdolID": "IDOL-KIIIKIII-JIYU",
+      "GroupID": "GROUP-KIIIKIII",
+      "IdolName": "Jiyu",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TXT-SOOBIN": {
+      "IdolID": "IDOL-TXT-SOOBIN",
+      "GroupID": "GROUP-TXT",
+      "IdolName": "Soobin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BTS-JIMIN": {
+      "IdolID": "IDOL-BTS-JIMIN",
+      "GroupID": "GROUP-BTS",
+      "IdolName": "Jimin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ILLIT-MINJU": {
+      "IdolID": "IDOL-ILLIT-MINJU",
+      "GroupID": "GROUP-ILLIT",
+      "IdolName": "Minju",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TEMPEST-HYUK": {
+      "IdolID": "IDOL-TEMPEST-HYUK",
+      "GroupID": "GROUP-TEMPEST",
+      "IdolName": "Hyuk",
+      "GenderCategory": "Male"
+    },
+    "IDOL-LE-SSERAFIM-KAZUHA": {
+      "IdolID": "IDOL-LE-SSERAFIM-KAZUHA",
+      "GroupID": "GROUP-LE-SSERAFIM",
+      "IdolName": "Kazuha",
+      "GenderCategory": "Female"
+    },
+    "IDOL-LIGHTSUM-CHOWON": {
+      "IdolID": "IDOL-LIGHTSUM-CHOWON",
+      "GroupID": "GROUP-LIGHTSUM",
+      "IdolName": "Chowon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-POW-YORCH": {
+      "IdolID": "IDOL-POW-YORCH",
+      "GroupID": "GROUP-POW",
+      "IdolName": "Yorch",
+      "GenderCategory": "Male"
+    },
+    "IDOL-THE-BOYZ-HYUNJAE": {
+      "IdolID": "IDOL-THE-BOYZ-HYUNJAE",
+      "GroupID": "GROUP-THE-BOYZ",
+      "IdolName": "Hyunjae",
+      "GenderCategory": "Male"
+    },
+    "IDOL-YOUNITE-STEVE": {
+      "IdolID": "IDOL-YOUNITE-STEVE",
+      "GroupID": "GROUP-YOUNITE",
+      "IdolName": "Steve",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TRIPLES-YEONJI": {
+      "IdolID": "IDOL-TRIPLES-YEONJI",
+      "GroupID": "GROUP-TRIPLES",
+      "IdolName": "Yeonji",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KEP1ER-XIAOTING": {
+      "IdolID": "IDOL-KEP1ER-XIAOTING",
+      "GroupID": "GROUP-KEP1ER",
+      "IdolName": "Xiaoting",
+      "GenderCategory": "Female"
+    },
+    "IDOL-WEI-SEOKHWA": {
+      "IdolID": "IDOL-WEI-SEOKHWA",
+      "GroupID": "GROUP-WEI",
+      "IdolName": "Seokhwa",
+      "GenderCategory": "Male"
+    },
+    "IDOL-LNGSHOT-RYUL": {
+      "IdolID": "IDOL-LNGSHOT-RYUL",
+      "GroupID": "GROUP-LNGSHOT",
+      "IdolName": "Ryul",
+      "GenderCategory": "Male"
+    },
+    "IDOL-KARA-NICOLE": {
+      "IdolID": "IDOL-KARA-NICOLE",
+      "GroupID": "GROUP-KARA",
+      "IdolName": "Nicole",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ONF-MINKYUN": {
+      "IdolID": "IDOL-ONF-MINKYUN",
+      "GroupID": "GROUP-ONF",
+      "IdolName": "Minkyun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SAY-MY-NAME-MEI": {
+      "IdolID": "IDOL-SAY-MY-NAME-MEI",
+      "GroupID": "GROUP-SAY-MY-NAME",
+      "IdolName": "Mei",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TUIDE-JIA": {
+      "IdolID": "IDOL-TUIDE-JIA",
+      "GroupID": "GROUP-TUIDE",
+      "IdolName": "Jia",
+      "GenderCategory": "Female"
+    },
+    "IDOL-XDINARY-HEROES-JUNGSU": {
+      "IdolID": "IDOL-XDINARY-HEROES-JUNGSU",
+      "GroupID": "GROUP-XDINARY-HEROES",
+      "IdolName": "Jungsu",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NCT-WISH-JAEHEE": {
+      "IdolID": "IDOL-NCT-WISH-JAEHEE",
+      "GroupID": "GROUP-NCT-WISH",
+      "IdolName": "Jaehee",
+      "GenderCategory": "Male"
+    },
+    "IDOL-CLOSE-YOUR-EYES-KENSHIN": {
+      "IdolID": "IDOL-CLOSE-YOUR-EYES-KENSHIN",
+      "GroupID": "GROUP-CLOSE-YOUR-EYES",
+      "IdolName": "Kenshin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-82MAJOR-YECHAN": {
+      "IdolID": "IDOL-82MAJOR-YECHAN",
+      "GroupID": "GROUP-82MAJOR",
+      "IdolName": "Yechan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ALD1-ARNO": {
+      "IdolID": "IDOL-ALD1-ARNO",
+      "GroupID": "GROUP-ALD1",
+      "IdolName": "Arno",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ITZY-CHAERYEONG": {
+      "IdolID": "IDOL-ITZY-CHAERYEONG",
+      "GroupID": "GROUP-ITZY",
+      "IdolName": "Chaeryeong",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TREASURE-JUNKYU": {
+      "IdolID": "IDOL-TREASURE-JUNKYU",
+      "GroupID": "GROUP-TREASURE",
+      "IdolName": "Junkyu",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ARTMS-HEEJIN": {
+      "IdolID": "IDOL-ARTMS-HEEJIN",
+      "GroupID": "GROUP-ARTMS",
+      "IdolName": "Heejin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RESCENE-LIV": {
+      "IdolID": "IDOL-RESCENE-LIV",
+      "GroupID": "GROUP-RESCENE",
+      "IdolName": "Liv",
+      "GenderCategory": "Female"
+    },
+    "IDOL-LE-SSERAFIM-YUNJIN": {
+      "IdolID": "IDOL-LE-SSERAFIM-YUNJIN",
+      "GroupID": "GROUP-LE-SSERAFIM",
+      "IdolName": "Yunjin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TXT-HUENING-KAI": {
+      "IdolID": "IDOL-TXT-HUENING-KAI",
+      "GroupID": "GROUP-TXT",
+      "IdolName": "Huening Kai",
+      "GenderCategory": "Male"
+    },
+    "IDOL-WOOAH-WOOYEON": {
+      "IdolID": "IDOL-WOOAH-WOOYEON",
+      "GroupID": "GROUP-WOOAH",
+      "IdolName": "Wooyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TRIPLES-CHAEWON": {
+      "IdolID": "IDOL-TRIPLES-CHAEWON",
+      "GroupID": "GROUP-TRIPLES",
+      "IdolName": "Chaewon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ONEUS-LEEDO": {
+      "IdolID": "IDOL-ONEUS-LEEDO",
+      "GroupID": "GROUP-ONEUS",
+      "IdolName": "Leedo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SEVENTEEN-THE8": {
+      "IdolID": "IDOL-SEVENTEEN-THE8",
+      "GroupID": "GROUP-SEVENTEEN",
+      "IdolName": "THE8",
+      "GenderCategory": "Male"
+    },
+    "IDOL-MAMAMOO-SOLAR": {
+      "IdolID": "IDOL-MAMAMOO-SOLAR",
+      "GroupID": "GROUP-MAMAMOO",
+      "IdolName": "Solar",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ITZY-LIA": {
+      "IdolID": "IDOL-ITZY-LIA",
+      "GroupID": "GROUP-ITZY",
+      "IdolName": "Lia",
+      "GenderCategory": "Female"
+    },
+    "IDOL-IVE-REI": {
+      "IdolID": "IDOL-IVE-REI",
+      "GroupID": "GROUP-IVE",
+      "IdolName": "Rei",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RIIZE-SUNGCHAN": {
+      "IdolID": "IDOL-RIIZE-SUNGCHAN",
+      "GroupID": "GROUP-RIIZE",
+      "IdolName": "Sungchan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-CLC-YEEUN": {
+      "IdolID": "IDOL-CLC-YEEUN",
+      "GroupID": "GROUP-CLC",
+      "IdolName": "Yeeun",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ENHYPEN-JAKE": {
+      "IdolID": "IDOL-ENHYPEN-JAKE",
+      "GroupID": "GROUP-ENHYPEN",
+      "IdolName": "Jake",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ONEUS-HWANWOONG": {
+      "IdolID": "IDOL-ONEUS-HWANWOONG",
+      "GroupID": "GROUP-ONEUS",
+      "IdolName": "Hwanwoong",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ZEROBASEONE-TAERAE": {
+      "IdolID": "IDOL-ZEROBASEONE-TAERAE",
+      "GroupID": "GROUP-ZEROBASEONE",
+      "IdolName": "Taerae",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BLACKPINK-LISA": {
+      "IdolID": "IDOL-BLACKPINK-LISA",
+      "GroupID": "GROUP-BLACKPINK",
+      "IdolName": "Lisa",
+      "GenderCategory": "Female"
+    },
+    "IDOL-WEI-YOHAN": {
+      "IdolID": "IDOL-WEI-YOHAN",
+      "GroupID": "GROUP-WEI",
+      "IdolName": "Yohan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-HEARTS2HEARTS-IAN": {
+      "IdolID": "IDOL-HEARTS2HEARTS-IAN",
+      "GroupID": "GROUP-HEARTS2HEARTS",
+      "IdolName": "Ian",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BOYNEXTDOOR-JAEHYUN": {
+      "IdolID": "IDOL-BOYNEXTDOOR-JAEHYUN",
+      "GroupID": "GROUP-BOYNEXTDOOR",
+      "IdolName": "Jaehyun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-CHERRY-BULLET-MAY": {
+      "IdolID": "IDOL-CHERRY-BULLET-MAY",
+      "GroupID": "GROUP-CHERRY-BULLET",
+      "IdolName": "May",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CRAVITY-HYEONGJUN": {
+      "IdolID": "IDOL-CRAVITY-HYEONGJUN",
+      "GroupID": "GROUP-CRAVITY",
+      "IdolName": "Hyeongjun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-DAY6-DOWOON": {
+      "IdolID": "IDOL-DAY6-DOWOON",
+      "GroupID": "GROUP-DAY6",
+      "IdolName": "Dowoon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ASTRO-CHA-EUNWOO": {
+      "IdolID": "IDOL-ASTRO-CHA-EUNWOO",
+      "GroupID": "GROUP-ASTRO",
+      "IdolName": "Cha Eunwoo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-AHOF-JL": {
+      "IdolID": "IDOL-AHOF-JL",
+      "GroupID": "GROUP-AHOF",
+      "IdolName": "JL",
+      "GenderCategory": "Male"
+    },
+    "IDOL-PLAVE-NOAH": {
+      "IdolID": "IDOL-PLAVE-NOAH",
+      "GroupID": "GROUP-PLAVE",
+      "IdolName": "Noah",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TWS-JIHOON": {
+      "IdolID": "IDOL-TWS-JIHOON",
+      "GroupID": "GROUP-TWS",
+      "IdolName": "Jihoon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-CRAVITY-MINHEE": {
+      "IdolID": "IDOL-CRAVITY-MINHEE",
+      "GroupID": "GROUP-CRAVITY",
+      "IdolName": "Minhee",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SOLO-CHUU": {
+      "IdolID": "IDOL-SOLO-CHUU",
+      "GroupID": "GROUP-SOLO",
+      "IdolName": "Chuu",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TWICE-NAYEON": {
+      "IdolID": "IDOL-TWICE-NAYEON",
+      "GroupID": "GROUP-TWICE",
+      "IdolName": "Nayeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SHINEE-TAEMIN": {
+      "IdolID": "IDOL-SHINEE-TAEMIN",
+      "GroupID": "GROUP-SHINEE",
+      "IdolName": "Taemin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ONE-PACT-JAY-CHANG": {
+      "IdolID": "IDOL-ONE-PACT-JAY-CHANG",
+      "GroupID": "GROUP-ONE-PACT",
+      "IdolName": "Jay Chang",
+      "GenderCategory": "Male"
+    },
+    "IDOL-AB6IX-WOONG": {
+      "IdolID": "IDOL-AB6IX-WOONG",
+      "GroupID": "GROUP-AB6IX",
+      "IdolName": "Woong",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ATEEZ-WOOYOUNG": {
+      "IdolID": "IDOL-ATEEZ-WOOYOUNG",
+      "GroupID": "GROUP-ATEEZ",
+      "IdolName": "Wooyoung",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BILLLIE-TSUKI": {
+      "IdolID": "IDOL-BILLLIE-TSUKI",
+      "GroupID": "GROUP-BILLLIE",
+      "IdolName": "Tsuki",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CSR-DUNA": {
+      "IdolID": "IDOL-CSR-DUNA",
+      "GroupID": "GROUP-CSR",
+      "IdolName": "Duna",
+      "GenderCategory": "Female"
+    },
+    "IDOL-XIKERS-HUNTER": {
+      "IdolID": "IDOL-XIKERS-HUNTER",
+      "GroupID": "GROUP-XIKERS",
+      "IdolName": "Hunter",
+      "GenderCategory": "Male"
+    },
+    "IDOL-EVNNE-JEONGHYEON": {
+      "IdolID": "IDOL-EVNNE-JEONGHYEON",
+      "GroupID": "GROUP-EVNNE",
+      "IdolName": "Jeonghyeon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-STRAY-KIDS-LEE-KNOW": {
+      "IdolID": "IDOL-STRAY-KIDS-LEE-KNOW",
+      "GroupID": "GROUP-STRAY-KIDS",
+      "IdolName": "Lee Know",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TRIPLES-JIWOO": {
+      "IdolID": "IDOL-TRIPLES-JIWOO",
+      "GroupID": "GROUP-TRIPLES",
+      "IdolName": "Jiwoo",
+      "GenderCategory": "Female"
+    },
+    "IDOL-RIIZE-SOHEE": {
+      "IdolID": "IDOL-RIIZE-SOHEE",
+      "GroupID": "GROUP-RIIZE",
+      "IdolName": "Sohee",
+      "GenderCategory": "Male"
+    },
+    "IDOL-GIRLS-GENERATION-YOONA": {
+      "IdolID": "IDOL-GIRLS-GENERATION-YOONA",
+      "GroupID": "GROUP-GIRLS-GENERATION",
+      "IdolName": "Yoona",
+      "GenderCategory": "Female"
+    },
+    "IDOL-UNIS-ELISIA": {
+      "IdolID": "IDOL-UNIS-ELISIA",
+      "GroupID": "GROUP-UNIS",
+      "IdolName": "Elisia",
+      "GenderCategory": "Female"
+    },
+    "IDOL-STRAY-KIDS-HYUNJIN": {
+      "IdolID": "IDOL-STRAY-KIDS-HYUNJIN",
+      "GroupID": "GROUP-STRAY-KIDS",
+      "IdolName": "Hyunjin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-AB6IX-WOOJIN": {
+      "IdolID": "IDOL-AB6IX-WOOJIN",
+      "GroupID": "GROUP-AB6IX",
+      "IdolName": "Woojin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BILLLIE-SHEON": {
+      "IdolID": "IDOL-BILLLIE-SHEON",
+      "GroupID": "GROUP-BILLLIE",
+      "IdolName": "Sheon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-NMIXX-SULLYOON": {
+      "IdolID": "IDOL-NMIXX-SULLYOON",
+      "GroupID": "GROUP-NMIXX",
+      "IdolName": "Sullyoon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-DRIPPIN-JUNHO": {
+      "IdolID": "IDOL-DRIPPIN-JUNHO",
+      "GroupID": "GROUP-DRIPPIN",
+      "IdolName": "Junho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TRIPLES-JOOBIN": {
+      "IdolID": "IDOL-TRIPLES-JOOBIN",
+      "GroupID": "GROUP-TRIPLES",
+      "IdolName": "JooBin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KIIIKIII-HAUM": {
+      "IdolID": "IDOL-KIIIKIII-HAUM",
+      "GroupID": "GROUP-KIIIKIII",
+      "IdolName": "Haum",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KIIIKIII-LEESOL": {
+      "IdolID": "IDOL-KIIIKIII-LEESOL",
+      "GroupID": "GROUP-KIIIKIII",
+      "IdolName": "Leesol",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KICKFLIP-KEIJU": {
+      "IdolID": "IDOL-KICKFLIP-KEIJU",
+      "GroupID": "GROUP-KICKFLIP",
+      "IdolName": "Keiju",
+      "GenderCategory": "Male"
+    },
+    "IDOL-MADEIN-MIU": {
+      "IdolID": "IDOL-MADEIN-MIU",
+      "GroupID": "GROUP-MADEIN",
+      "IdolName": "MiU",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CSR-YUNA": {
+      "IdolID": "IDOL-CSR-YUNA",
+      "GroupID": "GROUP-CSR",
+      "IdolName": "Yuna",
+      "GenderCategory": "Female"
+    },
+    "IDOL-BADVILLAIN-CHLOE-YOUNG": {
+      "IdolID": "IDOL-BADVILLAIN-CHLOE-YOUNG",
+      "GroupID": "GROUP-BADVILLAIN",
+      "IdolName": "Chloe Young",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KICKFLIP-MINJE": {
+      "IdolID": "IDOL-KICKFLIP-MINJE",
+      "GroupID": "GROUP-KICKFLIP",
+      "IdolName": "Minje",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SEVENTEEN-MINGYU": {
+      "IdolID": "IDOL-SEVENTEEN-MINGYU",
+      "GroupID": "GROUP-SEVENTEEN",
+      "IdolName": "Mingyu",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BOYNEXTDOOR-RIWOO": {
+      "IdolID": "IDOL-BOYNEXTDOOR-RIWOO",
+      "GroupID": "GROUP-BOYNEXTDOOR",
+      "IdolName": "Riwoo",
+      "GenderCategory": "Male"
+    },
+    "IDOL-8TURN-MYUNGHO": {
+      "IdolID": "IDOL-8TURN-MYUNGHO",
+      "GroupID": "GROUP-8TURN",
+      "IdolName": "Myungho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-XG-JURIN": {
+      "IdolID": "IDOL-XG-JURIN",
+      "GroupID": "GROUP-XG",
+      "IdolName": "Jurin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-IZ-ONE-NAKO": {
+      "IdolID": "IDOL-IZ-ONE-NAKO",
+      "GroupID": "GROUP-IZ-ONE",
+      "IdolName": "Nako",
+      "GenderCategory": "Female"
+    },
+    "IDOL-P1HARMONY-KEEHO": {
+      "IdolID": "IDOL-P1HARMONY-KEEHO",
+      "GroupID": "GROUP-P1HARMONY",
+      "IdolName": "Keeho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-ATEEZ-SEONGHWA": {
+      "IdolID": "IDOL-ATEEZ-SEONGHWA",
+      "GroupID": "GROUP-ATEEZ",
+      "IdolName": "Seonghwa",
+      "GenderCategory": "Male"
+    },
+    "IDOL-YOUNITE-EUNHO": {
+      "IdolID": "IDOL-YOUNITE-EUNHO",
+      "GroupID": "GROUP-YOUNITE",
+      "IdolName": "Eunho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-N-FLYING-SEUNGHYUB": {
+      "IdolID": "IDOL-N-FLYING-SEUNGHYUB",
+      "GroupID": "GROUP-N-FLYING",
+      "IdolName": "Seunghyub",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BOYNEXTDOOR-TAESAN": {
+      "IdolID": "IDOL-BOYNEXTDOOR-TAESAN",
+      "GroupID": "GROUP-BOYNEXTDOOR",
+      "IdolName": "Taesan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-I-DLE-MIYEON": {
+      "IdolID": "IDOL-I-DLE-MIYEON",
+      "GroupID": "GROUP-I-DLE",
+      "IdolName": "Miyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-LE-SSERAFIM-EUNCHAE": {
+      "IdolID": "IDOL-LE-SSERAFIM-EUNCHAE",
+      "GroupID": "GROUP-LE-SSERAFIM",
+      "IdolName": "Eunchae",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CORTIS-KEONHO": {
+      "IdolID": "IDOL-CORTIS-KEONHO",
+      "GroupID": "GROUP-CORTIS",
+      "IdolName": "Keonho",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NEWJEANS-HANNI": {
+      "IdolID": "IDOL-NEWJEANS-HANNI",
+      "GroupID": "GROUP-NEWJEANS",
+      "IdolName": "Hanni",
+      "GenderCategory": "Female"
+    },
+    "IDOL-IZNA-SARANG": {
+      "IdolID": "IDOL-IZNA-SARANG",
+      "IdolName": "Sarang",
+      "GroupID": "GROUP-IZNA",
+      "GenderCategory": "Female"
+    },
+    "IDOL-EVNNE-KEITA": {
+      "IdolID": "IDOL-EVNNE-KEITA",
+      "GroupID": "GROUP-EVNNE",
+      "IdolName": "Keita",
+      "GenderCategory": "Male"
+    },
+    "IDOL-KEP1ER-CHAEHYUN": {
+      "IdolID": "IDOL-KEP1ER-CHAEHYUN",
+      "GroupID": "GROUP-KEP1ER",
+      "IdolName": "Chaehyun",
+      "GenderCategory": "Female"
+    },
+    "IDOL-UNIS-NANA": {
+      "IdolID": "IDOL-UNIS-NANA",
+      "GroupID": "GROUP-UNIS",
+      "IdolName": "Nana",
+      "GenderCategory": "Female"
+    },
+    "IDOL-WOOAH-NANA": {
+      "IdolID": "IDOL-WOOAH-NANA",
+      "GroupID": "GROUP-WOOAH",
+      "IdolName": "Nana",
+      "GenderCategory": "Female"
+    },
+    "IDOL-SEVENTEEN-JOSHUA": {
+      "IdolID": "IDOL-SEVENTEEN-JOSHUA",
+      "GroupID": "GROUP-SEVENTEEN",
+      "IdolName": "Joshua",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SOLO-HONG-EUNKI": {
+      "IdolID": "IDOL-SOLO-HONG-EUNKI",
+      "GroupID": "GROUP-SOLO",
+      "IdolName": "Hong Eunki",
+      "GenderCategory": "Male"
+    },
+    "IDOL-LE-SSERAFIM-SAKURA": {
+      "IdolID": "IDOL-LE-SSERAFIM-SAKURA",
+      "GroupID": "GROUP-LE-SSERAFIM",
+      "IdolName": "Sakura",
+      "GenderCategory": "Female"
+    },
+    "IDOL-IDNTT-CHO-EUNCHAN": {
+      "IdolID": "IDOL-IDNTT-CHO-EUNCHAN",
+      "GroupID": "GROUP-IDNTT",
+      "IdolName": "Cho EunChan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TREASURE-ASAHI": {
+      "IdolID": "IDOL-TREASURE-ASAHI",
+      "GroupID": "GROUP-TREASURE",
+      "IdolName": "Asahi",
+      "GenderCategory": "Male"
+    },
+    "IDOL-DREAMCATCHER-JIU": {
+      "IdolID": "IDOL-DREAMCATCHER-JIU",
+      "GroupID": "GROUP-DREAMCATCHER",
+      "IdolName": "JiU",
+      "GenderCategory": "Female"
+    },
+    "IDOL-2NE1-MINZY": {
+      "IdolID": "IDOL-2NE1-MINZY",
+      "GroupID": "GROUP-2NE1",
+      "IdolName": "Minzy",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AND-TEAM-FUMA": {
+      "IdolID": "IDOL-AND-TEAM-FUMA",
+      "GroupID": "GROUP-AND-TEAM",
+      "IdolName": "Fuma",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SOLO-WOODZ": {
+      "IdolID": "IDOL-SOLO-WOODZ",
+      "GroupID": "GROUP-SOLO",
+      "IdolName": "Woodz",
+      "GenderCategory": "Male"
+    },
+    "IDOL-IZNA-JUNGEUN": {
+      "IdolID": "IDOL-IZNA-JUNGEUN",
+      "GroupID": "GROUP-IZNA",
+      "IdolName": "Jungeun",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ILLIT-IROHA": {
+      "IdolID": "IDOL-ILLIT-IROHA",
+      "GroupID": "GROUP-ILLIT",
+      "IdolName": "Iroha",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TWICE-MINA": {
+      "IdolID": "IDOL-TWICE-MINA",
+      "GroupID": "GROUP-TWICE",
+      "IdolName": "Mina",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CIX-SEUNGHUN": {
+      "IdolID": "IDOL-CIX-SEUNGHUN",
+      "GroupID": "GROUP-CIX",
+      "IdolName": "Seunghun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-EXO-KAI": {
+      "IdolID": "IDOL-EXO-KAI",
+      "GroupID": "GROUP-EXO",
+      "IdolName": "Kai",
+      "GenderCategory": "Male"
+    },
+    "IDOL-TNX-KYUNGJUN": {
+      "IdolID": "IDOL-TNX-KYUNGJUN",
+      "GroupID": "GROUP-TNX",
+      "IdolName": "Kyungjun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-FROMIS-9-JIWON": {
+      "IdolID": "IDOL-FROMIS-9-JIWON",
+      "GroupID": "GROUP-FROMIS-9",
+      "IdolName": "Jiwon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-XIKERS-MINJAE": {
+      "IdolID": "IDOL-XIKERS-MINJAE",
+      "GroupID": "GROUP-XIKERS",
+      "IdolName": "Minjae",
+      "GenderCategory": "Male"
+    },
+    "IDOL-P1HARMONY-INTAK": {
+      "IdolID": "IDOL-P1HARMONY-INTAK",
+      "GroupID": "GROUP-P1HARMONY",
+      "IdolName": "Intak",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NMIXX-HAEWON": {
+      "IdolID": "IDOL-NMIXX-HAEWON",
+      "GroupID": "GROUP-NMIXX",
+      "IdolName": "Haewon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-8TURN-JAEYUN": {
+      "IdolID": "IDOL-8TURN-JAEYUN",
+      "GroupID": "GROUP-8TURN",
+      "IdolName": "Jaeyun",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NCT-DREAM-JAEMIN": {
+      "IdolID": "IDOL-NCT-DREAM-JAEMIN",
+      "GroupID": "GROUP-NCT-DREAM",
+      "IdolName": "Jaemin",
+      "GenderCategory": "Male"
+    },
+    "IDOL-STAYC-YOON": {
+      "IdolID": "IDOL-STAYC-YOON",
+      "GroupID": "GROUP-STAYC",
+      "IdolName": "Yoon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-STRAY-KIDS-BANG-CHAN": {
+      "IdolID": "IDOL-STRAY-KIDS-BANG-CHAN",
+      "GroupID": "GROUP-STRAY-KIDS",
+      "IdolName": "Bang Chan",
+      "GenderCategory": "Male"
+    },
+    "IDOL-SOLO-IU": {
+      "IdolID": "IDOL-SOLO-IU",
+      "GroupID": "GROUP-SOLO",
+      "IdolName": "IU",
+      "GenderCategory": "Female"
+    },
+    "IDOL-TWICE-MOMO": {
+      "IdolID": "IDOL-TWICE-MOMO",
+      "GroupID": "GROUP-TWICE",
+      "IdolName": "Momo",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ZEROBASEONE-MATTHEW": {
+      "IdolID": "IDOL-ZEROBASEONE-MATTHEW",
+      "GroupID": "GROUP-ZEROBASEONE",
+      "IdolName": "Matthew",
+      "GenderCategory": "Male"
+    },
+    "IDOL-P1HARMONY-SOUL": {
+      "IdolID": "IDOL-P1HARMONY-SOUL",
+      "GroupID": "GROUP-P1HARMONY",
+      "IdolName": "Soul",
+      "GenderCategory": "Male"
+    },
+    "IDOL-AESPA-NINGNING": {
+      "IdolID": "IDOL-AESPA-NINGNING",
+      "GroupID": "GROUP-AESPA",
+      "IdolName": "Ningning",
+      "GenderCategory": "Female"
+    },
+    "IDOL-IVE-LIZ": {
+      "IdolID": "IDOL-IVE-LIZ",
+      "GroupID": "GROUP-IVE",
+      "IdolName": "Liz",
+      "GenderCategory": "Female"
+    },
+    "IDOL-MAMAMOO-WHEEIN": {
+      "IdolID": "IDOL-MAMAMOO-WHEEIN",
+      "GroupID": "GROUP-MAMAMOO",
+      "IdolName": "Wheein",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AMPERS-ONE-KAMDEN": {
+      "IdolID": "IDOL-AMPERS-ONE-KAMDEN",
+      "GroupID": "GROUP-AMPERS-ONE",
+      "IdolName": "Kamden",
+      "GenderCategory": "Male"
+    },
+    "IDOL-DAY6-YOUNG-K": {
+      "IdolID": "IDOL-DAY6-YOUNG-K",
+      "GroupID": "GROUP-DAY6",
+      "IdolName": "Young K",
+      "GenderCategory": "Male"
+    },
+    "IDOL-EVERGLOW-SIHYEON": {
+      "IdolID": "IDOL-EVERGLOW-SIHYEON",
+      "GroupID": "GROUP-EVERGLOW",
+      "IdolName": "Sihyeon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-STRAY-KIDS-FELIX": {
+      "IdolID": "IDOL-STRAY-KIDS-FELIX",
+      "GroupID": "GROUP-STRAY-KIDS",
+      "IdolName": "Felix",
+      "GenderCategory": "Male"
+    },
+    "IDOL-BIGBANG-TAEYANG": {
+      "IdolID": "IDOL-BIGBANG-TAEYANG",
+      "GroupID": "GROUP-BIGBANG",
+      "IdolName": "Taeyang",
+      "GenderCategory": "Male"
+    },
+    "IDOL-NMIXX-KYUJIN": {
+      "IdolID": "IDOL-NMIXX-KYUJIN",
+      "GroupID": "GROUP-NMIXX",
+      "IdolName": "Kyujin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-STAYC-SUMIN": {
+      "IdolID": "IDOL-STAYC-SUMIN",
+      "GroupID": "GROUP-STAYC",
+      "IdolName": "Sumin",
+      "GenderCategory": "Female"
+    },
+    "IDOL-KATSEYE-MANON": {
+      "IdolID": "IDOL-KATSEYE-MANON",
+      "GroupID": "GROUP-KATSEYE",
+      "IdolName": "Manon",
+      "GenderCategory": "Female"
+    },
+    "IDOL-CLOSE-YOUR-EYES-JEON-MINWOOK": {
+      "IdolID": "IDOL-CLOSE-YOUR-EYES-JEON-MINWOOK",
+      "GroupID": "GROUP-CLOSE-YOUR-EYES",
+      "IdolName": "Jeon Minwook",
+      "GenderCategory": "Male"
+    },
+    "IDOL-H1-KEY-HWISEO": {
+      "IdolID": "IDOL-H1-KEY-HWISEO",
+      "GroupID": "GROUP-H1-KEY",
+      "IdolName": "Hwiseo",
+      "GenderCategory": "Female"
+    },
+    "IDOL-PURPLE-KISS-YUKI": {
+      "IdolID": "IDOL-PURPLE-KISS-YUKI",
+      "GroupID": "GROUP-PURPLE-KISS",
+      "IdolName": "Yuki",
+      "GenderCategory": "Female"
+    },
+    "IDOL-VIVIZ-UMJI": {
+      "IdolID": "IDOL-VIVIZ-UMJI",
+      "GroupID": "GROUP-VIVIZ",
+      "IdolName": "Umji",
+      "GenderCategory": "Female"
+    },
+    "IDOL-FIFTY-FIFTY-KEENA": {
+      "IdolID": "IDOL-FIFTY-FIFTY-KEENA",
+      "GroupID": "GROUP-FIFTY-FIFTY",
+      "IdolName": "Keena",
+      "GenderCategory": "Female"
+    },
+    "IDOL-ENHYPEN-JUNGWON": {
+      "IdolID": "IDOL-ENHYPEN-JUNGWON",
+      "GroupID": "GROUP-ENHYPEN",
+      "IdolName": "Jungwon",
+      "GenderCategory": "Male"
+    },
+    "IDOL-WJSN-BONA": {
+      "IdolID": "IDOL-WJSN-BONA",
+      "GroupID": "GROUP-WJSN",
+      "IdolName": "Bona",
+      "GenderCategory": "Female"
+    },
+    "IDOL-AB6IX-DAEHWI": {
+      "IdolID": "IDOL-AB6IX-DAEHWI",
+      "GroupID": "GROUP-AB6IX",
+      "IdolName": "Daehwi",
+      "GenderCategory": "Male"
+    }
+  },
+  "Groups": {
+    "GROUP-FLARE-U": {
+      "GroupID": "GROUP-FLARE-U",
+      "GroupName": "FLARE U"
+    },
+    "GROUP-EVERGLOW": {
+      "GroupID": "GROUP-EVERGLOW",
+      "GroupName": "EVERGLOW"
+    },
+    "GROUP-VAYONN": {
+      "GroupID": "GROUP-VAYONN",
+      "GroupName": "VAYONN"
+    },
+    "GROUP-TREASURE": {
+      "GroupID": "GROUP-TREASURE",
+      "GroupName": "TREASURE"
+    },
+    "GROUP-IZ-ONE": {
+      "GroupID": "GROUP-IZ-ONE",
+      "GroupName": "IZ*ONE"
+    },
+    "GROUP-SANTOS-BRAVOS": {
+      "GroupID": "GROUP-SANTOS-BRAVOS",
+      "GroupName": "SANTOS BRAVOS"
+    },
+    "GROUP-NIZIU": {
+      "GroupID": "GROUP-NIZIU",
+      "GroupName": "NIZIU"
+    },
+    "GROUP-MADEIN": {
+      "GroupID": "GROUP-MADEIN",
+      "GroupName": "MADEIN"
+    },
+    "GROUP-KIIRAS": {
+      "GroupID": "GROUP-KIIRAS",
+      "GroupName": "KIIRAS"
+    },
+    "GROUP-NCT-WISH": {
+      "GroupID": "GROUP-NCT-WISH",
+      "GroupName": "NCT WISH"
+    },
+    "GROUP-TXT": {
+      "GroupID": "GROUP-TXT",
+      "GroupName": "TXT"
+    },
+    "GROUP-SHINEE": {
+      "GroupID": "GROUP-SHINEE",
+      "GroupName": "SHINEE"
+    },
+    "GROUP-IZNA": {
+      "GroupID": "GROUP-IZNA",
+      "GroupName": "IZNA"
+    },
+    "GROUP-SEVENTEEN": {
+      "GroupID": "GROUP-SEVENTEEN",
+      "GroupName": "SEVENTEEN"
+    },
+    "GROUP-OH-MY-GIRL": {
+      "GroupID": "GROUP-OH-MY-GIRL",
+      "GroupName": "OH MY GIRL"
+    },
+    "GROUP-WEI": {
+      "GroupID": "GROUP-WEI",
+      "GroupName": "WEI"
+    },
+    "GROUP-AOEN": {
+      "GroupID": "GROUP-AOEN",
+      "GroupName": "AOEN"
+    },
+    "GROUP-CHERRY-BULLET": {
+      "GroupID": "GROUP-CHERRY-BULLET",
+      "GroupName": "CHERRY BULLET"
+    },
+    "GROUP-RIIZE": {
+      "GroupID": "GROUP-RIIZE",
+      "GroupName": "RIIZE"
+    },
+    "GROUP-AND2BLE": {
+      "GroupID": "GROUP-AND2BLE",
+      "GroupName": "AND2BLE"
+    },
+    "GROUP-NCT-127": {
+      "GroupID": "GROUP-NCT-127",
+      "GroupName": "NCT 127"
+    },
+    "GROUP-CIX": {
+      "GroupID": "GROUP-CIX",
+      "GroupName": "CIX"
+    },
+    "GROUP-ARTMS": {
+      "GroupID": "GROUP-ARTMS",
+      "GroupName": "ARTMS"
+    },
+    "GROUP-MCND": {
+      "GroupID": "GROUP-MCND",
+      "GroupName": "MCND"
+    },
+    "GROUP-RESCENE": {
+      "GroupID": "GROUP-RESCENE",
+      "GroupName": "RESCENE"
+    },
+    "GROUP-IFEYE": {
+      "GroupID": "GROUP-IFEYE",
+      "GroupName": "IFEYE"
+    },
+    "GROUP-ALD1": {
+      "GroupID": "GROUP-ALD1",
+      "GroupName": "ALD1"
+    },
+    "GROUP-IDID": {
+      "GroupID": "GROUP-IDID",
+      "GroupName": "IDID"
+    },
+    "GROUP-ALLHOURS": {
+      "GroupID": "GROUP-ALLHOURS",
+      "GroupName": "ALL(H)OURS"
+    },
+    "GROUP-NMIXX": {
+      "GroupID": "GROUP-NMIXX",
+      "GroupName": "NMIXX"
+    },
+    "GROUP-KICKFLIP": {
+      "GroupID": "GROUP-KICKFLIP",
+      "GroupName": "KICKFLIP"
+    },
+    "GROUP-ARRC": {
+      "GroupID": "GROUP-ARRC",
+      "GroupName": "ARRC"
+    },
+    "GROUP-KIIIKIII": {
+      "GroupID": "GROUP-KIIIKIII",
+      "GroupName": "KIIIKIII"
+    },
+    "GROUP-BOYNEXTDOOR": {
+      "GroupID": "GROUP-BOYNEXTDOOR",
+      "GroupName": "BOYNEXTDOOR"
+    },
+    "GROUP-ILLIT": {
+      "GroupID": "GROUP-ILLIT",
+      "GroupName": "ILLIT"
+    },
+    "GROUP-YOUNG-POSSE": {
+      "GroupID": "GROUP-YOUNG-POSSE",
+      "GroupName": "YOUNG POSSE"
+    },
+    "GROUP-KATSEYE": {
+      "GroupID": "GROUP-KATSEYE",
+      "GroupName": "KATSEYE"
+    },
+    "GROUP-POW": {
+      "GroupID": "GROUP-POW",
+      "GroupName": "POW"
+    },
+    "GROUP-ONE-PACT": {
+      "GroupID": "GROUP-ONE-PACT",
+      "GroupName": "ONE PACT"
+    },
+    "GROUP-ITZY": {
+      "GroupID": "GROUP-ITZY",
+      "GroupName": "ITZY"
+    },
+    "GROUP-MAMAMOO": {
+      "GroupID": "GROUP-MAMAMOO",
+      "GroupName": "MAMAMOO"
+    },
+    "GROUP-NCT-DREAM": {
+      "GroupID": "GROUP-NCT-DREAM",
+      "GroupName": "NCT DREAM"
+    },
+    "GROUP-XG": {
+      "GroupID": "GROUP-XG",
+      "GroupName": "XG"
+    },
+    "GROUP-OMEGA-X": {
+      "GroupID": "GROUP-OMEGA-X",
+      "GroupName": "OMEGA X"
+    },
+    "GROUP-YOUNITE": {
+      "GroupID": "GROUP-YOUNITE",
+      "GroupName": "YOUNITE"
+    },
+    "GROUP-TEMPEST": {
+      "GroupID": "GROUP-TEMPEST",
+      "GroupName": "TEMPEST"
+    },
+    "GROUP-ROCKET-PUNCH": {
+      "GroupID": "GROUP-ROCKET-PUNCH",
+      "GroupName": "ROCKET PUNCH"
+    },
+    "GROUP-STRAY-KIDS": {
+      "GroupID": "GROUP-STRAY-KIDS",
+      "GroupName": "STRAY KIDS"
+    },
+    "GROUP-BLACKPINK": {
+      "GroupID": "GROUP-BLACKPINK",
+      "GroupName": "BLACKPINK"
+    },
+    "GROUP-EPEX": {
+      "GroupID": "GROUP-EPEX",
+      "GroupName": "EPEX"
+    },
+    "GROUP-ASTRO": {
+      "GroupID": "GROUP-ASTRO",
+      "GroupName": "ASTRO"
+    },
+    "GROUP-GOT7": {
+      "GroupID": "GROUP-GOT7",
+      "GroupName": "GOT7"
+    },
+    "GROUP-UNIS": {
+      "GroupID": "GROUP-UNIS",
+      "GroupName": "UNIS"
+    },
+    "GROUP-LE-SSERAFIM": {
+      "GroupID": "GROUP-LE-SSERAFIM",
+      "GroupName": "LE SSERAFIM"
+    },
+    "GROUP-DAY6": {
+      "GroupID": "GROUP-DAY6",
+      "GroupName": "DAY6"
+    },
+    "GROUP-CSR": {
+      "GroupID": "GROUP-CSR",
+      "GroupName": "CSR"
+    },
+    "GROUP-AHOF": {
+      "GroupID": "GROUP-AHOF",
+      "GroupName": "AHOF"
+    },
+    "GROUP-FROMIS-9": {
+      "GroupID": "GROUP-FROMIS-9",
+      "GroupName": "FROMIS_9"
+    },
+    "GROUP-WOOAH": {
+      "GroupID": "GROUP-WOOAH",
+      "GroupName": "WOOAH"
+    },
+    "GROUP-GIRLS-GENERATION": {
+      "GroupID": "GROUP-GIRLS-GENERATION",
+      "GroupName": "GIRLS' GENERATION"
+    },
+    "GROUP-P1HARMONY": {
+      "GroupID": "GROUP-P1HARMONY",
+      "GroupName": "P1HARMONY"
+    },
+    "GROUP-MONSTA-X": {
+      "GroupID": "GROUP-MONSTA-X",
+      "GroupName": "MONSTA X"
+    },
+    "GROUP-KARA": {
+      "GroupID": "GROUP-KARA",
+      "GroupName": "KARA"
+    },
+    "GROUP-SF9": {
+      "GroupID": "GROUP-SF9",
+      "GroupName": "SF9"
+    },
+    "GROUP-AESPA": {
+      "GroupID": "GROUP-AESPA",
+      "GroupName": "aespa"
+    },
+    "GROUP-ONF": {
+      "GroupID": "GROUP-ONF",
+      "GroupName": "ONF"
+    },
+    "GROUP-A-C-E": {
+      "GroupID": "GROUP-A-C-E",
+      "GroupName": "A.C.E"
+    },
+    "GROUP-2NE1": {
+      "GroupID": "GROUP-2NE1",
+      "GroupName": "2NE1"
+    },
+    "GROUP-QWER": {
+      "GroupID": "GROUP-QWER",
+      "GroupName": "QWER"
+    },
+    "GROUP-AND-TEAM": {
+      "GroupID": "GROUP-AND-TEAM",
+      "GroupName": "&TEAM"
+    },
+    "GROUP-CLC": {
+      "GroupID": "GROUP-CLC",
+      "GroupName": "CLC"
+    },
+    "GROUP-TWICE": {
+      "GroupID": "GROUP-TWICE",
+      "GroupName": "TWICE"
+    },
+    "GROUP-ONEWE": {
+      "GroupID": "GROUP-ONEWE",
+      "GroupName": "ONEWE"
+    },
+    "GROUP-82MAJOR": {
+      "GroupID": "GROUP-82MAJOR",
+      "GroupName": "82MAJOR"
+    },
+    "GROUP-SOLO": {
+      "GroupID": "GROUP-SOLO",
+      "GroupName": "SOLO"
+    },
+    "GROUP-WJSN": {
+      "GroupID": "GROUP-WJSN",
+      "GroupName": "WJSN"
+    },
+    "GROUP-XIKERS": {
+      "GroupID": "GROUP-XIKERS",
+      "GroupName": "XIKERS"
+    },
+    "GROUP-CRAVITY": {
+      "GroupID": "GROUP-CRAVITY",
+      "GroupName": "CRAVITY"
+    },
+    "GROUP-FIFTY-FIFTY": {
+      "GroupID": "GROUP-FIFTY-FIFTY",
+      "GroupName": "FIFTY FIFTY"
+    },
+    "GROUP-LIGHTSUM": {
+      "GroupID": "GROUP-LIGHTSUM",
+      "GroupName": "LIGHTSUM"
+    },
+    "GROUP-ONEUS": {
+      "GroupID": "GROUP-ONEUS",
+      "GroupName": "ONEUS"
+    },
+    "GROUP-I-DLE": {
+      "GroupID": "GROUP-I-DLE",
+      "GroupName": "I-DLE"
+    },
+    "GROUP-H1-KEY": {
+      "GroupID": "GROUP-H1-KEY",
+      "GroupName": "H1-KEY"
+    },
+    "GROUP-SAY-MY-NAME": {
+      "GroupID": "GROUP-SAY-MY-NAME",
+      "GroupName": "SAY MY NAME"
+    },
+    "GROUP-ATEEZ": {
+      "GroupID": "GROUP-ATEEZ",
+      "GroupName": "ATEEZ"
+    },
+    "GROUP-KEP1ER": {
+      "GroupID": "GROUP-KEP1ER",
+      "GroupName": "KEP1ER"
+    },
+    "GROUP-BADVILLAIN": {
+      "GroupID": "GROUP-BADVILLAIN",
+      "GroupName": "BADVILLAIN"
+    },
+    "GROUP-ALLDAY-PROJECT": {
+      "GroupID": "GROUP-ALLDAY-PROJECT",
+      "GroupName": "ALLDAY PROJECT"
+    },
+    "GROUP-CORTIS": {
+      "GroupID": "GROUP-CORTIS",
+      "GroupName": "CORTIS"
+    },
+    "GROUP-TNX": {
+      "GroupID": "GROUP-TNX",
+      "GroupName": "TNX"
+    },
+    "GROUP-I-O-I": {
+      "GroupID": "GROUP-I-O-I",
+      "GroupName": "I.O.I"
+    },
+    "GROUP-DRIPPIN": {
+      "GroupID": "GROUP-DRIPPIN",
+      "GroupName": "DRIPPIN"
+    },
+    "GROUP-STAYC": {
+      "GroupID": "GROUP-STAYC",
+      "GroupName": "STAYC"
+    },
+    "GROUP-NEWJEANS": {
+      "GroupID": "GROUP-NEWJEANS",
+      "GroupName": "NEWJEANS"
+    },
+    "GROUP-BTOB": {
+      "GroupID": "GROUP-BTOB",
+      "GroupName": "BTOB"
+    },
+    "GROUP-AMPERS-ONE": {
+      "GroupID": "GROUP-AMPERS-ONE",
+      "GroupName": "AMPERS&ONE"
+    },
+    "GROUP-LNGSHOT": {
+      "GroupID": "GROUP-LNGSHOT",
+      "GroupName": "LNGSHOT"
+    },
+    "GROUP-BIGBANG": {
+      "GroupID": "GROUP-BIGBANG",
+      "GroupName": "BIGBANG"
+    },
+    "GROUP-ENHYPEN": {
+      "GroupID": "GROUP-ENHYPEN",
+      "GroupName": "ENHYPEN"
+    },
+    "GROUP-N-FLYING": {
+      "GroupID": "GROUP-N-FLYING",
+      "GroupName": "N.FLYING"
+    },
+    "GROUP-PURPLE-KISS": {
+      "GroupID": "GROUP-PURPLE-KISS",
+      "GroupName": "PURPLE KISS"
+    },
+    "GROUP-IVE": {
+      "GroupID": "GROUP-IVE",
+      "GroupName": "IVE"
+    },
+    "GROUP-BABYMONSTER": {
+      "GroupID": "GROUP-BABYMONSTER",
+      "GroupName": "BABYMONSTER"
+    },
+    "GROUP-IDNTT": {
+      "GroupID": "GROUP-IDNTT",
+      "GroupName": "IDNTT"
+    },
+    "GROUP-APINK": {
+      "GroupID": "GROUP-APINK",
+      "GroupName": "APINK"
+    },
+    "GROUP-EXO": {
+      "GroupID": "GROUP-EXO",
+      "GroupName": "EXO"
+    },
+    "GROUP-PLAVE": {
+      "GroupID": "GROUP-PLAVE",
+      "GroupName": "PLAVE"
+    },
+    "GROUP-MEOVV": {
+      "GroupID": "GROUP-MEOVV",
+      "GroupName": "MEOVV"
+    },
+    "GROUP-THE-BOYZ": {
+      "GroupID": "GROUP-THE-BOYZ",
+      "GroupName": "THE BOYZ"
+    },
+    "GROUP-VIVIZ": {
+      "GroupID": "GROUP-VIVIZ",
+      "GroupName": "VIVIZ"
+    },
+    "GROUP-TUIDE": {
+      "GroupID": "GROUP-TUIDE",
+      "GroupName": "TUIDE"
+    },
+    "GROUP-AB6IX": {
+      "GroupID": "GROUP-AB6IX",
+      "GroupName": "AB6IX"
+    },
+    "GROUP-PENTAGON": {
+      "GroupID": "GROUP-PENTAGON",
+      "GroupName": "PENTAGON"
+    },
+    "GROUP-BILLLIE": {
+      "GroupID": "GROUP-BILLLIE",
+      "GroupName": "BILLLIE"
+    },
+    "GROUP-NU-EST": {
+      "GroupID": "GROUP-NU-EST",
+      "GroupName": "NU'EST"
+    },
+    "GROUP-HEARTS2HEARTS": {
+      "GroupID": "GROUP-HEARTS2HEARTS",
+      "GroupName": "HEARTS2HEARTS"
+    },
+    "GROUP-ZEROBASEONE": {
+      "GroupID": "GROUP-ZEROBASEONE",
+      "GroupName": "ZEROBASEONE"
+    },
+    "GROUP-WEEEKLY": {
+      "GroupID": "GROUP-WEEEKLY",
+      "GroupName": "WEEEKLY"
+    },
+    "GROUP-NEXZ": {
+      "GroupID": "GROUP-NEXZ",
+      "GroupName": "NEXZ"
+    },
+    "GROUP-BTS": {
+      "GroupID": "GROUP-BTS",
+      "GroupName": "BTS"
+    },
+    "GROUP-CLOSE-YOUR-EYES": {
+      "GroupID": "GROUP-CLOSE-YOUR-EYES",
+      "GroupName": "CLOSE YOUR EYES"
+    },
+    "GROUP-TWS": {
+      "GroupID": "GROUP-TWS",
+      "GroupName": "TWS"
+    },
+    "GROUP-8TURN": {
+      "GroupID": "GROUP-8TURN",
+      "GroupName": "8TURN"
+    },
+    "GROUP-XDINARY-HEROES": {
+      "GroupID": "GROUP-XDINARY-HEROES",
+      "GroupName": "XDINARY HEROES"
+    },
+    "GROUP-TRIPLES": {
+      "GroupID": "GROUP-TRIPLES",
+      "GroupName": "TRIPLES"
+    },
+    "GROUP-DREAMCATCHER": {
+      "GroupID": "GROUP-DREAMCATCHER",
+      "GroupName": "DREAMCATCHER"
+    },
+    "GROUP-EVNNE": {
+      "GroupID": "GROUP-EVNNE",
+      "GroupName": "EVNNE"
+    },
+    "GROUP-RED-VELVET": {
+      "GroupID": "GROUP-RED-VELVET",
+      "GroupName": "RED VELVET"
+    }
+  },
+  "RarityTiers": [
+    "Common",
+    "Uncommon",
+    "Rare",
+    "Epic",
+    "Legendary",
+    "Mythic"
+  ],
+  "Cards": [
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126339950214887,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-CLC-YEEUN",
+      "CardID": "HB01-CLC-YEEUN-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 90618879744909,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-WOOAH-NANA",
+      "CardID": "HB01-WOOAH-NANA-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 107709832582792,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-IVE-GAEUL",
+      "CardID": "HB01-IVE-GAEUL-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 131193289626374,
+      "Rarity": "Epic",
+      "PremiumTier": "Silk",
+      "IdolID": "IDOL-WJSN-YEOREUM",
+      "CardID": "HB01-WJSN-YEOREUM-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 75738878293862,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-OH-MY-GIRL-ARIN",
+      "CardID": "HB01-OH-MY-GIRL-ARIN-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 80535229844545,
+      "Rarity": "Legendary",
+      "PremiumTier": "Royal",
+      "IdolID": "IDOL-HEARTS2HEARTS-STELLA",
+      "CardID": "HB01-HEARTS2HEARTS-STELLA-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 98305883013677,
+      "Rarity": "Epic",
+      "PremiumTier": "Silk",
+      "IdolID": "IDOL-IZNA-SARANG",
+      "CardID": "HB01-IZNA-SARANG-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 97585146105383,
+      "Rarity": "Epic",
+      "PremiumTier": "Silk",
+      "IdolID": "IDOL-STAYC-SUMIN",
+      "CardID": "HB01-STAYC-SUMIN-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 100665627854648,
+      "Rarity": "Legendary",
+      "PremiumTier": "Royal",
+      "IdolID": "IDOL-LE-SSERAFIM-EUNCHAE",
+      "CardID": "HB01-LE-SSERAFIM-EUNCHAE-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 133180018067199,
+      "Rarity": "Epic",
+      "PremiumTier": "Silk",
+      "IdolID": "IDOL-NMIXX-SULLYOON",
+      "CardID": "HB01-NMIXX-SULLYOON-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 123037290137913,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-SOLO-YENA",
+      "CardID": "HB01-SOLO-YENA-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 73581308998407,
+      "Rarity": "Mythic",
+      "PremiumTier": "Crown",
+      "IdolID": "IDOL-SOLO-IU",
+      "CardID": "HB01-SOLO-IU-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103732423784736,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-ATEEZ-SEONGHWA",
+      "CardID": "HB01-ATEEZ-SEONGHWA-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 130673253039856,
+      "Rarity": "Mythic",
+      "PremiumTier": "Crown",
+      "IdolID": "IDOL-ENHYPEN-JAY",
+      "CardID": "HB01-ENHYPEN-JAY-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 123979852281409,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-P1HARMONY-KEEHO",
+      "CardID": "HB01-P1HARMONY-KEEHO-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 100921016366487,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-ONEUS-XION",
+      "CardID": "HB01-ONEUS-XION-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86942989037715,
+      "Rarity": "Legendary",
+      "PremiumTier": "Royal",
+      "IdolID": "IDOL-STRAY-KIDS-HAN",
+      "CardID": "HB01-STRAY-KIDS-HAN-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 136447886035658,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-TXT-YEONJUN",
+      "CardID": "HB01-TXT-YEONJUN-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 117934040389213,
+      "Rarity": "Rare",
+      "PremiumTier": "Petal",
+      "IdolID": "IDOL-ONEWE-KANGHYUN",
+      "CardID": "HB01-ONEWE-KANGHYUN-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 111659763273146,
+      "Rarity": "Epic",
+      "PremiumTier": "Silk",
+      "IdolID": "IDOL-NU-EST-MINHYUN",
+      "CardID": "HB01-NU-EST-MINHYUN-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 75497520953940,
+      "Rarity": "Epic",
+      "PremiumTier": "Silk",
+      "IdolID": "IDOL-ATEEZ-YUNHO",
+      "CardID": "HB01-ATEEZ-YUNHO-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 106461103183881,
+      "Rarity": "Legendary",
+      "PremiumTier": "Royal",
+      "IdolID": "IDOL-ZEROBASEONE-HANBIN",
+      "CardID": "HB01-ZEROBASEONE-HANBIN-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 139737042640743,
+      "Rarity": "Epic",
+      "PremiumTier": "Silk",
+      "IdolID": "IDOL-ENHYPEN-SUNGHOON",
+      "CardID": "HB01-ENHYPEN-SUNGHOON-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 71102641485873,
+      "Rarity": "Epic",
+      "PremiumTier": "Silk",
+      "IdolID": "IDOL-BTS-RM",
+      "CardID": "HB01-BTS-RM-001",
+      "PackID": "HB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 139873489567145,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-TWICE-NAYEON",
+      "CardID": "RB01-TWICE-NAYEON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 94914249060671,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-ATEEZ-SAN",
+      "CardID": "RB01-ATEEZ-SAN-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 110670469961181,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-BLACKPINK-JENNIE",
+      "CardID": "RB01-BLACKPINK-JENNIE-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 98931496740747,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-BTS-JUNGKOOK",
+      "CardID": "RB01-BTS-JUNGKOOK-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86309785086632,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-SOLO-TAEYEON",
+      "CardID": "RB01-SOLO-TAEYEON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 116479520395555,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-AESPA-KARINA",
+      "CardID": "RB01-AESPA-KARINA-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 138495711556414,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-IVE-WONYOUNG",
+      "CardID": "RB01-IVE-WONYOUNG-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 130993791392481,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-EXO-KAI",
+      "CardID": "RB01-EXO-KAI-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 124085047011618,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-STRAY-KIDS-FELIX",
+      "CardID": "RB01-STRAY-KIDS-FELIX-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 138070316698280,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-TXT-SOOBIN",
+      "CardID": "RB01-TXT-SOOBIN-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 70799151672228,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-ITZY-RYUJIN",
+      "CardID": "RB01-ITZY-RYUJIN-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126681379818976,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-LE-SSERAFIM-EUNCHAE",
+      "CardID": "RB01-LE-SSERAFIM-EUNCHAE-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 97411496123688,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-HEARTS2HEARTS-STELLA",
+      "CardID": "RB01-HEARTS2HEARTS-STELLA-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85027421919976,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-NMIXX-SULLYOON",
+      "CardID": "RB01-NMIXX-SULLYOON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 98380206397381,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-ENHYPEN-JUNGWON",
+      "CardID": "RB01-ENHYPEN-JUNGWON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 81887867705719,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-RIIZE-SOHEE",
+      "CardID": "RB01-RIIZE-SOHEE-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 125056195158595,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-TWS-JIHOON",
+      "CardID": "RB01-TWS-JIHOON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 113029406827539,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-BOYNEXTDOOR-JAEHYUN",
+      "CardID": "RB01-BOYNEXTDOOR-JAEHYUN-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114864589533547,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-RED-VELVET-IRENE",
+      "CardID": "RB01-RED-VELVET-IRENE-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 106288791068425,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-I-DLE-MIYEON",
+      "CardID": "RB01-I-DLE-MIYEON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 97116153211338,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-STAYC-YOON",
+      "CardID": "RB01-STAYC-YOON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 102583830477312,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ILLIT-WONHEE",
+      "CardID": "RB01-ILLIT-WONHEE-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 137037975031397,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-BILLLIE-MOON-SUA",
+      "CardID": "RB01-BILLLIE-MOON-SUA-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86373229852275,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-OH-MY-GIRL-MIMI",
+      "CardID": "RB01-OH-MY-GIRL-MIMI-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 71792330879873,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-SEVENTEEN-JOSHUA",
+      "CardID": "RB01-SEVENTEEN-JOSHUA-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 92863617904525,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-SOLO-HONG-EUNKI",
+      "CardID": "RB01-SOLO-HONG-EUNKI-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 123650021655835,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-SOLO-PARK-JIHOON",
+      "CardID": "RB01-SOLO-PARK-JIHOON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 132817584273779,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-AB6IX-DAEHWI",
+      "CardID": "RB01-AB6IX-DAEHWI-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103506243616469,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ASTRO-MOONBIN",
+      "CardID": "RB01-ASTRO-MOONBIN-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 94661957982286,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-THE-BOYZ-SUNWOO",
+      "CardID": "RB01-THE-BOYZ-SUNWOO-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 94748871110970,
+      "Rarity": "Common",
+      "IdolID": "IDOL-IZNA-SARANG",
+      "CardID": "RB01-IZNA-SARANG-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 78501664466889,
+      "Rarity": "Common",
+      "IdolID": "IDOL-MAMAMOO-MOONBYUL",
+      "CardID": "RB01-MAMAMOO-MOONBYUL-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 115855593729353,
+      "Rarity": "Common",
+      "IdolID": "IDOL-CHERRY-BULLET-MAY",
+      "CardID": "RB01-CHERRY-BULLET-MAY-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 83872405337765,
+      "Rarity": "Common",
+      "IdolID": "IDOL-NEWJEANS-HANNI",
+      "CardID": "RB01-NEWJEANS-HANNI-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 125639788846122,
+      "Rarity": "Common",
+      "IdolID": "IDOL-UNIS-ELISIA",
+      "CardID": "RB01-UNIS-ELISIA-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 74428340859297,
+      "Rarity": "Common",
+      "IdolID": "IDOL-DREAMCATCHER-SIYEON",
+      "CardID": "RB01-DREAMCATCHER-SIYEON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 111780707568753,
+      "Rarity": "Common",
+      "IdolID": "IDOL-EVERGLOW-MIA",
+      "CardID": "RB01-EVERGLOW-MIA-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 131830867230678,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TRIPLES-YOOYEON",
+      "CardID": "RB01-TRIPLES-YOOYEON-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 111380952946533,
+      "Rarity": "Common",
+      "IdolID": "IDOL-KEP1ER-HUENING-BAHIYYIH",
+      "CardID": "RB01-KEP1ER-HUENING-BAHIYYIH-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 74382509448020,
+      "Rarity": "Common",
+      "IdolID": "IDOL-AND2BLE-RICKY",
+      "CardID": "RB01-AND2BLE-RICKY-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86514544115742,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ZEROBASEONE-TAERAE",
+      "CardID": "RB01-ZEROBASEONE-TAERAE-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 134231445821114,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ONEUS-XION",
+      "CardID": "RB01-ONEUS-XION-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86920143710472,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ONEWE-GIUK",
+      "CardID": "RB01-ONEWE-GIUK-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 73531129824380,
+      "Rarity": "Common",
+      "IdolID": "IDOL-EVNNE-HANBIN",
+      "CardID": "RB01-EVNNE-HANBIN-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 73741725542205,
+      "Rarity": "Common",
+      "IdolID": "IDOL-PENTAGON-HUI",
+      "CardID": "RB01-PENTAGON-HUI-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 87087912166473,
+      "Rarity": "Common",
+      "IdolID": "IDOL-CRAVITY-HYEONGJUN",
+      "CardID": "RB01-CRAVITY-HYEONGJUN-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85763857201402,
+      "Rarity": "Common",
+      "IdolID": "IDOL-P1HARMONY-KEEHO",
+      "CardID": "RB01-P1HARMONY-KEEHO-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 127847170786921,
+      "Rarity": "Common",
+      "IdolID": "IDOL-CORTIS-JAMES",
+      "CardID": "RB01-CORTIS-JAMES-001",
+      "PackID": "RB01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 109796351236334,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-LE-SSERAFIM-CHAEWON",
+      "CardID": "RB02-LE-SSERAFIM-CHAEWON-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 115467403786677,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-TXT-YEONJUN",
+      "CardID": "RB02-TXT-YEONJUN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 127492601626147,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-ALLDAY-PROJECT-YOUNGSEO",
+      "CardID": "RB02-ALLDAY-PROJECT-YOUNGSEO-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126990563151424,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-SEVENTEEN-JEONGHAN",
+      "CardID": "RB02-SEVENTEEN-JEONGHAN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 84493258917359,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-KIIIKIII-JIYU",
+      "CardID": "RB02-KIIIKIII-JIYU-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 99378506173252,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-BABYMONSTER-AHYEON",
+      "CardID": "RB02-BABYMONSTER-AHYEON-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86513763984472,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-NEWJEANS-MINJI",
+      "CardID": "RB02-NEWJEANS-MINJI-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 96895383519204,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-CORTIS-MARTIN",
+      "CardID": "RB02-CORTIS-MARTIN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85297931769501,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-NCT-DREAM-RENJUN",
+      "CardID": "RB02-NCT-DREAM-RENJUN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 133172115119179,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-RIIZE-ANTON",
+      "CardID": "RB02-RIIZE-ANTON-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 102812858654225,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-IZNA-JEEMIN",
+      "CardID": "RB02-IZNA-JEEMIN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 113629451335042,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-WJSN-BONA",
+      "CardID": "RB02-WJSN-BONA-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 72578035390145,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-AESPA-WINTER",
+      "CardID": "RB02-AESPA-WINTER-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 79303277669248,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-I-DLE-YUQI",
+      "CardID": "RB02-I-DLE-YUQI-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 88538329628420,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-KICKFLIP-KEIJU",
+      "CardID": "RB02-KICKFLIP-KEIJU-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 107426438438549,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-SHINEE-MINHO",
+      "CardID": "RB02-SHINEE-MINHO-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103955468579016,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-CIX-SEUNGHUN",
+      "CardID": "RB02-CIX-SEUNGHUN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 123159815271425,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-THE-BOYZ-JUYEON",
+      "CardID": "RB02-THE-BOYZ-JUYEON-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 83278233415159,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-TRIPLES-JIWOO",
+      "CardID": "RB02-TRIPLES-JIWOO-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 109767621545468,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ILLIT-MOKA",
+      "CardID": "RB02-ILLIT-MOKA-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 137124170938129,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-STAYC-ISA",
+      "CardID": "RB02-STAYC-ISA-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 82525742766141,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-SOLO-EUNBI",
+      "CardID": "RB02-SOLO-EUNBI-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103622645154813,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-XG-JURIN",
+      "CardID": "RB02-XG-JURIN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112069880340041,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-IZ-ONE-NAKO",
+      "CardID": "RB02-IZ-ONE-NAKO-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 90892572611627,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-BIGBANG-DAESUNG",
+      "CardID": "RB02-BIGBANG-DAESUNG-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 99864116705686,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-BTOB-CHANGSUB",
+      "CardID": "RB02-BTOB-CHANGSUB-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 87766369393006,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ATEEZ-YEOSANG",
+      "CardID": "RB02-ATEEZ-YEOSANG-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 71176850802147,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-NCT-WISH-JAEHEE",
+      "CardID": "RB02-NCT-WISH-JAEHEE-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 95108877726751,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ALD1-ARNO",
+      "CardID": "RB02-ALD1-ARNO-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 80055067494742,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-CLOSE-YOUR-EYES-KENSHIN",
+      "CardID": "RB02-CLOSE-YOUR-EYES-KENSHIN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103163424071349,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BLACKPINK-LISA",
+      "CardID": "RB02-BLACKPINK-LISA-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 79136774329467,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TUIDE-JIA",
+      "CardID": "RB02-TUIDE-JIA-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 134598075435045,
+      "Rarity": "Common",
+      "IdolID": "IDOL-IFEYE-KASIA",
+      "CardID": "RB02-IFEYE-KASIA-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 120426728321877,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BILLLIE-TSUKI",
+      "CardID": "RB02-BILLLIE-TSUKI-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 137250405297751,
+      "Rarity": "Common",
+      "IdolID": "IDOL-WOOAH-WOOYEON",
+      "CardID": "RB02-WOOAH-WOOYEON-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 136722042626306,
+      "Rarity": "Common",
+      "IdolID": "IDOL-VIVIZ-UMJI",
+      "CardID": "RB02-VIVIZ-UMJI-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 117882606842713,
+      "Rarity": "Common",
+      "IdolID": "IDOL-IVE-GAEUL",
+      "CardID": "RB02-IVE-GAEUL-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85610460104878,
+      "Rarity": "Common",
+      "IdolID": "IDOL-MEOVV-GAWON",
+      "CardID": "RB02-MEOVV-GAWON-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 106731363920054,
+      "Rarity": "Common",
+      "IdolID": "IDOL-NMIXX-LILY",
+      "CardID": "RB02-NMIXX-LILY-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 83445680238566,
+      "Rarity": "Common",
+      "IdolID": "IDOL-PLAVE-EUNHO",
+      "CardID": "RB02-PLAVE-EUNHO-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 78652776606256,
+      "Rarity": "Common",
+      "IdolID": "IDOL-DAY6-DOWOON",
+      "CardID": "RB02-DAY6-DOWOON-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 73392375779244,
+      "Rarity": "Common",
+      "IdolID": "IDOL-OMEGA-X-JAEHAN",
+      "CardID": "RB02-OMEGA-X-JAEHAN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 132277575849999,
+      "Rarity": "Common",
+      "IdolID": "IDOL-IDNTT-TAEIN",
+      "CardID": "RB02-IDNTT-TAEIN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 128122563102289,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TNX-KYUNGJUN",
+      "CardID": "RB02-TNX-KYUNGJUN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 96269561493810,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BTS-JIMIN",
+      "CardID": "RB02-BTS-JIMIN-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 122287320217331,
+      "Rarity": "Common",
+      "IdolID": "IDOL-AMPERS-ONE-JIHO",
+      "CardID": "RB02-AMPERS-ONE-JIHO-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 130066322138807,
+      "Rarity": "Common",
+      "IdolID": "IDOL-P1HARMONY-SOUL",
+      "CardID": "RB02-P1HARMONY-SOUL-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 95724891941146,
+      "Rarity": "Common",
+      "IdolID": "IDOL-N-FLYING-SEUNGHYUB",
+      "CardID": "RB02-N-FLYING-SEUNGHYUB-001",
+      "PackID": "RB02"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85787603229883,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-RED-VELVET-YERI",
+      "CardID": "RB03-RED-VELVET-YERI-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114730891756710,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-STRAY-KIDS-HYUNJIN",
+      "CardID": "RB03-STRAY-KIDS-HYUNJIN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86196136260392,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-TWICE-SANA",
+      "CardID": "RB03-TWICE-SANA-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 120897234674647,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-NCT-DREAM-JAEMIN",
+      "CardID": "RB03-NCT-DREAM-JAEMIN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 101755444656752,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-I-O-I-CHAEYEON",
+      "CardID": "RB03-I-O-I-CHAEYEON-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 93014230890685,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-MEOVV-ANNA",
+      "CardID": "RB03-MEOVV-ANNA-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 119584408507168,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-QWER-CHODAN",
+      "CardID": "RB03-QWER-CHODAN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 116961222952848,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-SEVENTEEN-THE8",
+      "CardID": "RB03-SEVENTEEN-THE8-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 104824672421735,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-NEXZ-YU",
+      "CardID": "RB03-NEXZ-YU-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 105301782776461,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-AHOF-STEVEN",
+      "CardID": "RB03-AHOF-STEVEN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 70716666557727,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-RESCENE-MINAMI",
+      "CardID": "RB03-RESCENE-MINAMI-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 77182614360231,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-IVE-LIZ",
+      "CardID": "RB03-IVE-LIZ-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 80764167631623,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-BLACKPINK-JISOO",
+      "CardID": "RB03-BLACKPINK-JISOO-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103177841913776,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-GIRLS-GENERATION-SEOHYUN",
+      "CardID": "RB03-GIRLS-GENERATION-SEOHYUN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 133815658490188,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-ATEEZ-MINGI",
+      "CardID": "RB03-ATEEZ-MINGI-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 92070826757635,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-EXO-SUHO",
+      "CardID": "RB03-EXO-SUHO-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 104127304527247,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-LNGSHOT-OHYUL",
+      "CardID": "RB03-LNGSHOT-OHYUL-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 70679038438340,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-BOYNEXTDOOR-RIWOO",
+      "CardID": "RB03-BOYNEXTDOOR-RIWOO-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 113632703303265,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-BABYMONSTER-RAMI",
+      "CardID": "RB03-BABYMONSTER-RAMI-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 110144260574480,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-PURPLE-KISS-YUKI",
+      "CardID": "RB03-PURPLE-KISS-YUKI-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 119149832591959,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ITZY-CHAERYEONG",
+      "CardID": "RB03-ITZY-CHAERYEONG-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 133722354332532,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-HEARTS2HEARTS-CARMEN",
+      "CardID": "RB03-HEARTS2HEARTS-CARMEN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 91097281191202,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-KEP1ER-XIAOTING",
+      "CardID": "RB03-KEP1ER-XIAOTING-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 87699621817107,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-DREAMCATCHER-JIU",
+      "CardID": "RB03-DREAMCATCHER-JIU-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103971864802757,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-TWS-SHINYU",
+      "CardID": "RB03-TWS-SHINYU-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 134021760376079,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ZEROBASEONE-HANBIN",
+      "CardID": "RB03-ZEROBASEONE-HANBIN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112879655954761,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-TREASURE-ASAHI",
+      "CardID": "RB03-TREASURE-ASAHI-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 95097602055878,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ONEUS-HWANWOONG",
+      "CardID": "RB03-ONEUS-HWANWOONG-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 95026110941558,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-CRAVITY-SERIM",
+      "CardID": "RB03-CRAVITY-SERIM-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 129893857518244,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-EVNNE-KEITA",
+      "CardID": "RB03-EVNNE-KEITA-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86722314756131,
+      "Rarity": "Common",
+      "IdolID": "IDOL-H1-KEY-HWISEO",
+      "CardID": "RB03-H1-KEY-HWISEO-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85548315108324,
+      "Rarity": "Common",
+      "IdolID": "IDOL-YOUNG-POSSE-SUNHYE",
+      "CardID": "RB03-YOUNG-POSSE-SUNHYE-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 94922674090181,
+      "Rarity": "Common",
+      "IdolID": "IDOL-FIFTY-FIFTY-KEENA",
+      "CardID": "RB03-FIFTY-FIFTY-KEENA-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 92347563043030,
+      "Rarity": "Common",
+      "IdolID": "IDOL-UNIS-NANA",
+      "CardID": "RB03-UNIS-NANA-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 79701788952455,
+      "Rarity": "Common",
+      "IdolID": "IDOL-SAY-MY-NAME-HITOMI",
+      "CardID": "RB03-SAY-MY-NAME-HITOMI-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 116698848069491,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BADVILLAIN-EMMA",
+      "CardID": "RB03-BADVILLAIN-EMMA-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 134329141387725,
+      "Rarity": "Common",
+      "IdolID": "IDOL-LIGHTSUM-CHOWON",
+      "CardID": "RB03-LIGHTSUM-CHOWON-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 124732620717223,
+      "Rarity": "Common",
+      "IdolID": "IDOL-CSR-DUNA",
+      "CardID": "RB03-CSR-DUNA-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112046176676235,
+      "Rarity": "Common",
+      "IdolID": "IDOL-KEP1ER-MASHIRO",
+      "CardID": "RB03-KEP1ER-MASHIRO-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 115331556130349,
+      "Rarity": "Common",
+      "IdolID": "IDOL-XIKERS-MINJAE",
+      "CardID": "RB03-XIKERS-MINJAE-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126976490168404,
+      "Rarity": "Common",
+      "IdolID": "IDOL-EPEX-WISH",
+      "CardID": "RB03-EPEX-WISH-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 137821299414206,
+      "Rarity": "Common",
+      "IdolID": "IDOL-82MAJOR-SEONGMO",
+      "CardID": "RB03-82MAJOR-SEONGMO-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 82447112555100,
+      "Rarity": "Common",
+      "IdolID": "IDOL-AND-TEAM-K",
+      "CardID": "RB03-AND-TEAM-K-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 73595320356895,
+      "Rarity": "Common",
+      "IdolID": "IDOL-AB6IX-WOOJIN",
+      "CardID": "RB03-AB6IX-WOOJIN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 98604821630945,
+      "Rarity": "Common",
+      "IdolID": "IDOL-XDINARY-HEROES-JOOYEON",
+      "CardID": "RB03-XDINARY-HEROES-JOOYEON-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 129713279664981,
+      "Rarity": "Common",
+      "IdolID": "IDOL-A-C-E-BYEONGKWAN",
+      "CardID": "RB03-A-C-E-BYEONGKWAN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126976834486706,
+      "Rarity": "Common",
+      "IdolID": "IDOL-SF9-CHANI",
+      "CardID": "RB03-SF9-CHANI-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 92432724244762,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ONF-HYOJIN",
+      "CardID": "RB03-ONF-HYOJIN-001",
+      "PackID": "RB03"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 93481914513165,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-RESCENE-WONI",
+      "CardID": "RB04-RESCENE-WONI-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 87835692796098,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-SEVENTEEN-MINGYU",
+      "CardID": "RB04-SEVENTEEN-MINGYU-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 88989910726002,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-IVE-YUJIN",
+      "CardID": "RB04-IVE-YUJIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 90531161802858,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-TXT-SOOBIN",
+      "CardID": "RB04-TXT-SOOBIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 81910791269733,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-AESPA-NINGNING",
+      "CardID": "RB04-AESPA-NINGNING-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 137360155145943,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-BABYMONSTER-CHIQUITA",
+      "CardID": "RB04-BABYMONSTER-CHIQUITA-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 122056079008735,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-LE-SSERAFIM-YUNJIN",
+      "CardID": "RB04-LE-SSERAFIM-YUNJIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 119565803704145,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-RIIZE-WONBIN",
+      "CardID": "RB04-RIIZE-WONBIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 108746408133021,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-STRAY-KIDS-BANG-CHAN",
+      "CardID": "RB04-STRAY-KIDS-BANG-CHAN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 106678858251265,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-ENHYPEN-SUNGHOON",
+      "CardID": "RB04-ENHYPEN-SUNGHOON-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114006271901155,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-MAMAMOO-WHEEIN",
+      "CardID": "RB04-MAMAMOO-WHEEIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 93281683597496,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-KATSEYE-MANON",
+      "CardID": "RB04-KATSEYE-MANON-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 109321390988743,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-NMIXX-KYUJIN",
+      "CardID": "RB04-NMIXX-KYUJIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 106315519360181,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-TRIPLES-CHAEWON",
+      "CardID": "RB04-TRIPLES-CHAEWON-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 80656767287873,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-GOT7-BAMBAM",
+      "CardID": "RB04-GOT7-BAMBAM-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 74022027134408,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-MONSTA-X-SHOWNU",
+      "CardID": "RB04-MONSTA-X-SHOWNU-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 95045348018522,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-BTS-SUGA",
+      "CardID": "RB04-BTS-SUGA-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 128155333772841,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-SHINEE-KEY",
+      "CardID": "RB04-SHINEE-KEY-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 90317813382401,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-OH-MY-GIRL-ARIN",
+      "CardID": "RB04-OH-MY-GIRL-ARIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 75586266006891,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-FROMIS-9-JIWON",
+      "CardID": "RB04-FROMIS-9-JIWON-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 135212529512471,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-EVERGLOW-SIHYEON",
+      "CardID": "RB04-EVERGLOW-SIHYEON-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103611476979993,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-STAYC-SUMIN",
+      "CardID": "RB04-STAYC-SUMIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 71707982613619,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-KIIIKIII-HAUM",
+      "CardID": "RB04-KIIIKIII-HAUM-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 139251686582686,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-IZNA-JUNGEUN",
+      "CardID": "RB04-IZNA-JUNGEUN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 139537306055342,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ASTRO-SANHA",
+      "CardID": "RB04-ASTRO-SANHA-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 90625113372931,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-THE-BOYZ-HYUNJAE",
+      "CardID": "RB04-THE-BOYZ-HYUNJAE-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 100855097577838,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-P1HARMONY-INTAK",
+      "CardID": "RB04-P1HARMONY-INTAK-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 100898981698192,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-N-FLYING-HWESEUNG",
+      "CardID": "RB04-N-FLYING-HWESEUNG-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 79136299709169,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-DAY6-YOUNG-K",
+      "CardID": "RB04-DAY6-YOUNG-K-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 111031310100637,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-PLAVE-NOAH",
+      "CardID": "RB04-PLAVE-NOAH-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 131965966156740,
+      "Rarity": "Common",
+      "IdolID": "IDOL-APINK-EUNJI",
+      "CardID": "RB04-APINK-EUNJI-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 132666382795865,
+      "Rarity": "Common",
+      "IdolID": "IDOL-KARA-YOUNGJI",
+      "CardID": "RB04-KARA-YOUNGJI-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 70460990658377,
+      "Rarity": "Common",
+      "IdolID": "IDOL-2NE1-MINZY",
+      "CardID": "RB04-2NE1-MINZY-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 92935167868204,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TRIPLES-NIEN",
+      "CardID": "RB04-TRIPLES-NIEN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 138462828119496,
+      "Rarity": "Common",
+      "IdolID": "IDOL-WOOAH-NANA",
+      "CardID": "RB04-WOOAH-NANA-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114880159582559,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BILLLIE-SHEON",
+      "CardID": "RB04-BILLLIE-SHEON-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126805450648235,
+      "Rarity": "Common",
+      "IdolID": "IDOL-WJSN-SEOLA",
+      "CardID": "RB04-WJSN-SEOLA-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 109604330687790,
+      "Rarity": "Common",
+      "IdolID": "IDOL-VIVIZ-EUNHA",
+      "CardID": "RB04-VIVIZ-EUNHA-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 140027214222105,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TWICE-MOMO",
+      "CardID": "RB04-TWICE-MOMO-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 137246879182516,
+      "Rarity": "Common",
+      "IdolID": "IDOL-PENTAGON-KINO",
+      "CardID": "RB04-PENTAGON-KINO-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 115452626005367,
+      "Rarity": "Common",
+      "IdolID": "IDOL-WEI-YOHAN",
+      "CardID": "RB04-WEI-YOHAN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112300671863675,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TEMPEST-HANBIN",
+      "CardID": "RB04-TEMPEST-HANBIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 77566818249451,
+      "Rarity": "Common",
+      "IdolID": "IDOL-YOUNITE-EUNHO",
+      "CardID": "RB04-YOUNITE-EUNHO-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 116481422788709,
+      "Rarity": "Common",
+      "IdolID": "IDOL-8TURN-JAEYUN",
+      "CardID": "RB04-8TURN-JAEYUN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 105124552103060,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ONE-PACT-JAY-CHANG",
+      "CardID": "RB04-ONE-PACT-JAY-CHANG-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 79094835783028,
+      "Rarity": "Common",
+      "IdolID": "IDOL-POW-YORCH",
+      "CardID": "RB04-POW-YORCH-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112012092611293,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ARRC-HYUNMIN",
+      "CardID": "RB04-ARRC-HYUNMIN-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 84630129411041,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ALLHOURS-KUNHO",
+      "CardID": "RB04-ALLHOURS-KUNHO-001",
+      "PackID": "RB04"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 78218216642097,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-NMIXX-HAEWON",
+      "CardID": "RB05-NMIXX-HAEWON-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 106400727401434,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-BTS-V",
+      "CardID": "RB05-BTS-V-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 115857573051790,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-LE-SSERAFIM-SAKURA",
+      "CardID": "RB05-LE-SSERAFIM-SAKURA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 99364598843082,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-ASTRO-CHA-EUNWOO",
+      "CardID": "RB05-ASTRO-CHA-EUNWOO-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 132302864184677,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-TWICE-MINA",
+      "CardID": "RB05-TWICE-MINA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114346585686799,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-I-DLE-MINNIE",
+      "CardID": "RB05-I-DLE-MINNIE-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 100685994194521,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-ILLIT-IROHA",
+      "CardID": "RB05-ILLIT-IROHA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 111138385204476,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-ATEEZ-WOOYOUNG",
+      "CardID": "RB05-ATEEZ-WOOYOUNG-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 134564361649538,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-TREASURE-JUNKYU",
+      "CardID": "RB05-TREASURE-JUNKYU-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 113362245014947,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-BOYNEXTDOOR-TAESAN",
+      "CardID": "RB05-BOYNEXTDOOR-TAESAN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 132930544759793,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-MEOVV-ELLA",
+      "CardID": "RB05-MEOVV-ELLA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 83287600597582,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-GIRLS-GENERATION-YOONA",
+      "CardID": "RB05-GIRLS-GENERATION-YOONA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 134287598620985,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-QWER-MAGENTA",
+      "CardID": "RB05-QWER-MAGENTA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 139696794891774,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-HEARTS2HEARTS-JUUN",
+      "CardID": "RB05-HEARTS2HEARTS-JUUN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 125500950685781,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-IDNTT-CHO-EUNCHAN",
+      "CardID": "RB05-IDNTT-CHO-EUNCHAN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 94493456282190,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-BTOB-MINHYUK",
+      "CardID": "RB05-BTOB-MINHYUK-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 81522511201022,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-EXO-D-O",
+      "CardID": "RB05-EXO-D-O-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 74011519554917,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-TWS-HANJIN",
+      "CardID": "RB05-TWS-HANJIN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 138812457244883,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-PURPLE-KISS-SWAN",
+      "CardID": "RB05-PURPLE-KISS-SWAN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86729761894146,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-KEP1ER-CHAEHYUN",
+      "CardID": "RB05-KEP1ER-CHAEHYUN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112274051242419,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-DREAMCATCHER-DAMI",
+      "CardID": "RB05-DREAMCATCHER-DAMI-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85876810991804,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-FIFTY-FIFTY-CHANELLE-MOON",
+      "CardID": "RB05-FIFTY-FIFTY-CHANELLE-MOON-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103427277788971,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-H1-KEY-RIINA",
+      "CardID": "RB05-H1-KEY-RIINA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112263491512755,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-LIGHTSUM-JUHYEON",
+      "CardID": "RB05-LIGHTSUM-JUHYEON-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 102546749106284,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-KICKFLIP-KYEHOON",
+      "CardID": "RB05-KICKFLIP-KYEHOON-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 91154552480868,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-CORTIS-SEONGHYEON",
+      "CardID": "RB05-CORTIS-SEONGHYEON-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103337532640319,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-CLOSE-YOUR-EYES-JEON-MINWOOK",
+      "CardID": "RB05-CLOSE-YOUR-EYES-JEON-MINWOOK-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 99405743085075,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-AMPERS-ONE-KAMDEN",
+      "CardID": "RB05-AMPERS-ONE-KAMDEN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 115850341271120,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-CIX-BX",
+      "CardID": "RB05-CIX-BX-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 95475026419529,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-NEXZ-TOMOYA",
+      "CardID": "RB05-NEXZ-TOMOYA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 100803716170355,
+      "Rarity": "Common",
+      "IdolID": "IDOL-YOUNG-POSSE-DOEUN",
+      "CardID": "RB05-YOUNG-POSSE-DOEUN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 136307665072510,
+      "Rarity": "Common",
+      "IdolID": "IDOL-UNIS-GEHLEE",
+      "CardID": "RB05-UNIS-GEHLEE-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 92815999426433,
+      "Rarity": "Common",
+      "IdolID": "IDOL-SAY-MY-NAME-MEI",
+      "CardID": "RB05-SAY-MY-NAME-MEI-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 81515062299187,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BADVILLAIN-CHLOE-YOUNG",
+      "CardID": "RB05-BADVILLAIN-CHLOE-YOUNG-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86988573264758,
+      "Rarity": "Common",
+      "IdolID": "IDOL-CSR-YUNA",
+      "CardID": "RB05-CSR-YUNA-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 93097641710905,
+      "Rarity": "Common",
+      "IdolID": "IDOL-MADEIN-MIU",
+      "CardID": "RB05-MADEIN-MIU-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 130854493718430,
+      "Rarity": "Common",
+      "IdolID": "IDOL-KIIIKIII-LEESOL",
+      "CardID": "RB05-KIIIKIII-LEESOL-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 132726920600568,
+      "Rarity": "Common",
+      "IdolID": "IDOL-IZNA-SAEBI",
+      "CardID": "RB05-IZNA-SAEBI-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 127548661112316,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TRIPLES-JOOBIN",
+      "CardID": "RB05-TRIPLES-JOOBIN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 82591057086803,
+      "Rarity": "Common",
+      "IdolID": "IDOL-DRIPPIN-JUNHO",
+      "CardID": "RB05-DRIPPIN-JUNHO-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 101597065457524,
+      "Rarity": "Common",
+      "IdolID": "IDOL-MCND-CASTLE-J",
+      "CardID": "RB05-MCND-CASTLE-J-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 91084266819471,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BIGBANG-TAEYANG",
+      "CardID": "RB05-BIGBANG-TAEYANG-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 120284604419578,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TNX-TAEHUN",
+      "CardID": "RB05-TNX-TAEHUN-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 136590512414187,
+      "Rarity": "Common",
+      "IdolID": "IDOL-AHOF-JL",
+      "CardID": "RB05-AHOF-JL-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 120867303228203,
+      "Rarity": "Common",
+      "IdolID": "IDOL-CRAVITY-MINHEE",
+      "CardID": "RB05-CRAVITY-MINHEE-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 102906337483599,
+      "Rarity": "Common",
+      "IdolID": "IDOL-EVNNE-JEONGHYEON",
+      "CardID": "RB05-EVNNE-JEONGHYEON-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 100038962461065,
+      "Rarity": "Common",
+      "IdolID": "IDOL-XIKERS-HUNTER",
+      "CardID": "RB05-XIKERS-HUNTER-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 116339522760176,
+      "Rarity": "Common",
+      "IdolID": "IDOL-EPEX-MU",
+      "CardID": "RB05-EPEX-MU-001",
+      "PackID": "RB05"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 135129531136297,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-BLACKPINK-ROSE",
+      "CardID": "RB06-BLACKPINK-ROSE-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 135033875881363,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-SHINEE-TAEMIN",
+      "CardID": "RB06-SHINEE-TAEMIN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 120193973993970,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-RED-VELVET-SEULGI",
+      "CardID": "RB06-RED-VELVET-SEULGI-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 124471153845125,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-STRAY-KIDS-LEE-KNOW",
+      "CardID": "RB06-STRAY-KIDS-LEE-KNOW-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 133604978029690,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-STAYC-SIEUN",
+      "CardID": "RB06-STAYC-SIEUN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 124301750733678,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-HEARTS2HEARTS-IAN",
+      "CardID": "RB06-HEARTS2HEARTS-IAN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 129356169994266,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-BABYMONSTER-RORA",
+      "CardID": "RB06-BABYMONSTER-RORA-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126290138966711,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-GOT7-JINYOUNG",
+      "CardID": "RB06-GOT7-JINYOUNG-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 110859553151270,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-ENHYPEN-JAKE",
+      "CardID": "RB06-ENHYPEN-JAKE-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 92274330667911,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-RIIZE-SUNGCHAN",
+      "CardID": "RB06-RIIZE-SUNGCHAN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 118072437016277,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-IVE-REI",
+      "CardID": "RB06-IVE-REI-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 81115570159388,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-ITZY-LIA",
+      "CardID": "RB06-ITZY-LIA-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 111374717127400,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-MAMAMOO-SOLAR",
+      "CardID": "RB06-MAMAMOO-SOLAR-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 107637181633647,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-ARTMS-HEEJIN",
+      "CardID": "RB06-ARTMS-HEEJIN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 105529175662413,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-ZEROBASEONE-MATTHEW",
+      "CardID": "RB06-ZEROBASEONE-MATTHEW-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114977239637294,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-AND-TEAM-JO",
+      "CardID": "RB06-AND-TEAM-JO-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114652606168558,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-TXT-HUENING-KAI",
+      "CardID": "RB06-TXT-HUENING-KAI-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85441445311183,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-SEVENTEEN-WONWOO",
+      "CardID": "RB06-SEVENTEEN-WONWOO-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 80061767089620,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-VIVIZ-SINB",
+      "CardID": "RB06-VIVIZ-SINB-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 70932184538632,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-OH-MY-GIRL-YOOA",
+      "CardID": "RB06-OH-MY-GIRL-YOOA-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 82623281973491,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-WJSN-EXY",
+      "CardID": "RB06-WJSN-EXY-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 122055971073346,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-FROMIS-9-HAYOUNG",
+      "CardID": "RB06-FROMIS-9-HAYOUNG-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112941022652797,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-RESCENE-LIV",
+      "CardID": "RB06-RESCENE-LIV-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 130625315255960,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-BILLLIE-HARUNA",
+      "CardID": "RB06-BILLLIE-HARUNA-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114309663163756,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ONEUS-LEEDO",
+      "CardID": "RB06-ONEUS-LEEDO-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 138037766684243,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-82MAJOR-YECHAN",
+      "CardID": "RB06-82MAJOR-YECHAN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 138233859921053,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-AB6IX-WOONG",
+      "CardID": "RB06-AB6IX-WOONG-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 131950028437042,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-XDINARY-HEROES-JUNGSU",
+      "CardID": "RB06-XDINARY-HEROES-JUNGSU-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126044152044690,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-SF9-HWIYOUNG",
+      "CardID": "RB06-SF9-HWIYOUNG-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 118141015061641,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-ONF-MINKYUN",
+      "CardID": "RB06-ONF-MINKYUN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 137262996291874,
+      "Rarity": "Common",
+      "IdolID": "IDOL-WOOAH-SORA",
+      "CardID": "RB06-WOOAH-SORA-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 122196921895474,
+      "Rarity": "Common",
+      "IdolID": "IDOL-EVERGLOW-E-U",
+      "CardID": "RB06-EVERGLOW-E-U-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 118918885321849,
+      "Rarity": "Common",
+      "IdolID": "IDOL-APINK-BOMI",
+      "CardID": "RB06-APINK-BOMI-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 113748535395931,
+      "Rarity": "Common",
+      "IdolID": "IDOL-KARA-NICOLE",
+      "CardID": "RB06-KARA-NICOLE-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 140484630715512,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TRIPLES-XINYU",
+      "CardID": "RB06-TRIPLES-XINYU-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 76213796467669,
+      "Rarity": "Common",
+      "IdolID": "IDOL-PURPLE-KISS-GOEUN",
+      "CardID": "RB06-PURPLE-KISS-GOEUN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 102864346065470,
+      "Rarity": "Common",
+      "IdolID": "IDOL-QWER-HINA",
+      "CardID": "RB06-QWER-HINA-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 89049974222417,
+      "Rarity": "Common",
+      "IdolID": "IDOL-MEOVV-NARIN",
+      "CardID": "RB06-MEOVV-NARIN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 94861649307270,
+      "Rarity": "Common",
+      "IdolID": "IDOL-NEWJEANS-HYEIN",
+      "CardID": "RB06-NEWJEANS-HYEIN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 140571938568055,
+      "Rarity": "Common",
+      "IdolID": "IDOL-A-C-E-JUNHEE",
+      "CardID": "RB06-A-C-E-JUNHEE-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 115781321794240,
+      "Rarity": "Common",
+      "IdolID": "IDOL-PENTAGON-WOOSEOK",
+      "CardID": "RB06-PENTAGON-WOOSEOK-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 101507700063456,
+      "Rarity": "Common",
+      "IdolID": "IDOL-WEI-SEOKHWA",
+      "CardID": "RB06-WEI-SEOKHWA-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 116390349252183,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TEMPEST-HYUK",
+      "CardID": "RB06-TEMPEST-HYUK-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112311039387700,
+      "Rarity": "Common",
+      "IdolID": "IDOL-YOUNITE-STEVE",
+      "CardID": "RB06-YOUNITE-STEVE-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 128915888186404,
+      "Rarity": "Common",
+      "IdolID": "IDOL-8TURN-MYUNGHO",
+      "CardID": "RB06-8TURN-MYUNGHO-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 94805352312857,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ONE-PACT-JONGWOO",
+      "CardID": "RB06-ONE-PACT-JONGWOO-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 91394766115442,
+      "Rarity": "Common",
+      "IdolID": "IDOL-IDNTT-EUNSOO",
+      "CardID": "RB06-IDNTT-EUNSOO-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 122989716164798,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ARRC-KIEN",
+      "CardID": "RB06-ARRC-KIEN-001",
+      "PackID": "RB06"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 113059032304197,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-NEWJEANS-HAERIN",
+      "CardID": "RB07-NEWJEANS-HAERIN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 72042956972418,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-NCT-DREAM-HAECHAN",
+      "CardID": "RB07-NCT-DREAM-HAECHAN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103126167386138,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-LE-SSERAFIM-KAZUHA",
+      "CardID": "RB07-LE-SSERAFIM-KAZUHA-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85754014434795,
+      "Rarity": "Legendary",
+      "IdolID": "IDOL-ATEEZ-HONGJOONG",
+      "CardID": "RB07-ATEEZ-HONGJOONG-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 92687181207605,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-TRIPLES-YEONJI",
+      "CardID": "RB07-TRIPLES-YEONJI-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 119454362983713,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-ILLIT-MINJU",
+      "CardID": "RB07-ILLIT-MINJU-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 82134431811661,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-SOLO-YENA",
+      "CardID": "RB07-SOLO-YENA-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 105523475551942,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-KICKFLIP-MINJE",
+      "CardID": "RB07-KICKFLIP-MINJE-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 102288665502726,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-AND2BLE-ZHANG-HAO",
+      "CardID": "RB07-AND2BLE-ZHANG-HAO-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 127466557707999,
+      "Rarity": "Epic",
+      "IdolID": "IDOL-NCT-127-YUTA",
+      "CardID": "RB07-NCT-127-YUTA-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 119722224158675,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-AESPA-GISELLE",
+      "CardID": "RB07-AESPA-GISELLE-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 79406058332275,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-SOLO-CHUU",
+      "CardID": "RB07-SOLO-CHUU-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 118444182883735,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-HEARTS2HEARTS-JIWOO",
+      "CardID": "RB07-HEARTS2HEARTS-JIWOO-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 93472189946591,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-DREAMCATCHER-YOOHYEON",
+      "CardID": "RB07-DREAMCATCHER-YOOHYEON-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 124646779095654,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-IDNTT-DOHUN",
+      "CardID": "RB07-IDNTT-DOHUN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126438498178112,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-ALD1-SANGWON",
+      "CardID": "RB07-ALD1-SANGWON-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 88444149149145,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-SOLO-WOODZ",
+      "CardID": "RB07-SOLO-WOODZ-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 82329947667879,
+      "Rarity": "Rare",
+      "IdolID": "IDOL-CORTIS-KEONHO",
+      "CardID": "RB07-CORTIS-KEONHO-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 98365144423435,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-I-DLE-SOYEON",
+      "CardID": "RB07-I-DLE-SOYEON-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 121750125360283,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-XG-MAYA",
+      "CardID": "RB07-XG-MAYA-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 77190885045886,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-NIZIU-RIO",
+      "CardID": "RB07-NIZIU-RIO-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 123734928158739,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-FROMIS-9-NAGYUNG",
+      "CardID": "RB07-FROMIS-9-NAGYUNG-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114824319345953,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-IZNA-MAI",
+      "CardID": "RB07-IZNA-MAI-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 123663629257929,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-TUIDE-SAKI",
+      "CardID": "RB07-TUIDE-SAKI-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 133769171842648,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-AND-TEAM-FUMA",
+      "CardID": "RB07-AND-TEAM-FUMA-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 85621042933234,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-VAYONN-SEN",
+      "CardID": "RB07-VAYONN-SEN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 84279783670221,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-PLAVE-YEJUN",
+      "CardID": "RB07-PLAVE-YEJUN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 121618255033648,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-LNGSHOT-RYUL",
+      "CardID": "RB07-LNGSHOT-RYUL-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 102856239543892,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-BOYNEXTDOOR-LEEHAN",
+      "CardID": "RB07-BOYNEXTDOOR-LEEHAN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 86167626543794,
+      "Rarity": "Uncommon",
+      "IdolID": "IDOL-SEVENTEEN-SEUNGKWAN",
+      "CardID": "RB07-SEVENTEEN-SEUNGKWAN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 126364861722936,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TWICE-JIHYO",
+      "CardID": "RB07-TWICE-JIHYO-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 139732638303614,
+      "Rarity": "Common",
+      "IdolID": "IDOL-KIIIKIII-SUI",
+      "CardID": "RB07-KIIIKIII-SUI-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 74704185764533,
+      "Rarity": "Common",
+      "IdolID": "IDOL-KEP1ER-YUJIN",
+      "CardID": "RB07-KEP1ER-YUJIN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 131389851360821,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BABYMONSTER-PHARITA",
+      "CardID": "RB07-BABYMONSTER-PHARITA-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 76518299214020,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ROCKET-PUNCH-SOHEE",
+      "CardID": "RB07-ROCKET-PUNCH-SOHEE-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 107068646611927,
+      "Rarity": "Common",
+      "IdolID": "IDOL-RED-VELVET-JOY",
+      "CardID": "RB07-RED-VELVET-JOY-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 82648810918040,
+      "Rarity": "Common",
+      "IdolID": "IDOL-WEEEKLY-JIHAN",
+      "CardID": "RB07-WEEEKLY-JIHAN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 76059561458605,
+      "Rarity": "Common",
+      "IdolID": "IDOL-KIIRAS-LINGLING",
+      "CardID": "RB07-KIIRAS-LINGLING-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 114349976851600,
+      "Rarity": "Common",
+      "IdolID": "IDOL-IVE-LEESEO",
+      "CardID": "RB07-IVE-LEESEO-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 82317808865716,
+      "Rarity": "Common",
+      "IdolID": "IDOL-P1HARMONY-JIUNG",
+      "CardID": "RB07-P1HARMONY-JIUNG-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 137302647026335,
+      "Rarity": "Common",
+      "IdolID": "IDOL-IDID-SEMIN",
+      "CardID": "RB07-IDID-SEMIN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 77020348228815,
+      "Rarity": "Common",
+      "IdolID": "IDOL-AOEN-REO",
+      "CardID": "RB07-AOEN-REO-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 103003804751329,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BTS-J-HOPE",
+      "CardID": "RB07-BTS-J-HOPE-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 124562048948347,
+      "Rarity": "Common",
+      "IdolID": "IDOL-BIGBANG-G-DRAGON",
+      "CardID": "RB07-BIGBANG-G-DRAGON-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 139290405217117,
+      "Rarity": "Common",
+      "IdolID": "IDOL-TWS-KYUNGMIN",
+      "CardID": "RB07-TWS-KYUNGMIN-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 84483619196907,
+      "Rarity": "Common",
+      "IdolID": "IDOL-SANTOS-BRAVOS-GABI",
+      "CardID": "RB07-SANTOS-BRAVOS-GABI-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 90594301217756,
+      "Rarity": "Common",
+      "IdolID": "IDOL-FLARE-U-CHUEI-LIYU",
+      "CardID": "RB07-FLARE-U-CHUEI-LIYU-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 138686470746102,
+      "Rarity": "Common",
+      "IdolID": "IDOL-ONEWE-YONGHOON",
+      "CardID": "RB07-ONEWE-YONGHOON-001",
+      "PackID": "RB07"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 124980252397491,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-SOLO-IU",
+      "CardID": "EX01-SOLO-IU-001",
+      "PackID": "EX01"
+    },
+    {
+      "CatalogStatus": "Ready",
+      "ImageAssetId": 112827405802552,
+      "Rarity": "Mythic",
+      "IdolID": "IDOL-RESCENE-GROUP",
+      "CardID": "EX02-RESCENE-GROUP-001",
+      "PackID": "EX02"
+    }
+  ],
+  "FinishValues": [
+    "Normal",
+    "Holo",
+    "Shiny",
+    "Glitter"
+  ],
+  "MutationValues": [
+    "Blossom",
+    "Aurora",
+    "Starlit",
+    "Sunbeam",
+    "Dewdrop"
+  ]
+}

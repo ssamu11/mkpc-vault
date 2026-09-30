@@ -1,6 +1,31 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  Menu,
+  Sparkles,
+  LayoutDashboard,
+  Images,
+  Layers,
+  Users,
+  Mic2,
+  Compass,
+  WandSparkles,
+  FileInput,
+  Download,
+  Settings,
+  LogOut,
+  ArrowUpRight,
+  ArrowLeft,
+  Plus,
+  CheckCircle2,
+  Clock3,
+  FilePen,
+  Archive,
+  Pencil,
+  Trash2,
+} from "lucide-react";
+import CollectionShelf from "./collection-shelf";
 import { createBrowserClient } from "@supabase/ssr";
 import type { Catalog, Card, Group } from "@/lib/types";
 import {
@@ -10,6 +35,13 @@ import {
   liveCards,
   cardExport,
 } from "@/lib/catalog";
+import {
+  cardTier,
+  formatPercent,
+  tierOdds,
+  finishes,
+  mutations,
+} from "@/lib/pocapop";
 import { Badge, DataTable, Empty, Modal, download, mutate } from "./ui";
 import {
   CardEditor,
@@ -23,17 +55,17 @@ import PackPlanner from "./pack-planner";
 import Discovery from "./discovery";
 import { logout } from "@/app/login/actions";
 const nav = [
-  ["Dashboard", "◫"],
-  ["Cards", "▤"],
-  ["Packs", "▣"],
-  ["Groups", "◈"],
-  ["Idols", "♧"],
-  ["Discovery", "✦"],
-  ["Pack Planner", ""],
-  ["Import", "↥"],
-  ["Export", "↧"],
-  ["Settings", "⚙"],
-];
+  ["Dashboard", LayoutDashboard],
+  ["Cards", Images],
+  ["Packs", Layers],
+  ["Groups", Users],
+  ["Idols", Mic2],
+  ["Discovery", Compass],
+  ["Pack Planner", WandSparkles],
+  ["Import", FileInput],
+  ["Export", Download],
+  ["Settings", Settings],
+] as const;
 
 type ReferenceCoverage = {
   group_id: string;
@@ -45,10 +77,7 @@ type ReferenceCoverage = {
   represented_members: number;
   missing_members: number;
 
-  coverage_percent:
-    | number
-    | string
-    | null;
+  coverage_percent: number | string | null;
 };
 
 type ReferenceMissingMember = {
@@ -61,23 +90,15 @@ type ReferenceMissingMember = {
   kpopping_artist_id: string;
   kpopping_stage_name: string;
 
-  local_idol_id:
-    | string
-    | null;
+  local_idol_id: string | null;
 
-  bias_vault_name:
-    | string
-    | null;
+  bias_vault_name: string | null;
 
   display_name: string;
 
-  role:
-    | string
-    | null;
+  role: string | null;
 
-  position:
-    | string
-    | null;
+  position: string | null;
 };
 
 type ReferenceMember = {
@@ -89,23 +110,15 @@ type ReferenceMember = {
 
   kpopping_stage_name: string;
 
-  local_idol_id:
-    | string
-    | null;
+  local_idol_id: string | null;
 
-  bias_vault_name:
-    | string
-    | null;
+  bias_vault_name: string | null;
 
   display_name: string;
 
-  role:
-    | string
-    | null;
+  role: string | null;
 
-  position:
-    | string
-    | null;
+  position: string | null;
 };
 
 type Edit = { table: string; record?: Record<string, unknown> };
@@ -122,48 +135,31 @@ export default function Workspace({
 
   // BIAS_VAULT_REFERENCE_COVERAGE_PATCH
 
-  const referenceSupabase =
-    useMemo(() => {
-      const url =
-        process.env
-          .NEXT_PUBLIC_SUPABASE_URL;
+  const referenceSupabase = useMemo(() => {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
-      const key =
-        process.env
-          .NEXT_PUBLIC_SUPABASE_ANON_KEY ??
-        process.env
-          .NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+    const key =
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-      if (!url || !key) {
-        return null;
-      }
+    if (!url || !key) {
+      return null;
+    }
 
-      return createBrowserClient(
-        url,
-        key,
-      );
-    }, []);
+    return createBrowserClient(url, key);
+  }, []);
 
-  const [
-    referenceCoverage,
-    setReferenceCoverage,
-  ] = useState<
+  const [referenceCoverage, setReferenceCoverage] = useState<
     ReferenceCoverage[]
   >([]);
 
-  const [
-    referenceMissingMembers,
-    setReferenceMissingMembers,
-  ] = useState<
+  const [referenceMissingMembers, setReferenceMissingMembers] = useState<
     ReferenceMissingMember[]
   >([]);
 
-  const [
-    referenceMembers,
-    setReferenceMembers,
-  ] = useState<
-    ReferenceMember[]
-  >([]);
+  const [referenceMembers, setReferenceMembers] = useState<ReferenceMember[]>(
+    [],
+  );
 
   useEffect(() => {
     if (!referenceSupabase) {
@@ -172,28 +168,16 @@ export default function Workspace({
 
     let cancelled = false;
 
-    async function readAll(
-      table: string,
-    ) {
-      const rows: Record<
-        string,
-        unknown
-      >[] = [];
+    async function readAll(table: string) {
+      const rows: Record<string, unknown>[] = [];
 
       let from = 0;
 
       while (true) {
-        const {
-          data: page,
-          error,
-        } =
-          await referenceSupabase!
-            .from(table)
-            .select("*")
-            .range(
-              from,
-              from + 999,
-            );
+        const { data: page, error } = await referenceSupabase!
+          .from(table)
+          .select("*")
+          .range(from, from + 999);
 
         if (error) {
           throw error;
@@ -205,9 +189,7 @@ export default function Workspace({
 
         rows.push(...page);
 
-        if (
-          page.length < 1000
-        ) {
+        if (page.length < 1000) {
           break;
         }
 
@@ -219,44 +201,27 @@ export default function Workspace({
 
     async function loadReferenceData() {
       try {
-        const [
-          coverageRows,
-          missingRows,
-          memberRows,
-        ] = await Promise.all([
-          readAll(
-            "bias_group_reference_coverage",
-          ),
+        const [coverageRows, missingRows, memberRows] = await Promise.all([
+          readAll("bias_group_reference_coverage"),
 
-          readAll(
-            "bias_group_reference_missing_members",
-          ),
+          readAll("bias_group_reference_missing_members"),
 
-          readAll(
-            "bias_group_reference_members",
-          ),
+          readAll("bias_group_reference_members"),
         ]);
 
         if (cancelled) {
           return;
         }
 
-        setReferenceCoverage(
-          coverageRows as unknown as ReferenceCoverage[],
-        );
+        setReferenceCoverage(coverageRows as unknown as ReferenceCoverage[]);
 
         setReferenceMissingMembers(
           missingRows as unknown as ReferenceMissingMember[],
         );
 
-        setReferenceMembers(
-          memberRows as unknown as ReferenceMember[],
-        );
+        setReferenceMembers(memberRows as unknown as ReferenceMember[]);
       } catch (error) {
-        console.error(
-          "Unable to load Kpopping reference coverage:",
-          error,
-        );
+        console.error("Unable to load Kpopping reference coverage:", error);
       }
     }
 
@@ -338,12 +303,12 @@ export default function Workspace({
               : page === "Discovery"
                 ? "Kpopping+ reference"
                 : page === "Pack Planner"
-                ? "Rarity rotation & candidate planning"
-                : page === "Import"
-                  ? "Import catalog data"
-                  : page === "Export"
-                    ? "Export catalog data"
-                    : "Workspace settings";
+                  ? "PocaPop pack planning"
+                  : page === "Import"
+                    ? "Import catalog data"
+                    : page === "Export"
+                      ? "Export catalog data"
+                      : "Workspace settings";
 
   function recordActions(
     table: string,
@@ -352,6 +317,9 @@ export default function Workspace({
     return (
       <div className="row-actions">
         <button
+          className="icon-button"
+          title="Edit record"
+          aria-label="Edit record"
           onClick={() =>
             setEdit({
               table,
@@ -359,10 +327,12 @@ export default function Workspace({
             })
           }
         >
-          Edit
+          <Pencil size={15} />
         </button>
         <button
-          className="text-danger"
+          className="icon-button text-danger"
+          title="Delete record"
+          aria-label="Delete record"
           onClick={() =>
             setDeletion({
               table,
@@ -371,242 +341,121 @@ export default function Workspace({
             })
           }
         >
-          Delete
+          <Trash2 size={15} />
         </button>
       </div>
     );
   }
-  function hasReferenceRoster(
-    g: Group,
-  ) {
-    return referenceCoverage.some(
-      (row) =>
-        row.group_id === g.id,
-    );
+  function hasReferenceRoster(g: Group) {
+    return referenceCoverage.some((row) => row.group_id === g.id);
   }
 
-  function effectiveCoverage(
-    g: Group,
-  ) {
-    const fallback =
-      coverage(g, data);
+  function effectiveCoverage(g: Group) {
+    const fallback = coverage(g, data);
 
-    const reference =
-      referenceCoverage.find(
-        (row) =>
-          row.group_id ===
-          g.id,
-      );
+    const reference = referenceCoverage.find((row) => row.group_id === g.id);
 
     if (!reference) {
       return fallback;
     }
 
-    const missing =
-      referenceMissingMembers.filter(
-        (member) =>
-          member.group_id ===
-          g.id,
-      );
+    const missing = referenceMissingMembers.filter(
+      (member) => member.group_id === g.id,
+    );
 
     return {
       ...fallback,
 
-      represented:
-        reference.represented_members,
+      represented: reference.represented_members,
 
-      total:
-        reference.roster_size,
+      total: reference.roster_size,
 
       missing,
 
       percentage:
-        reference.coverage_percent ===
-        null
+        reference.coverage_percent === null
           ? null
-          : Number(
-              reference.coverage_percent,
-            ),
+          : Number(reference.coverage_percent),
     };
   }
 
-  function rarityNameForCard(
-    card: Card,
-  ) {
-    const rarity =
-      data.rarities.find(
-        (item) =>
-          item.id ===
-          card.rarity_id,
-      );
-
-    if (!rarity) {
-      return "Unknown";
-    }
-
-    const raw =
-      String(
-        rarity.numeric_value ??
-          "",
-      ).trim();
-
-    const percentage =
-      raw
-        ? raw.endsWith("%")
-          ? raw
-          : raw + "%"
-        : "";
-
-    if (
-      rarity.label &&
-      percentage &&
-      rarity.label !==
-        percentage
-    ) {
-      return (
-        rarity.label +
-        " · " +
-        percentage
-      );
-    }
-
-    return (
-      rarity.label ||
-      percentage ||
-      "Unknown"
-    );
+  function rarityNameForCard(card: Card) {
+    return cardTier(card, data);
   }
 
-  function groupRosterRows(
-    g: Group,
-  ) {
-    const referenceRoster =
-      referenceMembers.filter(
-        (member) =>
-          member.group_id ===
-          g.id,
-      );
+  function groupRosterRows(g: Group) {
+    const referenceRoster = referenceMembers.filter(
+      (member) => member.group_id === g.id,
+    );
 
     /*
      * For groups linked to
      * Kpopping+, current membership
      * comes from Kpopping.
      */
-    if (
-      referenceRoster.length
-    ) {
-      return referenceRoster.map(
-        (member) => {
-          const localIdol =
-            member.local_idol_id
-              ? data.idols.find(
-                  (idol) =>
-                    idol.id ===
-                    member.local_idol_id,
-                )
-              : undefined;
+    if (referenceRoster.length) {
+      return referenceRoster.map((member) => {
+        const localIdol = member.local_idol_id
+          ? data.idols.find((idol) => idol.id === member.local_idol_id)
+          : undefined;
 
-          /*
-           * Representation is identity
-           * based, so cards from a
-           * previous/different group
-           * still count for the person.
-           */
-          const cards =
-            localIdol
-              ? live.filter(
-                  (card) =>
-                    cardIdols(
-                      card,
-                      data,
-                    ).some(
-                      (idol) =>
-                        idol.id ===
-                        localIdol.id,
-                    ),
-                )
-              : [];
+        /*
+         * Representation is identity
+         * based, so cards from a
+         * previous/different group
+         * still count for the person.
+         */
+        const cards = localIdol
+          ? live.filter((card) =>
+              cardIdols(card, data).some((idol) => idol.id === localIdol.id),
+            )
+          : [];
 
-          const packs = [
-            ...new Set(
-              cards.map(
-                (card) =>
-                  data.packs.find(
-                    (pack) =>
-                      pack.id ===
-                      card.pack_id,
-                  )?.name ||
-                  "",
-              ),
-            ),
-          ].filter(Boolean);
-
-          const cardDetails =
+        const packs = [
+          ...new Set(
             cards.map(
-              (card) => ({
-                cardId:
-                  card.id,
+              (card) =>
+                data.packs.find((pack) => pack.id === card.pack_id)?.name || "",
+            ),
+          ),
+        ].filter(Boolean);
 
-                pack:
-                  data.packs.find(
-                    (pack) =>
-                      pack.id ===
-                      card.pack_id,
-                  )?.name ||
-                  "Unknown pack",
+        const cardDetails = cards.map((card) => ({
+          cardId: card.id,
 
-                rarity:
-                  rarityNameForCard(
-                    card,
-                  ),
-              }),
-            );
+          pack:
+            data.packs.find((pack) => pack.id === card.pack_id)?.name ||
+            "Unknown pack",
 
-          const isMissing =
-            referenceMissingMembers.some(
-              (missing) =>
-                missing.group_id ===
-                  g.id &&
-                missing.kpopping_artist_id ===
-                  member.kpopping_artist_id,
-            );
+          rarity: rarityNameForCard(card),
+        }));
 
-          return {
-            id:
-              "kpopping:" +
-              member.kpopping_artist_id,
+        const isMissing = referenceMissingMembers.some(
+          (missing) =>
+            missing.group_id === g.id &&
+            missing.kpopping_artist_id === member.kpopping_artist_id,
+        );
 
-            idolId:
-              localIdol?.id ||
-              null,
+        return {
+          id: "kpopping:" + member.kpopping_artist_id,
 
-            displayName:
-              localIdol
-                ?.stage_name ||
-              member.display_name,
+          idolId: localIdol?.id || null,
 
-            gender:
-              localIdol
-                ?.gender ||
-              "unknown",
+          displayName: localIdol?.stage_name || member.display_name,
 
-            cards,
-            packs,
-            cardDetails,
+          gender: localIdol?.gender || "unknown",
 
-            status:
-              isMissing
-                ? "Missing"
-                : "Represented",
+          cards,
+          packs,
+          cardDetails,
 
-            membershipStatus:
-              "current",
+          status: isMissing ? "Missing" : "Represented",
 
-            referenceOnly:
-              !localIdol,
-          };
-        },
-      );
+          membershipStatus: "current",
+
+          referenceOnly: !localIdol,
+        };
+      });
     }
 
     /*
@@ -614,95 +463,50 @@ export default function Workspace({
      * to Kpopping.
      */
     return data.group_memberships
-      .filter(
-        (membership) =>
-          membership.group_id ===
-          g.id,
-      )
+      .filter((membership) => membership.group_id === g.id)
       .map((membership) => {
-        const idol =
-          data.idols.find(
-            (idol) =>
-              idol.id ===
-              membership.idol_id,
-          )!;
+        const idol = data.idols.find((idol) => idol.id === membership.idol_id)!;
 
-        const cards =
-          live.filter(
-            (card) =>
-              cardIdols(
-                card,
-                data,
-              ).some(
-                (item) =>
-                  item.id ===
-                  idol.id,
-              ) &&
-              cardGroups(
-                card,
-                data,
-              ).some(
-                (item) =>
-                  item.id ===
-                  g.id,
-              ),
-          );
+        const cards = live.filter(
+          (card) =>
+            cardIdols(card, data).some((item) => item.id === idol.id) &&
+            cardGroups(card, data).some((item) => item.id === g.id),
+        );
 
         const packs = [
           ...new Set(
             cards.map(
               (card) =>
-                data.packs.find(
-                  (pack) =>
-                    pack.id ===
-                    card.pack_id,
-                )?.name ||
-                "",
+                data.packs.find((pack) => pack.id === card.pack_id)?.name || "",
             ),
           ),
         ].filter(Boolean);
 
-        const cardDetails =
-          cards.map(
-            (card) => ({
-              cardId:
-                card.id,
+        const cardDetails = cards.map((card) => ({
+          cardId: card.id,
 
-              pack:
-                data.packs.find(
-                  (pack) =>
-                    pack.id ===
-                    card.pack_id,
-                )?.name ||
-                "Unknown pack",
+          pack:
+            data.packs.find((pack) => pack.id === card.pack_id)?.name ||
+            "Unknown pack",
 
-              rarity:
-                rarityNameForCard(
-                  card,
-                ),
-            }),
-          );
+          rarity: rarityNameForCard(card),
+        }));
 
         return {
-          id:
-            membership.id,
+          id: membership.id,
 
-          idolId:
-            idol.id,
+          idolId: idol.id,
 
-          displayName:
-            idol.stage_name,
+          displayName: idol.stage_name,
 
-          gender:
-            idol.gender,
+          gender: idol.gender,
 
           cards,
           packs,
           cardDetails,
 
           status:
-            membership.membership_status ===
-            "former"
+            membership.membership_status === "former"
               ? "Former"
               : cards.length
                 ? "Represented"
@@ -710,11 +514,9 @@ export default function Workspace({
                   ? "Missing"
                   : "No live cards",
 
-          membershipStatus:
-            membership.membership_status,
+          membershipStatus: membership.membership_status,
 
-          referenceOnly:
-            false,
+          referenceOnly: false,
         };
       });
   }
@@ -729,40 +531,30 @@ export default function Workspace({
       "Coverage %":
         c.percentage === null ? "—" : Number(c.percentage.toFixed(1)),
       "Total live cards": c.cards,
-      "Total cards": data.cards.filter(card=>cardGroups(card,data).some(x=>x.id===g.id)).length,
+      "Total cards": data.cards.filter((card) =>
+        cardGroups(card, data).some((x) => x.id === g.id),
+      ).length,
     };
   });
   const rosterExport = (g: Group) =>
     groupRosterRows(g).map((r) => ({
       Group: g.name,
 
-      Idol:
-        r.displayName,
+      Idol: r.displayName,
 
-      Gender:
-        r.gender,
+      Gender: r.gender,
 
-      "Membership status":
-        r.membershipStatus,
+      "Membership status": r.membershipStatus,
 
-      Cards:
-        r.cards.length,
+      Cards: r.cards.length,
 
-      Packs:
-        r.packs.join(", "),
+      Packs: r.packs.join(", "),
 
-      "Cards and rarities":
-        r.cardDetails
-          .map(
-            (card) =>
-              card.pack +
-              ": " +
-              card.rarity,
-          )
-          .join(", "),
+      "Cards and rarities": r.cardDetails
+        .map((card) => card.pack + ": " + card.rarity)
+        .join(", "),
 
-      "Representation status":
-        r.status,
+      "Representation status": r.status,
     }));
   return (
     <div className="app-shell">
@@ -775,14 +567,17 @@ export default function Workspace({
             go("Dashboard");
           }}
         >
+          <span className="brand-mark">
+            <Sparkles size={22} />
+          </span>
           <span>
-            <b>MKPC VAULT</b>
-            <small>MODERATOR WORKSPACE</small>
+            <b>PocaPop Vault</b>
+            <small>CATALOG STUDIO</small>
           </span>
         </a>
         <span className="nav-label">YOUR CATALOG</span>
         <nav>
-          {nav.map(([name, icon], index) => (
+          {nav.map(([name, Icon]) => (
             <button
               key={name}
               className={
@@ -791,7 +586,7 @@ export default function Workspace({
               }
               onClick={() => go(name)}
             >
-              <span>{icon}</span>
+              <Icon size={18} />
               {name}
               {name === "Cards" && (
                 <small>{data.cards.length.toLocaleString()}</small>
@@ -807,22 +602,32 @@ export default function Workspace({
               <small>{role}</small>
             </span>
             <form action={logout}>
-              <button title="Sign out" aria-label="Sign out">Sign out</button>
+              <button title="Sign out" aria-label="Sign out">
+                <LogOut size={17} />
+              </button>
             </form>
           </div>
         </div>
       </aside>
+      {mobile && (
+        <button
+          className="nav-backdrop"
+          aria-label="Close navigation"
+          onClick={() => setMobile(false)}
+        />
+      )}
       <div className="main">
         <header className="topbar">
           <div>
             <button
               className="mobile-menu"
               aria-label="Toggle navigation"
+              aria-expanded={mobile}
               onClick={() => setMobile(!mobile)}
             >
-              ☰
+              <Menu size={18} />
             </button>
-            <span className="muted">Workspace</span>
+            <span className="mobile-brand">PocaPop Vault</span>
             <span className="crumb">/</span>
             <b>{page}</b>
             {detail && (
@@ -832,27 +637,50 @@ export default function Workspace({
               </>
             )}
           </div>
+          <div className="topbar-actions">
+            <span className="workspace-state">
+              <span />
+              Catalog connected
+            </span>
+            <button
+              className="icon-button"
+              title="Pack planner"
+              aria-label="Open pack planner"
+              onClick={() => go("Pack Planner")}
+            >
+              <WandSparkles size={18} />
+            </button>
+            <button
+              className="icon-button"
+              title="Import workbook"
+              aria-label="Open importer"
+              onClick={() => go("Import")}
+            >
+              <FileInput size={18} />
+            </button>
+          </div>
         </header>
         <main className="content">
           {notice && (
             <div className="toast" role="status">
-              ✓ {notice}
+              <CheckCircle2 size={17} />
+              {notice}
             </div>
           )}
           <div className="page-heading">
             <div>
               {detail && (
                 <button className="back" onClick={() => go(page)}>
-                  ← All {page.toLowerCase()}
+                  <ArrowLeft size={15} />
+                  All {page.toLowerCase()}
                 </button>
               )}
               <h1>{headline}</h1>
-              {!detail && (
-                <p>{pageSubtitle}</p>
-              )}
+              {!detail && <p>{pageSubtitle}</p>}
             </div>
             {page === "Dashboard" && (
               <button className="primary" onClick={() => go("Import")}>
+                <FileInput size={16} />
                 Import workbook
               </button>
             )}
@@ -861,6 +689,7 @@ export default function Workspace({
                 className="primary"
                 onClick={() => setEdit({ table: page.toLowerCase() })}
               >
+                <Plus size={16} />
                 Add {page.slice(0, -1).toLowerCase()}
               </button>
             )}
@@ -889,6 +718,9 @@ export default function Workspace({
                   note={`${data.packs.filter((p) => p.status === "released").length} released · ${data.packs.filter((p) => ["draft", "planning", "ready"].includes(p.status)).length} upcoming`}
                 />
               </div>
+              {!!data.packs.length && (
+                <CollectionShelf data={data} open={(id) => go("Packs", id)} />
+              )}
               {!data.cards.length && (
                 <div className="getting-started">
                   <div className="hero-glyph">✦</div>
@@ -900,7 +732,7 @@ export default function Workspace({
                       className="dark-button"
                       onClick={() => go("Import")}
                     >
-                      Import Rebirth workbook
+                      Import catalog workbook
                     </button>
                   </div>
                   <div className="card-art" aria-hidden="true">
@@ -908,7 +740,7 @@ export default function Workspace({
                       ✧<small>REBIRTH</small>
                     </div>
                     <div className="art-card two">
-                      ✦<small>MKPC</small>
+                      ✦<small>POCAPOP</small>
                     </div>
                   </div>
                 </div>
@@ -925,7 +757,10 @@ export default function Workspace({
                         · Current members
                       </p>
                     </div>
-                    <button onClick={() => go("Groups")}>View groups</button>
+                    <button onClick={() => go("Groups")}>
+                      <ArrowUpRight size={16} />
+                      View groups
+                    </button>
                   </div>
                   {data.groups.length ? (
                     <div className="coverage-list">
@@ -989,7 +824,7 @@ export default function Workspace({
                   <div className="section-title pad">
                     <div>
                       <h2>Pack pipeline</h2>
-                      <p>A little clarity on what’s next.</p>
+                      <p>Current release stages</p>
                     </div>
                   </div>
                   <div className="pipeline">
@@ -997,7 +832,16 @@ export default function Workspace({
                       (s, i) => (
                         <button key={s} onClick={() => go("Packs")}>
                           <span className={"pipeline-icon p" + i}>
-                            {["◷", "▧", "✓", "↗", "▣"][i]}
+                            {(() => {
+                              const Icon = [
+                                Clock3,
+                                FilePen,
+                                CheckCircle2,
+                                ArrowUpRight,
+                                Archive,
+                              ][i];
+                              return <Icon size={18} />;
+                            })()}
                           </span>
                           <span>
                             {s[0].toUpperCase() + s.slice(1)}
@@ -1020,14 +864,6 @@ export default function Workspace({
                     Picture status is tracked separately from release status.
                   </div>
                 </section>
-              </div>
-              <div className="notice">
-                <strong>Roster configured ≠ fully represented.</strong>
-                <p>
-                  A configured roster tells us who belongs to a group. Card
-                  appearances tell us who is represented. We only calculate
-                  coverage when both are known.
-                </p>
               </div>
             </>
           )}
@@ -1101,7 +937,8 @@ export default function Workspace({
                   {
                     key: "roster",
                     label: "Full roster",
-                    render: (g) => effectiveCoverage(g).total ?? "Not configured",
+                    render: (g) =>
+                      effectiveCoverage(g).total ?? "Not configured",
                   },
                   {
                     key: "missing",
@@ -1125,7 +962,10 @@ export default function Workspace({
                   {
                     key: "cards",
                     label: "Total cards",
-                    render: (g) => data.cards.filter(card=>cardGroups(card,data).some(x=>x.id===g.id)).length,
+                    render: (g) =>
+                      data.cards.filter((card) =>
+                        cardGroups(card, data).some((x) => x.id === g.id),
+                      ).length,
                   },
                   {
                     key: "status",
@@ -1133,8 +973,7 @@ export default function Workspace({
                     render: (g) => (
                       <Badge
                         tone={
-                          g.roster_configured ||
-                          hasReferenceRoster(g)
+                          g.roster_configured || hasReferenceRoster(g)
                             ? "green"
                             : ""
                         }
@@ -1226,7 +1065,7 @@ export default function Workspace({
                     <Stat
                       label="Represented"
                       value={c.represented}
-                      note={`${c.cards} cards in scope · ${data.cards.filter(card=>cardGroups(card,data).some(x=>x.id===group.id)).length} total cards`}
+                      note={`${c.cards} cards in scope · ${data.cards.filter((card) => cardGroups(card, data).some((x) => x.id === group.id)).length} total cards`}
                     />
                     <Stat
                       label="Missing"
@@ -1250,7 +1089,8 @@ export default function Workspace({
                   <section className="panel">
                     <div className="table-toolbar">
                       <h2>Members</h2>
-                      {(group.roster_configured || hasReferenceRoster(group)) && (
+                      {(group.roster_configured ||
+                        hasReferenceRoster(group)) && (
                         <>
                           <label className="check">
                             <input
@@ -1291,31 +1131,21 @@ export default function Workspace({
                             key: "member",
                             label: "Member",
 
-                            sort: (r) =>
-                              r.displayName,
+                            sort: (r) => r.displayName,
 
                             render: (r) =>
                               r.idolId ? (
                                 <button
                                   className="text-link"
-                                  onClick={() =>
-                                    go(
-                                      "Idols",
-                                      r.idolId,
-                                    )
-                                  }
+                                  onClick={() => go("Idols", r.idolId)}
                                 >
                                   {r.displayName}
                                 </button>
                               ) : (
                                 <span>
-                                  <b>
-                                    {r.displayName}
-                                  </b>
+                                  <b>{r.displayName}</b>
 
-                                  <small>
-                                    Kpopping+ roster
-                                  </small>
+                                  <small>Kpopping+ roster</small>
                                 </span>
                               ),
                           },
@@ -1324,45 +1154,24 @@ export default function Workspace({
                             key: "cards",
                             label: "Cards",
 
-                            sort: (r) =>
-                              r.cards.length,
+                            sort: (r) => r.cards.length,
 
-                            render: (r) =>
-                              r.cards.length,
+                            render: (r) => r.cards.length,
                           },
 
                           {
                             key: "rarity",
-                            label:
-                              "Cards / rarity",
+                            label: "Cards / rarity",
 
                             render: (r) =>
-                              r.cardDetails
-                                .length ? (
+                              r.cardDetails.length ? (
                                 <div>
-                                  {r.cardDetails.map(
-                                    (
-                                      card,
-                                    ) => (
-                                      <div
-                                        key={
-                                          card.cardId
-                                        }
-                                      >
-                                        <Badge tone="violet">
-                                          {
-                                            card.rarity
-                                          }
-                                        </Badge>{" "}
-
-                                        <small>
-                                          {
-                                            card.pack
-                                          }
-                                        </small>
-                                      </div>
-                                    ),
-                                  )}
+                                  {r.cardDetails.map((card) => (
+                                    <div key={card.cardId}>
+                                      <Badge tone="violet">{card.rarity}</Badge>{" "}
+                                      <small>{card.pack}</small>
+                                    </div>
+                                  ))}
                                 </div>
                               ) : (
                                 "—"
@@ -1376,11 +1185,9 @@ export default function Workspace({
                             render: (r) => (
                               <Badge
                                 tone={
-                                  r.status ===
-                                  "Missing"
+                                  r.status === "Missing"
                                     ? "amber"
-                                    : r.status ===
-                                        "Represented"
+                                    : r.status === "Represented"
                                       ? "green"
                                       : ""
                                 }
@@ -1418,19 +1225,26 @@ export default function Workspace({
                     label: "Pack",
                     sort: (p) => p.name,
                     render: (p) => (
-                      <button
-                        className="text-link"
-                        onClick={() => go("Packs", p.id)}
-                      >
-                        {p.name}
-                      </button>
+                      <div>
+                        <small>{p.game_pack_id || "Unassigned"}</small>
+                        <button
+                          className="text-link"
+                          onClick={() => go("Packs", p.id)}
+                        >
+                          {p.name}
+                        </button>
+                      </div>
                     ),
                   },
                   {
                     key: "type",
                     label: "Type",
                     sort: (p) => p.pack_type,
-                    render: (p) => <Badge tone="violet">{p.pack_type}</Badge>,
+                    render: (p) => (
+                      <Badge tone="violet">
+                        {p.exclusive ? "Exclusive" : p.pack_type}
+                      </Badge>
+                    ),
                   },
                   {
                     key: "status",
@@ -1502,12 +1316,12 @@ export default function Workspace({
                     <Stat
                       label="Total cards"
                       value={cards.length}
-                      note="No fixed pack size"
+                      note={`Catalog target: ${pack.catalog_size ?? "not set"}`}
                     />
                     <Stat
                       label="Gender representation"
                       value={`${males} / ${females}`}
-                      note="Male / female cards; mixed cards count in both"
+                      note="Male / female cards"
                     />
                     <Stat
                       label="Unique idols"
@@ -1534,6 +1348,13 @@ export default function Workspace({
                     <h3>Rarity distribution</h3>
                     <div className="rarity-bars">
                       {[...data.rarities]
+                        .filter(
+                          (r) =>
+                            data.pack_rarities?.some(
+                              (t) =>
+                                t.pack_id === pack.id && t.rarity_id === r.id,
+                            ) || cards.some((c) => c.rarity_id === r.id),
+                        )
                         .sort((a, b) => a.sort_order - b.sort_order)
                         .map((r) => {
                           const n = cards.filter(
@@ -1541,7 +1362,13 @@ export default function Workspace({
                           ).length;
                           return (
                             <div key={r.id}>
-                              <Badge tone="violet">{r.label}</Badge>
+                              <Badge tone="violet">
+                                {data.pack_rarities?.find(
+                                  (t) =>
+                                    t.pack_id === pack.id &&
+                                    t.rarity_id === r.id,
+                                )?.display_name || r.label}
+                              </Badge>
                               <div className="progress">
                                 <span
                                   style={{
@@ -1553,6 +1380,19 @@ export default function Workspace({
                                 />
                               </div>
                               <b>{n}</b>
+                              <small>
+                                {(() => {
+                                  const t = data.pack_rarities?.find(
+                                    (t) =>
+                                      t.pack_id === pack.id &&
+                                      t.rarity_id === r.id,
+                                  );
+                                  const odds = t ? tierOdds(t) : null;
+                                  return odds === null
+                                    ? "No random roll"
+                                    : `${formatPercent(odds)} tier / ${formatPercent(odds / t!.card_count)} per card`;
+                                })()}
+                              </small>
                             </div>
                           );
                         })}
@@ -1815,9 +1655,7 @@ export default function Workspace({
                   <h2>{item.title}</h2>
                   <p>{item.text}</p>
                   <button onClick={item.action}>
-                    {i === 1 || i === 5
-                      ? "Open catalog"
-                      : "↓ Download Excel"}
+                    {i === 1 || i === 5 ? "Open catalog" : "↓ Download Excel"}
                   </button>
                 </section>
               ))}
@@ -1864,10 +1702,7 @@ export default function Workspace({
                 <div className="section-title pad">
                   <div>
                     <h2>Rarities</h2>
-                    <p>
-                      Configurable percentages shared by cards and workbook
-                      imports.
-                    </p>
+                    <p>PocaPop catalog tiers</p>
                   </div>
                   {role === "admin" && (
                     <button onClick={() => setEdit({ table: "rarities" })}>
@@ -1886,9 +1721,9 @@ export default function Workspace({
                     },
                     {
                       key: "number",
-                      label: "Percentage",
-                      sort: (r) => Number(r.numeric_value),
-                      render: (r) => r.numeric_value,
+                      label: "Game key",
+                      sort: (r) => r.game_key || "",
+                      render: (r) => r.game_key || "Unassigned",
                     },
                     {
                       key: "order",
@@ -1913,6 +1748,21 @@ export default function Workspace({
                 />
               </section>
               <section className="panel pad">
+                <h2>Card variants</h2>
+                <h3>Finish</h3>
+                <div className="variant-list">
+                  {finishes.map((f) => (
+                    <Badge key={f}>{f}</Badge>
+                  ))}
+                </div>
+                <h3>Mutation</h3>
+                <div className="variant-list">
+                  {mutations.map((m) => (
+                    <Badge key={m}>{m}</Badge>
+                  ))}
+                </div>
+              </section>
+              <section className="panel pad">
                 <h2>Team access</h2>
                 <p>
                   Accounts are invite-only. Create a user in Supabase
@@ -1929,7 +1779,7 @@ export default function Workspace({
           )}
         </main>
         <footer className="app-footer">
-          <span>MKPC VAULT</span>
+          <span>PocaPop Vault</span>
           <span>MODERATOR WORKSPACE</span>
         </footer>
       </div>

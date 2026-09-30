@@ -7,9 +7,16 @@ try {
   for (const file of [
     "lib/types.ts",
     "lib/catalog.ts",
+    "lib/pocapop.ts",
+    "lib/request-origin.ts",
     "lib/workbook.ts",
+    "lib/pack-import.ts",
+    "lib/planner.ts",
     "tests/catalog.test.ts",
     "tests/database.test.ts",
+    "tests/pocapop.test.ts",
+    "tests/request-origin.test.ts",
+    "tests/planner-import.test.ts",
   ]) {
     const source = await readFile(file, "utf8");
     const js = ts
@@ -34,6 +41,9 @@ try {
       "--test",
       path.join(out, "tests/catalog.test.js"),
       path.join(out, "tests/database.test.js"),
+      path.join(out, "tests/pocapop.test.js"),
+      path.join(out, "tests/request-origin.test.js"),
+      path.join(out, "tests/planner-import.test.js"),
     ],
     { stdio: "inherit" },
   );

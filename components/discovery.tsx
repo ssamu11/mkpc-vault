@@ -344,7 +344,7 @@ export default function Discovery() {
    *
    * Important rule:
    *
-   * Bias Vault name = display name
+   * PocaPop Vault name = display name
    * Kpopping name   = reference name only
    *
    * Example:
@@ -573,7 +573,7 @@ export default function Discovery() {
       <section className="panel">
         <Empty title="Loading Discovery…">
           <p>
-            Comparing Bias Vault
+            Comparing PocaPop Vault
             with the current
             Kpopping+ Core roster.
           </p>
@@ -624,7 +624,7 @@ export default function Discovery() {
           value={
             groupsNotInGame.length
           }
-          note="Active groups not yet represented in Bias Vault"
+          note="Active groups not yet represented in PocaPop Vault"
           icon="＋"
         />
 
@@ -640,13 +640,13 @@ export default function Discovery() {
 
       <div className="notice">
         <strong>
-          Bias Vault names stay yours.
+          PocaPop Vault names stay yours.
         </strong>
 
         <p>
           Kpopping+ provides
           current artist identities
-          and roster data while Bias
+          and roster data while PocaPop
           Vault keeps the display
           names already used by your
           game. Name changes never

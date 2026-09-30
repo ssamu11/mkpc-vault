@@ -2,6 +2,12 @@ import * as XLSX from "xlsx";
 import { clean, normalize } from "./catalog";
 import type { ImportRow } from "./types";
 const aliases: Record<string, string[]> = {
+  game_pack_id: ["pack id", "packid", "game pack id"],
+  pack_name: ["pack name", "pack"],
+  game_idol_id: ["idol id", "idolid", "game idol id"],
+  game_group_id: ["group id", "groupid", "game group id"],
+  game_card_id: ["card id", "cardid", "game card id"],
+  image_asset_id: ["image asset id", "imageassetid", "image asset", "asset id"],
   slot: ["slot", "slot no", "slot number", "no"],
   rarity: ["rarity", "rarity %", "chance", "drop rate"],
   gender: ["gender", "sex"],
@@ -50,6 +56,7 @@ export function parseWorkbook(
     );
   return wb.SheetNames.map((name) => {
     const ws = wb.Sheets[name];
+    const offset = XLSX.utils.decode_range(ws["!ref"] || "A1").s;
     const data = XLSX.utils.sheet_to_json<unknown[]>(ws, {
       header: 1,
       raw: true,
@@ -101,18 +108,46 @@ export function parseWorkbook(
       }
       const get = (field: string) =>
         columns[field] === undefined ? "" : clean(row[columns[field]]);
+      const id = (field: string) => {
+        const value = row[columns[field]];
+        return typeof value === "number" && !Number.isSafeInteger(value)
+          ? "INVALID_NUMERIC_ID"
+          : get(field);
+      };
+      if (
+        mode === "cards" &&
+        !get("idol") &&
+        !get("group") &&
+        !id("game_idol_id") &&
+        !id("image_asset_id") &&
+        !id("game_card_id") &&
+        !get("notes")
+      ) {
+        skipped++;
+        continue;
+      }
       let rarity = get("rarity");
       const cell =
         columns.rarity === undefined
           ? undefined
-          : ws[XLSX.utils.encode_cell({ r: index, c: columns.rarity })];
+          : ws[
+              XLSX.utils.encode_cell({
+                r: index + offset.r,
+                c: columns.rarity + offset.c,
+              })
+            ];
       if (cell?.t === "n" && typeof cell.z === "string" && cell.z.includes("%"))
         rarity = String(Number(cell.v) * 100) + "%";
       let source = get("source_url");
       const sourceCell =
         columns.source_url === undefined
           ? undefined
-          : ws[XLSX.utils.encode_cell({ r: index, c: columns.source_url })];
+          : ws[
+              XLSX.utils.encode_cell({
+                r: index + offset.r,
+                c: columns.source_url + offset.c,
+              })
+            ];
       if (sourceCell?.l?.Target) source = sourceCell.l.Target;
       const genderMap: Record<string, string> = {
         f: "female",
@@ -124,7 +159,13 @@ export function parseWorkbook(
       };
       rows.push({
         sheet: name,
-        row: index + 1,
+        row: index + offset.r + 1,
+        game_pack_id: id("game_pack_id"),
+        pack_name: get("pack_name"),
+        game_idol_id: id("game_idol_id"),
+        game_group_id: id("game_group_id"),
+        game_card_id: id("game_card_id"),
+        image_asset_id: id("image_asset_id"),
         slot: get("slot"),
         rarity,
         gender:

@@ -12,6 +12,7 @@ export async function readCatalog(): Promise<Catalog> {
     "cards",
     "card_idols",
     "import_history",
+    "pack_rarities",
   ] as const;
   // Supabase returns at most 1,000 records by default. Page every relation.
   await Promise.all(
@@ -21,8 +22,9 @@ export async function readCatalog(): Promise<Catalog> {
         let query = db
           .from(table)
           .select("*")
-          .order(table === "card_idols" ? "card_id" : "id");
+          .order(table === "card_idols" ? "card_id" : table === "pack_rarities" ? "pack_id" : "id");
         if (table === "card_idols") query = query.order("idol_id");
+        if (table === "pack_rarities") query = query.order("rarity_id");
         const { data, error } = await query.range(start, start + 999);
         if (error) throw Error(error.message);
         rows.push(...data);

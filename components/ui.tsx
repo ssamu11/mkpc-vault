@@ -1,5 +1,14 @@
 "use client";
 import { useEffect, useId, useRef, useState } from "react";
+import {
+  X,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  Inbox,
+} from "lucide-react";
 export function Badge({
   children,
   tone = "",
@@ -18,7 +27,9 @@ export function Empty({
 }) {
   return (
     <div className="empty">
-      <span className="empty-icon">◇</span>
+      <span className="empty-icon">
+        <Inbox size={28} />
+      </span>
       <h3>{title}</h3>
       {children}
     </div>
@@ -55,7 +66,7 @@ export function Modal({
           aria-label="Close dialog"
           onClick={close}
         >
-          ×
+          <X size={18} />
         </button>
       </header>
       {children}
@@ -112,7 +123,15 @@ export function DataTable<T>({
                     >
                       {c.label}{" "}
                       <span className="muted">
-                        {sort === c.key ? (asc ? "↑" : "↓") : "↕"}
+                        {sort === c.key ? (
+                          asc ? (
+                            <ArrowUp size={11} />
+                          ) : (
+                            <ArrowDown size={11} />
+                          )
+                        ) : (
+                          <ArrowUpDown size={11} />
+                        )}
                       </span>
                     </button>
                   ) : (
@@ -145,7 +164,8 @@ export function DataTable<T>({
         </span>
         <div>
           <button disabled={active === 0} onClick={() => setPage(active - 1)}>
-            ← Previous
+            <ArrowLeft size={13} />
+            Previous
           </button>
           <span>
             {active + 1} / {pages}
@@ -154,7 +174,8 @@ export function DataTable<T>({
             disabled={active + 1 >= pages}
             onClick={() => setPage(active + 1)}
           >
-            Next →
+            Next
+            <ArrowRight size={13} />
           </button>
         </div>
       </footer>

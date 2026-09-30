@@ -1,4 +1,5 @@
 export type Group = {
+  game_group_id?: string | null;
   id: string;
   name: string;
   normalized_name: string;
@@ -6,6 +7,7 @@ export type Group = {
   roster_configured: boolean;
 };
 export type Idol = {
+  game_idol_id?: string | null;
   id: string;
   stage_name: string;
   normalized_name: string;
@@ -19,6 +21,10 @@ export type Membership = {
   membership_status: "current" | "former";
 };
 export type Pack = {
+  game_pack_id?: string | null;
+  catalog_status?: string;
+  catalog_size?: number | null;
+  exclusive?: boolean;
   id: string;
   name: string;
   pack_type: string;
@@ -30,11 +36,17 @@ export type Pack = {
 export type Rarity = {
   id: string;
   label: string;
-  numeric_value: number;
+  numeric_value: number | null;
+  game_key?: string | null;
   sort_order: number;
   active: boolean;
 };
 export type Card = {
+  updated_at?: string;
+  game_card_id?: string | null;
+  image_asset_id?: string | null;
+  catalog_status?: string;
+  premium_tier?: string | null;
   id: string;
   pack_id: string;
   rarity_id: string;
@@ -46,6 +58,16 @@ export type Card = {
   notes: string | null;
 };
 export type CardIdol = { card_id: string; idol_id: string };
+export type PackRarity = {
+  pack_id: string;
+  rarity_id: string;
+  display_name: string;
+  card_count: number;
+  female_count: number;
+  male_count: number;
+  weight: number;
+  total_weight: number;
+};
 export type ImportLog = {
   id: string;
   filename: string;
@@ -65,6 +87,7 @@ export type Catalog = {
   card_idols: CardIdol[];
   import_history: ImportLog[];
   settings: { include_unreleased: boolean };
+  pack_rarities?: PackRarity[];
 };
 export const emptyCatalog: Catalog = {
   groups: [],
@@ -78,6 +101,12 @@ export const emptyCatalog: Catalog = {
   settings: { include_unreleased: false },
 };
 export type ImportRow = {
+  game_pack_id?: string;
+  pack_name?: string;
+  game_idol_id?: string;
+  game_group_id?: string;
+  game_card_id?: string;
+  image_asset_id?: string;
   sheet: string;
   row: number;
   slot: string;
@@ -98,4 +127,5 @@ export type PlanRow = ImportRow & {
   newGroup: boolean;
   newIdol: boolean;
   rarityValue: number | null;
+  rarityId?: string;
 };

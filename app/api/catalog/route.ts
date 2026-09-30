@@ -2,11 +2,17 @@ import { NextResponse } from "next/server";
 import { supabase, configured } from "@/lib/supabase";
 import { readCatalog } from "@/lib/data";
 import { planImport, clean } from "@/lib/catalog";
+import { hasValidOrigin } from "@/lib/request-origin";
+import { previewPack, type PackMapping } from "@/lib/pack-import";
 import type { ImportRow } from "@/lib/types";
 const fields: Record<string, string[]> = {
   groups: ["name", "status"],
   idols: ["stage_name", "gender", "active"],
   packs: [
+    "game_pack_id",
+    "catalog_status",
+    "catalog_size",
+    "exclusive",
     "name",
     "pack_type",
     "pack_number",
@@ -14,7 +20,7 @@ const fields: Record<string, string[]> = {
     "status",
     "notes",
   ],
-  rarities: ["label", "numeric_value", "sort_order", "active"],
+  rarities: ["label", "numeric_value", "game_key", "sort_order", "active"],
   settings: ["include_unreleased"],
   profiles: ["role"],
 };
@@ -25,8 +31,7 @@ export async function POST(request: Request) {
         { error: "Supabase is not configured." },
         { status: 503 },
       );
-    const origin = request.headers.get("origin");
-    if (origin && origin !== new URL(request.url).origin)
+    if (!hasValidOrigin(request))
       return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
     const db = await supabase();
     const {
@@ -48,6 +53,86 @@ export async function POST(request: Request) {
     if (body.length > 8_000_000)
       throw Error("Request is too large. Import fewer rows.");
     const input = JSON.parse(body);
+    if (input.action === "pocapop_import") {
+      if (
+        !Array.isArray(input.packs) ||
+        !input.packs.length ||
+        input.packs.length > 200
+      )
+        throw Error("Select valid pack sheets.");
+      const catalog = await readCatalog();
+      const prepared = input.packs.map(
+        (p: { mapping: PackMapping; rows: ImportRow[] }) => {
+          if (!p.mapping || !Array.isArray(p.rows) || p.rows.length > 48)
+            throw Error("Invalid pack rows.");
+          const mapping = {
+            sheet: clean(p.mapping.sheet),
+            code: clean(p.mapping.code),
+            name: clean(p.mapping.name),
+            type: p.mapping.type,
+            selected: true,
+          };
+          if (!["Rebirth", "Premium"].includes(mapping.type))
+            throw Error("Unsupported pack type.");
+          const rows = p.rows.map(
+            (r) =>
+              ({
+                ...Object.fromEntries(
+                  [
+                    "sheet",
+                    "slot",
+                    "rarity",
+                    "gender",
+                    "idol",
+                    "group",
+                    "notes",
+                    "pic_status",
+                    "source_url",
+                    "game_pack_id",
+                    "game_idol_id",
+                    "game_group_id",
+                    "game_card_id",
+                    "image_asset_id",
+                  ].map((k) => [k, clean(r[k as keyof ImportRow])]),
+                ),
+                row: Number(r.row),
+              }) as ImportRow,
+          );
+          const preview = previewPack(mapping, rows, catalog);
+          const errors = [
+            ...preview.issues,
+            ...preview.rows.flatMap((r) =>
+              r.issues.map((e) => `Row ${r.row}: ${e}`),
+            ),
+          ];
+          if (errors.length) throw Error(`${mapping.sheet}: ${errors[0]}`);
+          for (let i = 0; i < preview.rows.length; i++) {
+            const expected = (
+              p.rows[i] as ImportRow & { expected_updated_at?: string | null }
+            ).expected_updated_at;
+            if (expected !== preview.rows[i].expected_updated_at)
+              throw Error("Catalog changed. Reload the workbook preview.");
+          }
+          return {
+            ...mapping,
+            existing_id: preview.existing_id,
+            rows: preview.rows,
+          };
+        },
+      );
+      const { data, error } = await db.rpc("import_pocapop_workbook", {
+        payload: { filename: clean(input.filename), packs: prepared },
+      });
+      if (error) throw Error(error.message);
+      return NextResponse.json(data);
+    }
+    if (input.action === "pocapop_draft") {
+      const { data, error } = await db.rpc("save_pocapop_draft", {
+        payload: input.values,
+      });
+      if (error) throw Error(error.message);
+      return NextResponse.json({ id: data });
+    }
     if (input.action === "profile") {
       if (profile.role !== "admin")
         return NextResponse.json(
@@ -70,16 +155,14 @@ export async function POST(request: Request) {
     if (input.action === "membership") {
       if (!["current", "former"].includes(input.status))
         throw Error("Invalid membership status");
-      const { error } = await db
-        .from("group_memberships")
-        .upsert(
-          {
-            group_id: input.group_id,
-            idol_id: input.idol_id,
-            membership_status: input.status,
-          },
-          { onConflict: "group_id,idol_id" },
-        );
+      const { error } = await db.from("group_memberships").upsert(
+        {
+          group_id: input.group_id,
+          idol_id: input.idol_id,
+          membership_status: input.status,
+        },
+        { onConflict: "group_id,idol_id" },
+      );
       if (error) throw Error(error.message);
       return NextResponse.json({ ok: true });
     }
@@ -153,24 +236,13 @@ export async function POST(request: Request) {
         throw Error("Unsupported deletion");
       if (input.table === "rarities" && profile.role !== "admin")
         throw Error("Admin access required");
-      if (
-        input.table === "packs"
-      ) {
-        const {
-          error,
-        } =
-          await db.rpc(
-            "delete_draft_pack_cascade",
-            {
-              p_pack_id:
-                input.id,
-            },
-          );
+      if (input.table === "packs") {
+        const { error } = await db.rpc("delete_draft_pack_cascade", {
+          p_pack_id: input.id,
+        });
 
         if (error) {
-          throw Error(
-            error.message,
-          );
+          throw Error(error.message);
         }
 
         return NextResponse.json({

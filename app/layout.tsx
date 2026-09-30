@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 export const metadata: Metadata = {
-  title: "MKPC VAULT · Moderator Workspace",
-  description: "Moderator workspace for the MKPC card catalog.",
+  title: "PocaPop Vault | Moderator Workspace",
+  description: "PocaPop photocard catalog and pack planning workspace.",
 };
 export default function Layout({
   children,

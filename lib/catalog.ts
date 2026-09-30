@@ -1,4 +1,5 @@
 import type { Catalog, Card, Group, ImportRow, PlanRow } from "./types";
+import { cardOdds, cardTier } from "./pocapop";
 export const clean = (s: unknown) =>
   String(s ?? "")
     .normalize("NFKC")
@@ -174,18 +175,11 @@ export function planImport(
       }
     }
     const rarityValue = rarityNumber(r.rarity);
-    if (mode === "cards" && rarityValue === null)
-      issues.push("Rarity must be a percentage between 0 and 100.");
-    if (
-      mode === "cards" &&
-      rarityValue !== null &&
-      !d.rarities.some(
-        (x) => Number(x.numeric_value) === rarityValue && x.active,
-      )
-    )
-      issues.push(
-        `Unknown or inactive rarity ${r.rarity}. An admin must configure it in Settings.`,
-      );
+    const packMatch = d.packs.find(p => normalize(p.name) === normalize(r.sheet));
+    const packTier = d.pack_rarities?.find(t => t.pack_id === packMatch?.id && normalize(t.display_name) === normalize(r.rarity));
+    const rarity = d.rarities.find(x => x.active && (x.id === packTier?.rarity_id || normalize(x.label) === normalize(r.rarity) || (x.game_key && normalize(x.game_key) === normalize(r.rarity)) || (rarityValue !== null && x.numeric_value !== null && Number(x.numeric_value) === rarityValue)));
+    if (mode === "cards" && !rarity)
+      issues.push("Choose an active PocaPop rarity tier or pack tier name.");
     const match = matchIdol(r.idol, r.group, d);
     // Stage-name collisions are resolved by identity scope (group/solo), not by
     // globally unique names. A collision is therefore never a blocking issue.
@@ -208,7 +202,7 @@ export function planImport(
             normalize(r.slot),
             normalize(r.idol),
             normalize(r.group),
-            rarityValue,
+            rarity?.id ?? rarityValue,
           ].join("|")
         : [normalize(r.group), normalize(r.idol)].join("|");
     const exact =
@@ -220,11 +214,7 @@ export function planImport(
             (c) =>
               c.pack_id === pack.id &&
               normalize(c.slot) === normalize(r.slot) &&
-              d.rarities.some(
-                (v) =>
-                  v.id === c.rarity_id &&
-                  Number(v.numeric_value) === rarityValue,
-              ) &&
+              c.rarity_id === rarity?.id &&
               cardIdols(c, d).length === 1 &&
               cardIdols(c, d)[0].id === match.id,
           ),
@@ -259,6 +249,7 @@ export function planImport(
       newGroup: !!r.group && !g,
       newIdol: !match.id,
       rarityValue,
+      rarityId: rarity?.id,
     };
   });
 }
@@ -266,6 +257,10 @@ export function cardExport(cards: Card[], d: Catalog) {
   return cards.map((c) => {
     const p = d.packs.find((x) => x.id === c.pack_id);
     return {
+      CardID: c.game_card_id ?? "",
+      PackID: p?.game_pack_id ?? "",
+      ImageAssetId: c.image_asset_id ?? "",
+      CatalogStatus: c.catalog_status ?? "",
       Pack: p?.name ?? "",
       "Pack Type": p?.pack_type ?? "",
       "Pack Status": p?.status ?? "",
@@ -277,7 +272,9 @@ export function cardExport(cards: Card[], d: Catalog) {
         .map((g) => g.name)
         .join(" / "),
       Gender: [...new Set(cardIdols(c, d).map((i) => i.gender))].join(" / "),
-      Rarity: d.rarities.find((r) => r.id === c.rarity_id)?.label ?? "",
+      Rarity: d.rarities.find((r) => r.id === c.rarity_id)?.game_key ?? d.rarities.find((r) => r.id === c.rarity_id)?.label ?? "",
+      "Display Tier": cardTier(c, d),
+      "Base Chance (%)": cardOdds(c, d) ?? "",
       "Pic Status": c.pic_status ?? "",
       "Source URL": c.source_url ?? "",
       Notes: c.notes ?? "",
